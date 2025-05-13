@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 17:22:11 by dicarval          #+#    #+#             */
-/*   Updated: 2025/05/12 17:32:06 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/05/13 16:15:12 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ void	PhoneBook::printContact(int pos)
 
 	std::cout << "|";
 	i = 0;
-	while (i++ != 8)
+	while (i++ != 9)
 		std::cout << " ";
-	std::cout << (pos + 49);
+	std::cout << (pos + 1);
 	std::cout << "|";
 	input = _contacts[pos].searchFirstName();
 	printColumn(input);
@@ -61,19 +61,19 @@ void	PhoneBook::printAllPhoneBookContacts()
 	int	pos;
 
 	pos = 0;
-	while(pos < _index)
+	while(pos <= _index)
 	{
-		printContact(pos);
+		printContact(pos++);
 		std::cout << std::endl;
 	}
 }
 
 void	PhoneBook::printPhoneBook()
 {
-	std::cout << "|     index";
-	std::cout << "|first name";
-	std::cout << "|last name";
-	std::cout << "| nickname|" << std::endl;
+	std::cout << "|     Index";
+	std::cout << "|First Name";
+	std::cout << "| Last Name";
+	std::cout << "|  Nickname|" << std::endl;
 	printAllPhoneBookContacts();
 	std::cout << "|__________";
 	std::cout << "|__________";
