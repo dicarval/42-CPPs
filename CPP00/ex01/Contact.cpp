@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 18:38:12 by dicarval          #+#    #+#             */
-/*   Updated: 2025/05/13 16:39:01 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/05/14 11:52:06 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ int	Contact::addFirstName()
 	int	i = -1;
 
 	std::cout << "Add first name: ";
-	while(++i)
+	while(LOOP)
 	{
-		if (i == 0)
+		if (++i == 0)
 			std::getline(std::cin, _first_name);
 		if (!std::cin)
 			return (UNSUCCESS);
-		if (!_first_name[0])
+		else if (!_first_name[0])
 		{
 			std::cout << "Empty field, try again" << std::endl;
 			i = -1;
@@ -48,13 +48,13 @@ int	Contact::addLastName()
 	int	i = -1;
 
 	std::cout << "Add last name: ";
-	while(++i)
+	while(LOOP)
 	{
-		if (i == 0)
+		if (++i == 0)
 			std::getline(std::cin, _last_name);
 		if (!std::cin)
 			return (UNSUCCESS);
-		if (!_last_name[0])
+		else if (!_last_name[0])
 		{
 			std::cout << "Empty field, try again" << std::endl;
 			i = -1;
@@ -79,13 +79,13 @@ int	Contact::addNickname()
 	int	i = -1;
 
 	std::cout << "Add nickname: ";
-	while(++i)
+	while(LOOP)
 	{
-		if (i == 0)
+		if (++i == 0)
 			std::getline(std::cin, _nickname);
 		if (!std::cin)
 			return (UNSUCCESS);
-		if (!_nickname[0])
+		else if (!_nickname[0])
 		{
 			std::cout << "Empty field, try again" << std::endl;
 			i = -1;
@@ -110,13 +110,13 @@ int	Contact::addPhoneNum()
 	int i = -1;
 
 	std::cout << "Add phone number: ";
-	while (++i)
+	while (LOOP)
 	{
-		if (i == 0)
+		if (++i == 0)
 			std::getline(std::cin, _phone_num);
 		if (!std::cin)
 			return (UNSUCCESS);
-		if (!_phone_num[0])
+		else if (!_phone_num[0])
 		{
 			std::cout << "Empty field, try again" << std::endl;
 			i = -1;
@@ -141,13 +141,13 @@ int	Contact::addDarkSecret()
 	int	i = -1;
 
 	std::cout << "Add Dark secret: ";
-	while(++i)
+	while(LOOP)
 	{
-		if (i == 0)
+		if (++i == 0)
 			std::getline(std::cin, _dark_secret);
 		if (!std::cin)
 			return (UNSUCCESS);
-		if (!_dark_secret[0])
+		else if (!_dark_secret[0])
 		{
 			std::cout << "Empty field, try again" << std::endl;
 			i = -1;

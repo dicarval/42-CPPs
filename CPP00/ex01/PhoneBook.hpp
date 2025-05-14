@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 16:17:54 by dicarval          #+#    #+#             */
-/*   Updated: 2025/05/13 16:39:29 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/05/14 11:27:34 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class PhoneBook
 	private:
 		Contact	_contacts[8];
 		int		_index;
+		int		_oldest;
 
 	public:
 		//constructor/destructor
@@ -31,6 +32,7 @@ class PhoneBook
 		~PhoneBook();
 
 		void	add();
+		void	insertionContact(int pos);
 		void	search();
 		void	printPhoneBook();
 		void	printAllPhoneBookContacts();

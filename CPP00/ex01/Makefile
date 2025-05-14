@@ -1,5 +1,5 @@
 NAME		= "My_Awesome_PhoneBook"
-SRCS		= main.cpp PhoneBook.cpp Contact.cpp searchPhoneBook.cpp
+SRCS		= main.cpp PhoneBook.cpp Contact.cpp PhoneBook_add.cpp PhoneBook_search.cpp
 OBJS		= $(SRCS:%.cpp=%.o)
 
 CC			= c++

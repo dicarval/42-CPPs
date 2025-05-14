@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 14:51:25 by dicarval          #+#    #+#             */
-/*   Updated: 2025/05/13 16:49:09 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/05/14 12:05:10 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,26 @@ int	get_command(PhoneBook *Pb)
 	while (LOOP)
 	{
 		std::getline(std::cin, input);
-		if (!std::cin)
-			break ;
-		else if (input == "ADD")
+		if (input == "ADD")
 			Pb->add();
 		else if (input == "SEARCH")
 			Pb->search();
 		else if (input == "EXIT")
-			return (0);
-		else
+			return (SUCCESS);
+		else if (std::cin)
 			std::cout << "Not a valid command, try again" << std::endl;
-		std::cout << "What's next?" << std::endl;
+		if (!std::cin)
+			return (UNSUCCESS);
+		std::cout << std::endl << "What's next?" << std::endl;
 	}
-	return (0);
+	return (SUCCESS);
 }
 
 int	main(void)
 {
 	PhoneBook	PBook;
+	int			flag;
 
-	get_command(&PBook);
-	return (0);
+	flag = get_command(&PBook);
+	return (flag);
 }

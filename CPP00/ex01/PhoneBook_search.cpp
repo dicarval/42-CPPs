@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   searchPhoneBook.cpp                                :+:      :+:    :+:   */
+/*   PhoneBook_search.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 17:22:11 by dicarval          #+#    #+#             */
-/*   Updated: 2025/05/13 16:15:12 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/05/14 12:10:41 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ void	PhoneBook::printColumn(std::string input)
 	{
 		while ((9 - (i++)) != (len - 1))
 			std::cout << " ";
-		while (i <= 9)
-			std::cout << input[i++];
+		std::cout << input;
 	}
 }
 
@@ -70,7 +69,7 @@ void	PhoneBook::printAllPhoneBookContacts()
 
 void	PhoneBook::printPhoneBook()
 {
-	std::cout << "|     Index";
+	std::cout <<std:: endl << "|     Index";
 	std::cout << "|First Name";
 	std::cout << "| Last Name";
 	std::cout << "|  Nickname|" << std::endl;
