@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 14:11:13 by dicarval          #+#    #+#             */
-/*   Updated: 2025/05/14 12:09:12 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/05/15 14:08:48 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,27 +38,15 @@ void	PhoneBook::search()
 	std::getline(std::cin, index);
 	if (!std::cin)
 		return (insertion_stopped());
-	if (index[0] >= '1' && index[0] <= '8' && !index[1])
-	{
-		num = std::atoi(index.c_str()) - 1;
-		if (num > _index)
-		{
-			std::cout << "Index is out of range or wrong." << std::endl;
-			return ;
-		}
-		std::cout << "First name: ";
-		std::cout << _contacts[num].searchFirstName() << std::endl;
-		std::cout << "Last name: ";
-		std::cout << _contacts[num].searchLastName() << std::endl;
-		std::cout << "Nickname: ";
-		std::cout << _contacts[num].searchNickname() << std::endl;
-		std::cout << "Phone number: ";
-		std::cout << _contacts[num].searchPhoneNum() << std::endl;
-		std::cout << "Dark secret: ";
-		std::cout << _contacts[num].searchDarkSecret() << std::endl;
-	}
+	num = std::atoi(index.c_str()) - 1;
+	if (index[0] >= '1' && index[0] <= '8' && !index[1] && num <= _index)
+		printSearch(num);
 	else
 		std::cout << "Index is out of range or wrong.\n";
+	std::cout << std::endl << "Press Enter" << std::endl;
+	std::getline(std::cin, index);
+	if (!std::cin)
+		return (insertion_stopped());
 }
 
 
@@ -73,8 +61,7 @@ void	PhoneBook::add()
 		insertionContact(_oldest);
 	}
 	else if (_index < 7)
-	{
-		++_index;
-		insertionContact(_index);
-	}
+		insertionContact(++_index);
+	if (std::cin)
+		system("sleep 1");
 }

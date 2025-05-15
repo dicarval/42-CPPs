@@ -6,11 +6,25 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 17:22:11 by dicarval          #+#    #+#             */
-/*   Updated: 2025/05/14 12:10:41 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/05/15 14:05:06 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+void	PhoneBook::printSearch(int num)
+{
+	std::cout << "First name: ";
+	std::cout << _contacts[num].searchFirstName() << std::endl;
+	std::cout << "Last name: ";
+	std::cout << _contacts[num].searchLastName() << std::endl;
+	std::cout << "Nickname: ";
+	std::cout << _contacts[num].searchNickname() << std::endl;
+	std::cout << "Phone number: ";
+	std::cout << _contacts[num].searchPhoneNum() << std::endl;
+	std::cout << "Dark secret: ";
+	std::cout << _contacts[num].searchDarkSecret() << std::endl;
+}
 
 void	PhoneBook::printColumn(std::string input)
 {

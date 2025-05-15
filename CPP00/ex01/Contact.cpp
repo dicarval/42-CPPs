@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 18:38:12 by dicarval          #+#    #+#             */
-/*   Updated: 2025/05/14 11:52:06 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/05/15 13:53:56 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int	Contact::addFirstName()
 			i = -1;
 			continue ;
 		}
-		else if (_first_name[i] == '\t')
+		else if (_first_name[i] == '\t' || _first_name[i] == ' ')
 		{
-			std::cout << "TAB not allowed, try again" << std::endl;
+			std::cout << "Characters not allowed, try again" << std::endl;
 			i = -1;
 			continue ;
 		}
@@ -60,9 +60,9 @@ int	Contact::addLastName()
 			i = -1;
 			continue ;
 		}
-		else if (_last_name[i] == '\t')
+		else if (_last_name[i] == '\t' || _last_name[i] == ' ')
 		{
-			std::cout << "TAB not allowed, try again" << std::endl;
+			std::cout << "Characters not allowed, try again" << std::endl;
 			i = -1;
 			continue ;
 		}
@@ -189,5 +189,5 @@ std::string	Contact::searchNickname()
 
 std::string	Contact::searchDarkSecret()
 {
-	return (_nickname);
+	return (_dark_secret);
 }

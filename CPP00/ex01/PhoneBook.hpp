@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 16:17:54 by dicarval          #+#    #+#             */
-/*   Updated: 2025/05/14 11:27:34 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/05/15 13:04:24 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,14 @@ class PhoneBook
 
 		void	add();
 		void	insertionContact(int pos);
+
 		void	search();
 		void	printPhoneBook();
 		void	printAllPhoneBookContacts();
 		void	printContact(int pos);
 		void	printColumn(std::string input);
+		void	printSearch(int num);
+
 		void	insertion_stopped();
 };
 
