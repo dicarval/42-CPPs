@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 14:11:13 by dicarval          #+#    #+#             */
-/*   Updated: 2025/05/15 14:08:48 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/05/15 14:34:41 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ void	PhoneBook::search()
 	num = std::atoi(index.c_str()) - 1;
 	if (index[0] >= '1' && index[0] <= '8' && !index[1] && num <= _index)
 		printSearch(num);
-	else
-		std::cout << "Index is out of range or wrong.\n";
+	else if (std::cin)
+		std::cout << "Index is out of range or wrong." << std::endl;
 	std::cout << std::endl << "Press Enter" << std::endl;
 	std::getline(std::cin, index);
 	if (!std::cin)
