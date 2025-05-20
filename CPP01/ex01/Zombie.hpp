@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 15:42:57 by dicarval          #+#    #+#             */
-/*   Updated: 2025/05/20 12:59:44 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/05/20 13:08:34 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class	Zombie
 
 	public:
 		Zombie(std::string str);
+		Zombie(void);
 		~Zombie(void);
 		void	nameTheZombie(Zombie* newZombie, std::string newName);
 		void	announce();
@@ -29,5 +30,6 @@ class	Zombie
 
 void	randomChump(std::string name);
 Zombie*	newZombie(std::string name);
+Zombie* zombieHorde(int N, std::string name);
 
 #endif

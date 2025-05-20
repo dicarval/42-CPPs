@@ -1,6 +1,6 @@
 
-NAME		= Moar_brainz!
-SRC			= main.cpp Zombie.cpp newZombie.cpp randomChump.cpp zombieHorde.cpp
+NAME		= Unnecessary_Violence
+SRC			= main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 OBJS		= $(SRC:%.cpp=%.o)
 
 CC			= c++

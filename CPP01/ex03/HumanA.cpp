@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 15:42:57 by dicarval          #+#    #+#             */
-/*   Updated: 2025/05/20 12:59:44 by dicarval         ###   ########.fr       */
+/*   Created: 2025/05/20 14:01:15 by dicarval          #+#    #+#             */
+/*   Updated: 2025/05/20 15:39:37 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#include "HumanA.hpp"
 
-#include <iostream>
-
-class	Zombie
+HumanA::HumanA(std::string	human_name, Weapon &type) : name(human_name), weapon(type)
 {
-	private:
-		std::string	name;
+	if (!type.getType().empty())
+		weapon.setType("hands");
+}
 
-	public:
-		Zombie(std::string str);
-		~Zombie(void);
-		void	nameTheZombie(Zombie* newZombie, std::string newName);
-		void	announce();
-};
+HumanA::~HumanA()
+{}
 
-void	randomChump(std::string name);
-Zombie*	newZombie(std::string name);
-
-#endif
+void	HumanA::attack()
+{
+	std::cout << name << " attacks with their " << &weapon.getType() << std::endl;
+}

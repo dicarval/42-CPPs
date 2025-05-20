@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 15:52:51 by dicarval          #+#    #+#             */
-/*   Updated: 2025/05/20 12:57:51 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/05/20 13:09:25 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 Zombie::Zombie(std::string str) : name(str)
 {
 	std::cout << "Zombie " << name << " created" << std::endl;
+}
+
+Zombie::Zombie()
+{
+	std::cout << "Zombie without name (yet) created" << std::endl;
 }
 
 Zombie::~Zombie()

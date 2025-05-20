@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 15:42:57 by dicarval          #+#    #+#             */
-/*   Updated: 2025/05/20 12:59:44 by dicarval         ###   ########.fr       */
+/*   Created: 2025/05/20 13:21:05 by dicarval          #+#    #+#             */
+/*   Updated: 2025/05/20 15:32:36 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#include "Weapon.hpp"
 
-#include <iostream>
+Weapon::Weapon(std::string new_type) : type(new_type)
+{}
 
-class	Zombie
+Weapon::~Weapon()
+{}
+
+void	Weapon::setType(const std::string new_type)
 {
-	private:
-		std::string	name;
+	if (!new_type.empty())
+	{
+		type = "hands";
+		return ;
+	}
+	type = new_type;
+}
 
-	public:
-		Zombie(std::string str);
-		~Zombie(void);
-		void	nameTheZombie(Zombie* newZombie, std::string newName);
-		void	announce();
-};
-
-void	randomChump(std::string name);
-Zombie*	newZombie(std::string name);
-
-#endif
+const std::string&	Weapon::getType()
+{
+	return (type);
+}
