@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 13:21:05 by dicarval          #+#    #+#             */
-/*   Updated: 2025/05/20 15:32:36 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/05/21 10:11:38 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Weapon::~Weapon()
 
 void	Weapon::setType(const std::string new_type)
 {
-	if (!new_type.empty())
+	if (new_type.empty())
 	{
 		type = "hands";
 		return ;
