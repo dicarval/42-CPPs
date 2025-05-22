@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 14:01:28 by dicarval          #+#    #+#             */
-/*   Updated: 2025/05/20 15:20:24 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/05/22 11:22:38 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ class HumanB
 {
 	private:
 	std::string	name;
-	Weapon		*weapon;
+	Weapon*		weapon;
 
 	public:
 	HumanB(std::string	human_name);
 	~HumanB(void);
-	void		setWeapon(Weapon& type);
+	void		setWeapon(Weapon& weapon_set);
 	void		attack(void);
 };
 

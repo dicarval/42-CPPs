@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 14:01:15 by dicarval          #+#    #+#             */
-/*   Updated: 2025/05/20 15:22:01 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/05/22 11:22:42 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ HumanB::HumanB(std::string	human_name) : name(human_name)
 HumanB::~HumanB()
 {}
 
-void	HumanB::setWeapon(Weapon& type)
+void	HumanB::setWeapon(Weapon& weapon_set)
 {
-	*weapon = type;
+	weapon = &weapon_set;
 }
 
 void	HumanB::attack()

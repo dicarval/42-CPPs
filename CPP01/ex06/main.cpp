@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:00:34 by dicarval          #+#    #+#             */
-/*   Updated: 2025/05/21 18:45:19 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/05/22 09:34:46 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,28 @@
 
 void	print_complain(int i)
 {
-	Harl	Karen;
+	Harl	karen;
 	int		case_n = i + 1;
 
 	switch (case_n)
 	{
 		case 1:
-			Karen.complain("debug");
-			Karen.complain("info");
-			Karen.complain("warning");
-			Karen.complain("error");
-			break ;
+			karen.complain("debug");
+			//fallthrough
 		case 2:
-			Karen.complain("info");
-			Karen.complain("warning");
-			Karen.complain("error");
-			break ;
+			karen.complain("info");
+			//fallthrough
 		case 3:
-			Karen.complain("warning");
-			Karen.complain("error");
-			break ;
+			karen.complain("warning");
+			//fallthrough
 		case 4:
-			Karen.complain("error");
+			karen.complain("error");
 			break ;
 	}
 }
 
 int	main(int ac, char* av[])
 {
-	Harl	Karen;
 	std::string complains[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
 	if (ac == 2)
@@ -52,10 +45,9 @@ int	main(int ac, char* av[])
 			if (av[1] == complains[i])
 				return (print_complain(i), 0);
 		}
-		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+		return(std::cout << "[ Probably complaining about insignificant problems ]" << std::endl, 0);
 	}
 	else
-		std::cerr << "Wrong arguments number" << std::endl;
-	return (1);
+		return (std::cerr << "Wrong arguments number" << std::endl, 1);
 
 }
