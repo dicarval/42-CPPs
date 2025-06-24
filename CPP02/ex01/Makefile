@@ -1,11 +1,12 @@
 
-NAME		= MFCOCF
-SRC			= main.cpp Fixed.cpp
-OBJS		= $(SRC:%.cpp=%.o)
+NAME		= TMUFPNC
+SRC			= main.cpp Fixed.cpp Bits.cpp
+OBJ_DIR		= objects
+OBJS		= $(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))
 
 CC			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
-RM			= @rm -f
+RM			= @rm -rf
 
 all:		${NAME}
 			@echo "Compiling done"
@@ -13,11 +14,12 @@ all:		${NAME}
 ${NAME}:	$(OBJS)
 			@$(CC) $(CPPFLAGS) $^ -o $@
 
-%.o: 		%.cpp
+$(OBJ_DIR)/%.o: %.cpp
+			mkdir -p $(OBJ_DIR)
 			@$(CC) $(CPPFLAGS) -c $< -o $@
 
 clean:
-			@${RM} ${OBJS}
+			@${RM} $(OBJ_DIR)
 			@echo "Objects removed"
 
 fclean:		clean
