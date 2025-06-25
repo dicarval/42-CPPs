@@ -6,43 +6,28 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:25:10 by dicarval          #+#    #+#             */
-/*   Updated: 2025/06/25 10:43:26 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/06/25 13:46:31 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
+//CONSTRUCTORS
 Fixed::Fixed() : _fpNumber(0)
-{
-	std::cout << "Default constructor called" << std::endl;
-}
+{}
 
 Fixed::Fixed(const Fixed& original)
 {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = original;
 }
 
-Fixed&	Fixed::operator=(const Fixed& original)
-{
-	std::cout << "Copy assignment operator called" << std::endl;
-	_fpNumber = original._fpNumber;
-	return (*this);
-}
+Fixed::Fixed(const int value) : _fpNumber(value << _fractBits)
+{}
 
+Fixed::Fixed(const float value) : _fpNumber(roundf(value * (1 << _fractBits)))
+{}
+
+//DESTRUCTOR
 Fixed::~Fixed()
-{
-	std::cout << "Destructor called" << std::endl;
-}
+{}
 
-int	Fixed::getRawBits()const
-{
-	std::cout << "getRawBits member function called" << std::endl;
-	return(_fpNumber);
-}
-
-void	Fixed::setRawBits(int const raw)
-{
-	std::cout << "setRawBits member function called" << std::endl;
-	_fpNumber = raw;
-}

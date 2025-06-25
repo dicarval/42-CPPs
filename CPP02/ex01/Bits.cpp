@@ -6,21 +6,21 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 17:21:27 by dicarval          #+#    #+#             */
-/*   Updated: 2025/06/24 17:26:47 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/06/25 10:23:23 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
+int	Fixed::getFractionalBits()const
+{
+	return(_fractBits);
+}
+
 int	Fixed::getRawBits()const
 {
 	std::cout << "getRawBits member function called" << std::endl;
 	return(_fpNumber);
-}
-
-int	Fixed::getFractionalBits()const
-{
-	return(_fractBits);
 }
 
 void	Fixed::setRawBits(int const raw)

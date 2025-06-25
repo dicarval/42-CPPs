@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 17:01:49 by dicarval          #+#    #+#             */
-/*   Updated: 2025/06/24 17:19:57 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/06/25 10:47:45 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@ int main(void)
 
 	std::cout << "\n---------- TEST 2 ----------\n" << std::endl;
 	Fixed n;
-	for(int i = 0; i < 32; i++)
+	for(int i = 0; i <= 32; i++)
 	{
-		n.setRawBits((1 << i) << n.getFractionalBits());
-		std::cout << "2^" << i << " = " << n.toInt() << "\n";
+		n.setRawBits(i << n.getFractionalBits());
+		float test = n.getRawBits();
+		std::cout << n.toInt() << " = " << test << std::endl;
 	}
 	return (0);
 }

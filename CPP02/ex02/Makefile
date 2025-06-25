@@ -1,6 +1,6 @@
 
-NAME		= TMUFPNC
-SRC			= main.cpp Fixed.cpp Bits.cpp
+NAME		= NowWeAreTalking
+SRC			= main.cpp Fixed.cpp bits.cpp operators.cpp minnMax.cpp
 OBJ_DIR		= objects
 OBJS		= $(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))
 

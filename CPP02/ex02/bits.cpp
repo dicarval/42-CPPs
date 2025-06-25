@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   bits.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/23 17:02:12 by dicarval          #+#    #+#             */
-/*   Updated: 2025/06/25 10:43:48 by dicarval         ###   ########.fr       */
+/*   Created: 2025/06/24 17:21:27 by dicarval          #+#    #+#             */
+/*   Updated: 2025/06/25 16:39:34 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
+#include "Fixed.hpp"
 
-#include <iostream>
-
-class Fixed
+int	Fixed::getFractionalBits()const
 {
-	private:
-		int					_fpNumber;
-		static const int	_fractBits = 8;
+	return(_fractBits);
+}
 
-	public:
-		Fixed();
-		Fixed(const Fixed& copy);
-		~Fixed();
-		int				getRawBits(void)const;
-		void			setRawBits(int const raw);
-		Fixed& operator=(const Fixed& original);
-};
+int	Fixed::getRawBits()const
+{
+	return(_fpNumber);
+}
 
-#endif
+void	Fixed::setRawBits(int const raw)
+{
+	_fpNumber = raw;
+}
+
+int	Fixed::toInt(void)const
+{
+	return(_fpNumber >> _fractBits);
+}
+
+float	Fixed::toFloat(void)const
+{
+	return((float)_fpNumber / (1 << _fractBits));
+}
