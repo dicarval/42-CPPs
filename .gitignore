@@ -1,0 +1,11 @@
+.vscode/
+*/objects/
+./objects/
+*.o
+*.a
+*.swo
+*.swp
+.dist/
+.DS_Store
+a.out
+.nfs*

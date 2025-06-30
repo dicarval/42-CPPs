@@ -1,6 +1,6 @@
 
-NAME		= MFCOCF
-SRC			= main.cpp Fixed.cpp
+NAME		= Its_a_ClapTrap
+SRC			= main.cpp ClapTrap.cpp actions.cpp
 OBJ_DIR		= objects
 OBJS		= $(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))
 

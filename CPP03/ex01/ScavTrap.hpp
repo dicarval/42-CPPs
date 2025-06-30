@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/23 17:02:12 by dicarval          #+#    #+#             */
-/*   Updated: 2025/06/30 10:39:27 by dicarval         ###   ########.fr       */
+/*   Created: 2025/06/30 14:13:41 by dicarval          #+#    #+#             */
+/*   Updated: 2025/06/30 16:40:20 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
-#include <iostream>
+#include "ClapTrap.hpp"
 
-class Fixed
+class ScavTrap : public ClapTrap
 {
 	private:
-		int					_fpNumber;
-		static const int	_fractBits = 8;
+		bool	_guardGate;
 
 	public:
-		Fixed();
-		Fixed(const Fixed& original);
-		~Fixed();
-		int				getRawBits(void)const;
-		void			setRawBits(int const raw);
-		Fixed& operator=(const Fixed& original);
+		ScavTrap();
+		ScavTrap(const std::string& newScavTrapName);
+		ScavTrap(const ScavTrap& original);
+		~ScavTrap();
+
+		void	attack(const std::string& target);
+		void	guardGate();
+
+		ScavTrap& operator=(const ScavTrap& original);
 };
+
 
 #endif

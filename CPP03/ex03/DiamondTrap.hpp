@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/23 17:02:12 by dicarval          #+#    #+#             */
-/*   Updated: 2025/06/30 10:39:27 by dicarval         ###   ########.fr       */
+/*   Created: 2025/06/30 18:04:25 by dicarval          #+#    #+#             */
+/*   Updated: 2025/06/30 19:13:20 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
+#ifndef DIAMONDTRAP_HPP
+#define DIAMONDTRAP_HPP
 
-#include <iostream>
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-class Fixed
+class DiamondTrap : public ScavTrap, public FragTrap
 {
+
 	private:
-		int					_fpNumber;
-		static const int	_fractBits = 8;
+		std::string	_name;
 
 	public:
-		Fixed();
-		Fixed(const Fixed& original);
-		~Fixed();
-		int				getRawBits(void)const;
-		void			setRawBits(int const raw);
-		Fixed& operator=(const Fixed& original);
+		DiamondTrap();
+		DiamondTrap(const std::string& newDiamondTrapName);
+		DiamondTrap(const DiamondTrap& original);
+		~DiamondTrap();
+
+		void	whoAmI();
+
+		DiamondTrap& operator=(const DiamondTrap& original);
 };
 
 #endif
