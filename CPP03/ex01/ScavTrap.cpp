@@ -6,13 +6,13 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 15:22:13 by dicarval          #+#    #+#             */
-/*   Updated: 2025/06/30 18:38:57 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/02 11:07:46 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-// CONSTRUCTORS & DESTRUCTOR
+//CONSTRUCTORS & DESTRUCTOR
 
 ScavTrap::ScavTrap() : ClapTrap(), _guardGate(false)
 {
@@ -42,7 +42,7 @@ ScavTrap::~ScavTrap()
 	std::cout << "Destructor of ScavTrap " << _name << " called" << std::endl;
 }
 
-// OPERATOR
+//OPERATOR
 
 ScavTrap&	ScavTrap::operator=(const ScavTrap& original)
 {

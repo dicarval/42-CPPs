@@ -6,13 +6,13 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 16:35:18 by dicarval          #+#    #+#             */
-/*   Updated: 2025/06/30 18:35:49 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/02 11:06:28 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-// CONSTRUCTORS & DESTRUCTOR
+//CONSTRUCTORS & DESTRUCTOR
 
 FragTrap::FragTrap() : ClapTrap(), _highFives(0)
 {

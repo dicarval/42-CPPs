@@ -6,13 +6,13 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:17:42 by dicarval          #+#    #+#             */
-/*   Updated: 2025/06/30 19:14:31 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/02 11:06:43 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-// CONSTRUCTORS & DESTRUCTOR
+//CONSTRUCTORS & DESTRUCTOR
 
 DiamondTrap::DiamondTrap() : ClapTrap("Default_clap_name"), _name("Default")
 {
@@ -40,7 +40,7 @@ DiamondTrap::~DiamondTrap()
 	std::cout << "Destructor of DiamondTrap " << _name << " called" << std::endl;
 }
 
-// OPERATOR
+//OPERATOR
 
 DiamondTrap&	DiamondTrap::operator=(const DiamondTrap& original)
 {

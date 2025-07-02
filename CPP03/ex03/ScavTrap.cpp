@@ -6,13 +6,13 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 15:22:13 by dicarval          #+#    #+#             */
-/*   Updated: 2025/06/30 19:16:43 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/02 11:06:23 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-// CONSTRUCTORS & DESTRUCTOR
+//CONSTRUCTORS & DESTRUCTOR
 
 ScavTrap::ScavTrap() : ClapTrap(), _guardGate(false)
 {

@@ -6,13 +6,13 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 16:35:18 by dicarval          #+#    #+#             */
-/*   Updated: 2025/06/30 18:36:49 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/02 11:07:11 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-// CONSTRUCTORS & DESTRUCTOR
+//CONSTRUCTORS & DESTRUCTOR
 
 FragTrap::FragTrap() : ClapTrap(), _highFives(0)
 {
@@ -42,7 +42,7 @@ FragTrap::~FragTrap()
 	std::cout << "Destructor of FragTrap " << _name << " called" << std::endl;
 }
 
-// OPERATOR
+//OPERATOR
 
 FragTrap&	FragTrap::operator=(const FragTrap& original)
 {
@@ -55,7 +55,7 @@ FragTrap&	FragTrap::operator=(const FragTrap& original)
 	return (*this);
 }
 
-// GETTER
+//GETTER
 
 unsigned int	FragTrap::getHighFives()
 {
