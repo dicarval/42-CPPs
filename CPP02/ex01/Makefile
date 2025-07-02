@@ -1,6 +1,6 @@
 
 NAME		= TMUFPNC
-SRC			= main.cpp Fixed.cpp Bits.cpp
+SRC			= main.cpp Fixed.cpp bits.cpp
 OBJ_DIR		= objects
 OBJS		= $(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))
 
