@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 11:43:40 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/03 11:44:04 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/04 11:26:52 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Cure : public AMateria
 
 		Cure&	operator=(const Cure& original);
 
-		Cure*	clone() const override;
+		Cure*	clone() const;
 		void	use(ICharacter& target);
 };
 

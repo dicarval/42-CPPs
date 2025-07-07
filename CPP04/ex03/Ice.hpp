@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 10:45:24 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/03 11:00:13 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/04 11:26:58 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Ice : public AMateria
 
 		Ice&	operator=(const Ice& original);
 
-		Ice*	clone() const override;
+		Ice*	clone() const;
 		void	use(ICharacter& target);
 };
 

@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 12:00:51 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/02 17:26:26 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/04 11:12:36 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class Cat : public AnimalFixed
 		std::string	getCatIdea(unsigned int index) const;
 		Brain*		getCatBrain() const;
 
-		void		makeSound() const override;
+		void		makeSound() const;
 		void		printCatIdeas(unsigned int first, unsigned int last);
 };
 

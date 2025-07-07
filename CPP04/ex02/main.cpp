@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:48:37 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/02 17:30:19 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/04 11:16:00 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	test3()
 	Patareco->printCatIdeas(0, 3);
 
 	std::cout << std::endl;
+	Patareco->setCatIdea("Lasanha!!", 0);
 	Patareco->setCatIdea("Scratch my back!", 1);
 	Patareco->setCatIdea("Scratch my back!", 2);
 	Patareco->setCatIdea("Scratch my back!", 3);

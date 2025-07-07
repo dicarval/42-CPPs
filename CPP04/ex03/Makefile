@@ -1,6 +1,6 @@
 
 NAME		= Polymorphism
-SRC			= main.cpp
+SRC			= main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 OBJ_DIR		= objects
 OBJS		= $(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))
 

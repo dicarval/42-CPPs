@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 13:28:50 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/03 15:17:48 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/04 11:54:20 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ class Character : public ICharacter
 		AMateria*	_inventory[4];
 		std::string	_name;
 
-		bool				checkInvSpace(int idx);
+		bool				_checkInvSpace(int idx);
+		bool				_checkInvSlot(int idx);
 
 	public:
 		Character();

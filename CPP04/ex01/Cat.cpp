@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 12:08:29 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/02 17:06:31 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/04 11:09:45 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ Cat&	Cat::operator=(const Cat& original)
 	if (this != &original)
 	{
 		_type = original._type;
-		*_processor = *original._processor;
+		_processor = new Brain(*original._processor);
 	}
 	return (*this);
 }

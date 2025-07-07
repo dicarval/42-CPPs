@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 14:47:17 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/02 15:21:37 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/04 11:11:45 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,10 @@ Brain&	Brain::operator=(const Brain& original)
 void	Brain::setIdea(std::string idea, unsigned int index)
 {
 	if (index < 100)
+	{
 		_ideas[index] = idea;
+		return ;
+	}
 	std::cout << "Invalid Index" << std::endl;
 }
 
@@ -73,6 +76,6 @@ void	Brain::printIdeas(unsigned int first, unsigned int last)
 		std::cout << "The brain is overheating" << std::endl;
 		return ;
 	}
-	for(int i = first; i < last; i++)
+	for(unsigned int i = first; i < last; i++)
 		std::cout << "Idea[" << i << "] - " <<_ideas[i] << std::endl;
 }

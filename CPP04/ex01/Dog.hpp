@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:31:39 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/02 15:49:21 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/04 10:51:56 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class Dog : public Animal
 		std::string	getDogIdea(unsigned int index) const;
 		Brain*		getDogBrain() const;
 
-		void		makeSound() const override;
+		void		makeSound() const;
 		void		printDogIdeas(unsigned int first, unsigned int last);
 };
 

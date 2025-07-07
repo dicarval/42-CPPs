@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:31:39 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/02 15:05:04 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/04 10:48:58 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Dog : public Animal
 
 		Dog&	operator=(const Dog& original);
 
-		void	makeSound() const override;
+		void	makeSound() const;
 };
 
 #endif
