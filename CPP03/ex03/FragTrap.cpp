@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 16:35:18 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/02 11:06:28 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/15 11:19:20 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 FragTrap::FragTrap() : ClapTrap(), _highFives(0)
 {
-	_name = "Default";
 	std::cout << _name << " constructor of FragTrap called" << std::endl;
 	_hitPoints = 100;
 	_energyPoints = 100;
@@ -24,7 +23,7 @@ FragTrap::FragTrap() : ClapTrap(), _highFives(0)
 }
 
 
-FragTrap::FragTrap(const std::string& newFragTrap) : ClapTrap(newFragTrap), _highFives(0)
+FragTrap::FragTrap(const std::string& name) : ClapTrap(name), _highFives(0)
 {
 	std::cout << "Name constructor of FragTrap " << _name << " called" << std::endl;
 	_hitPoints = 100;

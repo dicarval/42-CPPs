@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:04:25 by dicarval          #+#    #+#             */
-/*   Updated: 2025/06/30 19:13:20 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/15 11:19:24 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class DiamondTrap : public ScavTrap, public FragTrap
 
 	public:
 		DiamondTrap();
-		DiamondTrap(const std::string& newDiamondTrapName);
+		DiamondTrap(const std::string& name);
 		DiamondTrap(const DiamondTrap& original);
 		~DiamondTrap();
 

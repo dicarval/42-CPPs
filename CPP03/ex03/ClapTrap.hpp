@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 10:25:25 by dicarval          #+#    #+#             */
-/*   Updated: 2025/06/30 18:42:11 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/15 11:19:32 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class ClapTrap
 
 	public:
 		ClapTrap();
-		ClapTrap(const std::string& newClapTrapName);
+		ClapTrap(const std::string& name);
 		ClapTrap(const ClapTrap& original);
 		~ClapTrap();
 

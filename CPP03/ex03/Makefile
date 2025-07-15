@@ -1,6 +1,8 @@
 
-NAME		= Its_a_FlagTrap
-SRC			= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp actionsScavTrap.cpp actionsClapTrap.cpp actionsFragTrap.cpp
+NAME		= Its_a_DiamondTrap
+SRC			= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp \
+			actionsScavTrap.cpp actionsClapTrap.cpp actionsFragTrap.cpp actionsDiamondTrap.cpp
+
 OBJ_DIR		= objects
 OBJS		= $(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))
 

@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 15:22:13 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/02 11:06:23 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/15 11:19:12 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,13 @@
 
 ScavTrap::ScavTrap() : ClapTrap(), _guardGate(false)
 {
-	_name = "Default";
 	std::cout << _name << " constructor of ScavTrap called" << std::endl;
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
 }
 
-ScavTrap::ScavTrap(const std::string& newScavTrapName) : ClapTrap(newScavTrapName), _guardGate(false)
+ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name), _guardGate(false)
 {
 	std::cout << "Name constructor of ScavTrap " << _name << " called" << std::endl;
 	_hitPoints = 100;

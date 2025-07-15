@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:17:42 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/02 11:06:43 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/15 14:03:20 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ DiamondTrap::~DiamondTrap()
 DiamondTrap&	DiamondTrap::operator=(const DiamondTrap& original)
 {
 	_name = original._name;
+	ClapTrap::_name = original.ClapTrap::_name;
 	_hitPoints = original._hitPoints;
 	_energyPoints = original._energyPoints;
 	_attackDamage = original._attackDamage;
@@ -52,10 +53,4 @@ DiamondTrap&	DiamondTrap::operator=(const DiamondTrap& original)
 	_highFives = original._highFives;
 	std::cout << "Copy assignment operator of DiamondTrap " << _name << " called" << std::endl;
 	return (*this);
-}
-
-void	DiamondTrap::whoAmI()
-{
-	std::cout << "My first name is " << _name << "!" << std::endl;
-	std::cout << "But my complete name is " << ClapTrap::_name << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 15:22:13 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/02 11:07:19 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/15 14:06:28 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 ScavTrap::ScavTrap() : ClapTrap(), _guardGate(false)
 {
-	_name = "Default";
 	std::cout << _name << " constructor of ScavTrap called" << std::endl;
 	_hitPoints = 100;
 	_energyPoints = 50;

@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 10:24:59 by dicarval          #+#    #+#             */
-/*   Updated: 2025/06/30 19:17:34 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/15 11:59:20 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,37 @@
 
 int	main(void)
 {
-	DiamondTrap	Roberto;
-    std::cout << "------------------------------\n\n";
-	Roberto.whoAmI();
+	DiamondTrap	Default;
+	std::cout << "\n------------------------------\n\n";
+	Default.whoAmI();
+
 	std::cout << "\nAttack:\n";
-	Roberto.attack("Monitor");
+	Default.attack("Monitor");
 
 	std::cout << "\nTake damage:\n";
-	Roberto.takeDamage(2);
+	Default.takeDamage(2);
 
 	std::cout << "\nBe repaired:\n";
-	Roberto.beRepaired(1);
+	Default.beRepaired(1);
 
 	std::cout << "\nGuard Gate:\n";
-	Roberto.guardGate();
-	Roberto.guardGate();
+	Default.guardGate();
+	Default.guardGate();
 
 	std::cout << "\n3 HighFives request:\n";
-	Roberto.highFivesGuys();
-	Roberto.highFivesGuys();
-	Roberto.highFivesGuys();
+	Default.highFivesGuys();
+	Default.highFivesGuys();
+	Default.highFivesGuys();
 
-	std::cout << "\n	Hit Points: " << Roberto.getHitPoints();
-	std::cout << "\n	Energy Points: " << Roberto.getEnergyPoints();
-	std::cout << "\n	Attack Damage: " << Roberto.getAttackDamage();
-	std::cout << "\n	Guard Gate: " << Roberto.getGuardGate();
-	std::cout << "\n	HighFives: " << Roberto.getHighFives() << "\n\n";
-	std::cout << "------------------------------\n\n";
+	std::cout << "\nHit Points: " << Default.getHitPoints();
+	std::cout << "\nEnergy Points: " << Default.getEnergyPoints();
+	std::cout << "\nAttack Damage: " << Default.getAttackDamage();
+	std::cout << "\nGuard Gate: " << Default.getGuardGate();
+	std::cout << "\nHighFives: " << Default.getHighFives() << "\n";
+	std::cout << "\n------------------------------\n\n";
 
-    DiamondTrap Joaquim("Joaquim");
-	std::cout << "------------------------------\n\n";
+	DiamondTrap Joaquim("Joaquim");
+	std::cout << "\n------------------------------\n\n";
 	Joaquim.whoAmI();
 	std::cout << "\nAttack:\n";
 	Joaquim.attack("Monitor");
@@ -63,22 +64,22 @@ int	main(void)
 	Joaquim.highFivesGuys();
 	Joaquim.highFivesGuys();
 
-	std::cout << "\n	Hit Points: " << Joaquim.getHitPoints();
-	std::cout << "\n	Energy Points: " << Joaquim.getEnergyPoints();
-	std::cout << "\n	Attack Damage: " << Joaquim.getAttackDamage();
-	std::cout << "\n	Guard Gate: " << Joaquim.getGuardGate();
-	std::cout << "\n	HighFives: " << Joaquim.getHighFives() << "\n\n";
+	std::cout << "\nHit Points: " << Joaquim.getHitPoints();
+	std::cout << "\nEnergy Points: " << Joaquim.getEnergyPoints();
+	std::cout << "\nAttack Damage: " << Joaquim.getAttackDamage();
+	std::cout << "\nGuard Gate: " << Joaquim.getGuardGate();
+	std::cout << "\nHighFives: " << Joaquim.getHighFives() << "\n\n";
 	std::cout << "------------------------------\n\n";
 
 	DiamondTrap	Copycat("Copycat");
 	Copycat = Joaquim;
 	//ScavTrap Copycat(Joaquim);
-	std::cout << "------------------------------\n\n";
+	std::cout << "\n------------------------------\n\n";
 	Copycat.whoAmI();
-	std::cout << "\n	Hit Points: " << Copycat.getHitPoints();
-	std::cout << "\n	Energy Points: " << Copycat.getEnergyPoints();
-	std::cout << "\n	Attack Damage: " << Copycat.getAttackDamage();
-	std::cout << "\n	Guard Gate: " << Copycat.getGuardGate();
-	std::cout << "\n	HighFives: " << Copycat.getHighFives() << "\n\n";
+	std::cout << "\nHit Points: " << Copycat.getHitPoints();
+	std::cout << "\nEnergy Points: " << Copycat.getEnergyPoints();
+	std::cout << "\nAttack Damage: " << Copycat.getAttackDamage();
+	std::cout << "\nGuard Gate: " << Copycat.getGuardGate();
+	std::cout << "\nHighFives: " << Copycat.getHighFives() << "\n\n";
 	std::cout << "------------------------------\n\n";;
 }

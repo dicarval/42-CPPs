@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 10:24:59 by dicarval          #+#    #+#             */
-/*   Updated: 2025/06/30 17:11:52 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/15 11:43:54 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,20 @@
 
 int	main(void)
 {
-	FragTrap	Joaozinho("Joaozinho");
-	std::cout << "----- " << Joaozinho.getName() << " -----\n\n";
-	std::cout << "	Attack: ";
-	Joaozinho.attack("Monitor");
-	std::cout << "\n	Take damage: ";
-	Joaozinho.takeDamage(2);
-	std::cout << "\n	Be repaired: ";
-	Joaozinho.beRepaired(1);
-	std::cout << "\n	3 HighFives request:\n";
-	Joaozinho.highFivesGuys();
-	Joaozinho.highFivesGuys();
-	Joaozinho.highFivesGuys();
-	std::cout << "\n	Hit Points: " << Joaozinho.getHitPoints();
-	std::cout << "\n	Energy Points: " << Joaozinho.getEnergyPoints();
-	std::cout << "\n	HighFives: " << Joaozinho.getHighFives() << "\n\n";
+	FragTrap	Camoes("Camoes");
+	std::cout << "\n----- " << Camoes.getName() << " -----\n\n";
+	std::cout << "Attack: ";
+	Camoes.attack("Pessoa");
+	std::cout << "\nTake damage: ";
+	Camoes.takeDamage(2);
+	std::cout << "\nBe repaired: ";
+	Camoes.beRepaired(1);
+	std::cout << "\n3 HighFives request:\n";
+	Camoes.highFivesGuys();
+	Camoes.highFivesGuys();
+	Camoes.highFivesGuys();
+	std::cout << "\nHit Points: " << Camoes.getHitPoints();
+	std::cout << "\nEnergy Points: " << Camoes.getEnergyPoints();
+	std::cout << "\nHighFives: " << Camoes.getHighFives() << "\n";
+	std::cout << "\n-------------------------------------\n\n";
 }

@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 14:13:41 by dicarval          #+#    #+#             */
-/*   Updated: 2025/06/30 19:17:04 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/15 11:19:07 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class ScavTrap : virtual public ClapTrap
 
 	public:
 		ScavTrap();
-		ScavTrap(const std::string& newScavTrapName);
+		ScavTrap(const std::string& name);
 		ScavTrap(const ScavTrap& original);
 		~ScavTrap();
 

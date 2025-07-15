@@ -1,36 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   actionsDiamondTrap.cpp                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 16:25:13 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/15 11:19:15 by dicarval         ###   ########.fr       */
+/*   Created: 2025/07/15 11:54:38 by dicarval          #+#    #+#             */
+/*   Updated: 2025/07/15 14:04:48 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#include "DiamondTrap.hpp"
 
-#include "ClapTrap.hpp"
-
-class FragTrap : virtual public ClapTrap
+void	DiamondTrap::whoAmI()
 {
-	protected:
-		unsigned int	_highFives;
-
-	public:
-		FragTrap();
-		FragTrap(const std::string& name);
-		FragTrap(const FragTrap& original);
-		~FragTrap();
-
-		void	highFivesGuys(void);
-
-		unsigned int getHighFives();
-
-		FragTrap& operator=(const FragTrap& original);
-};
-
-#endif
+	std::cout << "People call me " << _name << std::endl;
+	std::cout << "But my real name is " << ClapTrap::_name << std::endl;
+}
