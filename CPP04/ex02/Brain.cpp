@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 14:47:17 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/04 11:16:43 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/17 13:50:41 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ void	Brain::printIdeas(unsigned int first, unsigned int last)
 	}
 	if (first > last)
 	{
-		std::cout << "The brain is overheating" << std::endl;
+		std::cout << "The brain is overheating!!" << std::endl;
 		return ;
 	}
-	for(unsigned int i = first; i < last; i++)
+	for(unsigned int i = first; i <= last; i++)
 		std::cout << "Idea[" << i << "] - " <<_ideas[i] << std::endl;
 }

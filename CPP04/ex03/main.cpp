@@ -44,7 +44,7 @@ void	test2()
 	AMateria *m2 = copy->createMateria("ice");
 
 	delete src;
-	std::cout << "\nDeleted src and still can use copy:\n";
+	std::cout << "\nDeleted src and still can use copy because its a deep copy:\n";
 	AMateria *m3 = copy->createMateria("ice");
 
 	std::cout << "\nEvery materia has diferent addresses:\n";
@@ -64,23 +64,25 @@ void	test2()
 
 	*barreiros = *quim;
 
+	std::cout << "\nBarreiros now has Quim's name and Quim's AMaterias but they use different \
+addresses:\n\n";
+
 	barreiros->use(0, *quim);
 	barreiros->use(1, *quim);
 
-	std::cout << "\nbarreiros now has quim name and AMaterias but they use different addresses:\n";
 	std::cout << "Quim (" << quim << ")\n";
 	std::cout << "Barreiros (" << barreiros << ")\n";
 
 	delete quim;
 	delete barreiros;
 
-	std::cout << "This test wont have leaks even tho we didn't delete m3\n" <<\
-		"This is because when using the = operator on barreiros everything he had was deleted\n";
+	std::cout << "\nThis test wont have leaks even though we didn't delete m3\n" <<\
+		"This is because when using the \"=\" operator on Barreiros all Materias were deleted\n";
 }
 
 void	test3()
 {
-	std::cout << "\n==========| TEST 3 |==========\n";
+	std::cout << "\n==========| TEST 3 |==========\n\n";
 	Character* vasco = new Character("Vasco");
 	Character* gama = new Character("Gama");
 	Ice *ice1 = new Ice();

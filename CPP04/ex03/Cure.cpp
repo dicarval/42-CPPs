@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 11:44:12 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/03 17:05:29 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/17 15:41:01 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ Cure&	Cure::operator=(const Cure& original)
 
 Cure* Cure::clone() const
 {
-	Cure *newCure = new Cure(*this);
+	Cure* newCure = new Cure(*this);
 	return (newCure);
 }
 
 void	Cure::use(ICharacter& target)
 {
-	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+	std::cout << "* Heals " << target.getName() << "'s wounds *" << std::endl;
 }

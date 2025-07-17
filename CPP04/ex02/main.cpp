@@ -6,11 +6,12 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:48:37 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/04 11:16:00 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/17 14:11:01 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AnimalFixed.hpp"
+#include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
 
@@ -58,7 +59,7 @@ void	test3()
 	Patareco->setCatIdea("Lasanha!!", 0);
 	Patareco->setCatIdea("Scratch my back!", 1);
 	Patareco->setCatIdea("Scratch my back!", 2);
-	Patareco->setCatIdea("Scratch my back!", 3);
+	Patareco->setCatIdea("Scratch my belly!", 3);
 	Cat	*copy_cat = new Cat(*Patareco);
 	//Cat	*copy_cat = new Cat();
 	//*copy_cat = *Patareco;
@@ -76,10 +77,28 @@ void	test3()
 	delete copy_cat;
 }
 
+void	test4()
+{
+	std::cout << "\n==========| TEST 4 |==========\n\n";
+
+	Animal	*Bigfoot = new Animal();
+	AnimalFixed	*ChupaCabra = new Cat();
+	//AnimalFixed	*LochNess = new AnimalFixed();
+
+	std::cout << std::endl;
+	Bigfoot->makeSound();
+	ChupaCabra->makeSound();
+	std::cout << std::endl;
+
+	delete Bigfoot;
+	delete ChupaCabra;
+}
+
 int main()
 {
 	test1();
 	test2();
 	test3();
+	test4();
 	return 0;
 }

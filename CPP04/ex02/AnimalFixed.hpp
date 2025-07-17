@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 10:49:08 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/02 17:25:54 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/17 13:52:06 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class AnimalFixed
 		AnimalFixed(const AnimalFixed& original);
 		virtual ~AnimalFixed() = 0;
 
-		AnimalFixed&			operator=(const AnimalFixed &original);
+		AnimalFixed&	operator=(const AnimalFixed &original);
 
 		std::string		getType() const;
 

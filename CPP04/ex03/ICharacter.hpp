@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:42:42 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/04 11:29:01 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/17 15:06:30 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class ICharacter
 {
 	public:
 		//CONSTRUCTOR & DESTRUCTOR
-		virtual ~ICharacter() {}
+		virtual ~ICharacter() {};
 
 		//GETTERS
 		virtual const std::string&	getName() const = 0;

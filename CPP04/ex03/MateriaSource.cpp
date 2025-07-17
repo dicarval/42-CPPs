@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 17:23:21 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/04 11:32:44 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/17 15:46:18 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,12 @@ void	MateriaSource::learnMateria(AMateria* materia)
 		if (_learnedMateria[i] == NULL)
 		{
 			_learnedMateria[i] = materia;
-			std::cout << "Materia Source > Learnt \"" << materia->getType() << "\" Materia" << std::endl;
+			std::cout << "Materia Source > * Learnt \"" << materia->getType() << "\" Materia *" << std::endl;
 			return ;
 		}
 		else if (i == 3)
 		{
-			std::cout << "Materia Source > There is no space to learn more Materias" << std::endl;
+			std::cout << "Materia Source > ! There is no space to learn more Materias !" << std::endl;
 			return ;
 		}
 	}
@@ -82,7 +82,7 @@ AMateria*	MateriaSource::createMateria(const std::string& type)
 	{
 		if(_learnedMateria[i] && type == _learnedMateria[i]->getType())
 		{
-			std::cout << "Materia Source > Created \"" << type << "\" Materia" << std::endl;
+			std::cout << "Materia Source > * Created \"" << type << "\" Materia *" << std::endl;
 			return(_learnedMateria[i]->clone());
 		}
 	}

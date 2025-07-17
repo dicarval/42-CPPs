@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 13:50:16 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/04 12:00:06 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/17 16:27:38 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ bool	Character::_checkInvSpace(int idx)
 	else if (_inventory[idx] == NULL)
 	{
 		std::cout << _name << \
-		 " > ! There is no Materia equiped in the slot " << idx << "!" << std::endl;
+		 " > ! There is no Materia equiped in the slot " << (idx +1) << " !" << std::endl;
 		return (true);
 	}
 	else
@@ -93,7 +93,7 @@ bool	Character::_checkInvSlot(int idx)
 	if (idx < 0 || idx > 3)
 	{
 		std::cout << _name << \
-		" > You are trying to reach a non existant inventory space" << std::endl;
+		" > ! You are trying to reach a non existant inventory space !" << std::endl;
 		return (true);
 	}
 	return (false);
@@ -103,25 +103,21 @@ void	Character::equip(AMateria* m)
 {
 	if (m == NULL)
 	{
-		std::cout << _name << " > There is no Materia to equip" << std::endl;
+		std::cout << _name << " > ! There is no Materia to equip !" << std::endl;
 		return ;
 	}
-	for (int i = 0; i < 4; i++)
+	int	i = 0;
+	while (i < 4 && _inventory[i])
+		i++;
+	if (i != 4)
 	{
-		if (_checkInvSpace(i) == true)
-		{
-			_inventory[i] = m;
-			std::cout << _name << " > Materia " << _inventory[i]->getType() << \
-			" set in the inventory space " << (i + 1) << std::endl;
-			return ;
-		}
-		else if (i == 3)
-		{
-			std::cout << _name << " > The inventory is full, there's only 4 inventory spaces"\
-			 << std::endl;
-			return ;
-		}
+		_inventory[i] = m;
+		std::cout << _name << " > * Materia \"" << _inventory[i]->getType() << \
+		"\" set in the inventory space " << (i + 1) << " *" << std::endl;
 	}
+	else
+		std::cout << _name << " > ! The inventory is full, there's only 4 inventory spaces available !"\
+		 << std::endl;
 }
 
 void	Character::unequip(int idx)
@@ -129,7 +125,7 @@ void	Character::unequip(int idx)
 	if (_checkInvSpace(idx) || _checkInvSlot(idx))
 		return ;
 	_inventory[idx] = NULL;
-	std::cout << _name << " > Inventory space " << (idx + 1) << " is now available" << std::endl;
+	std::cout << _name << " > * Inventory space " << (idx + 1) << " is now available *" << std::endl;
 }
 
 void	Character::use(int idx, ICharacter& target)

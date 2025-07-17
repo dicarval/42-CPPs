@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:48:37 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/04 11:17:02 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/17 13:23:52 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	test3()
 	Patareco->setCatIdea("Lasanha!!", 0);
 	Patareco->setCatIdea("Scratch my back!", 1);
 	Patareco->setCatIdea("Scratch my back!", 2);
-	Patareco->setCatIdea("Scratch my back!", 3);
+	Patareco->setCatIdea("Scratch my belly!", 3);
 	Cat	*copy_cat = new Cat(*Patareco);
 	//Cat	*copy_cat = new Cat();
 	//*copy_cat = *Patareco;

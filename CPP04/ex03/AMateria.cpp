@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 10:16:26 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/03 11:37:37 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/17 15:40:37 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,5 @@ const std::string&	AMateria::getType() const
 
 void	AMateria::use(ICharacter& target)
 {
-	std::cout << "* something unknow was thrown at " << target.getName() << " *" << std::endl;
+	std::cout << "* Something unknow was thrown at " << target.getName() << " *" << std::endl;
 }

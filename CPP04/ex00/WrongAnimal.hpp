@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:31:39 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/02 15:04:05 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/17 11:48:13 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class WrongAnimal
 
 		std::string			getType() const;
 
-		virtual void		makeSound() const;
+		void		makeSound() const;
 };
 
 #endif

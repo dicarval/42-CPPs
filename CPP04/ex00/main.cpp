@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 13:14:53 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/02 13:49:12 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/17 11:42:56 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,36 +54,36 @@ void	test3()
 {
 	std::cout << "\n==========| TEST 3 |==========\n\n";
 
-	std::cout << "Creating Right Veterinary.\n";
-	Animal	*right_veterinary[]=
+	std::cout << "Creating Normal Veterinary.\n";
+	Animal	*normal_veterinary[]=
 	{
 		new Cat(),
 		new Cat(),
 		new Cat()
 	};
 
-	std::cout << "\nCreating Wrong Veterinary.\n";
-	WrongAnimal	*wrong_veterinary[]=
+	std::cout << "\nCreating Weird Veterinary.\n";
+	WrongAnimal	*weird_veterinary[]=
 	{
 		new WrongCat(),
 		new WrongCat(),
 		new WrongCat()
 	};
 
-	std::cout << "\nRight Veterinary:\n";
+	std::cout << "\nNormal Veterinary:\n";
 	for (int i = 0; i < 3; i++)
-		right_veterinary[i]->makeSound();
+		normal_veterinary[i]->makeSound();
 
 
-	std::cout << "\nWrong Veterinary:\n";
+	std::cout << "\nWeird Veterinary:\n";
 	for (int i = 0; i < 3; i++)
-		wrong_veterinary[i]->makeSound();
+		weird_veterinary[i]->makeSound();
 
 	std::cout << std::endl;
 	for (int i = 0; i < 3; i++)
 	{
-		delete right_veterinary[i];
-		delete wrong_veterinary[i];
+		delete normal_veterinary[i];
+		delete weird_veterinary[i];
 	}
 
 }

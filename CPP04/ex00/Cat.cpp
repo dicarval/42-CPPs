@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 12:08:29 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/02 17:06:53 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/17 11:43:06 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,5 @@ Cat&	Cat::operator=(const Cat& original)
 
 void	Cat::makeSound(void) const
 {
-	std::cout << "MEOOOWWW!!!" << std::endl;
+	std::cout << "MEOOOOOW!!!" << std::endl;
 }
