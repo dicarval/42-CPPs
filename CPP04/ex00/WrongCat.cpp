@@ -14,7 +14,7 @@
 
 //CONSTRUCTORS & DESTRUCTOR
 
-WrongCat::WrongCat()
+WrongCat::WrongCat() : WrongAnimal()
 {
 	std::cout << "Default constructor of WrongCat called" << std::endl;
 	_type = "WrongCat";
@@ -36,7 +36,8 @@ WrongCat::~WrongCat()
 WrongCat&	WrongCat::operator=(const WrongCat& original)
 {
 	std::cout << "Copy assignment operator of WrongCat called" << std::endl;
-	_type = original._type;
+	if (this != &original)
+		_type = original._type;
 	return (*this);
 }
 

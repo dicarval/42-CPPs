@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 17:23:21 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/17 15:46:18 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/17 18:09:56 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,16 @@ MateriaSource::~MateriaSource()
 
 MateriaSource&	MateriaSource::operator=(const MateriaSource& original)
 {
-	for (int i = 0; i < 4; i++)
+	if (this != &original)
 	{
-		if(_learnedMateria[i])
-			delete _learnedMateria[i];
-		_learnedMateria[i] = NULL;
-		if (original._learnedMateria[i])
-			_learnedMateria[i] = original._learnedMateria[i]->clone();
+		for (int i = 0; i < 4; i++)
+		{
+			if(_learnedMateria[i])
+				delete _learnedMateria[i];
+			_learnedMateria[i] = NULL;
+			if (original._learnedMateria[i])
+				_learnedMateria[i] = original._learnedMateria[i]->clone();
+		}
 	}
 	return (*this);
 }

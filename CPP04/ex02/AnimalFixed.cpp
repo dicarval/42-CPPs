@@ -35,7 +35,8 @@ AnimalFixed::~AnimalFixed()
 AnimalFixed&	AnimalFixed::operator=(const AnimalFixed& original)
 {
 	std::cout << "Copy assignment operator of AnimalFixed " << _type << " called" << std::endl;
-	_type = original._type;
+	if (this != &original)
+		_type = original._type;
 	return (*this);
 }
 

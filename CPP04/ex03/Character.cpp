@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 13:50:16 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/17 16:27:38 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/17 18:10:24 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,18 @@ Character::~Character()
 
 Character&	Character::operator=(const Character& original)
 {
-	for (int i = 0; i < 4; i++)
+	if (this != &original)
 	{
-		if (_inventory[i])
-			delete _inventory[i];
-		_inventory[i] = NULL;
-		if (original._inventory[i])
-			_inventory[i] = original._inventory[i]->clone();
+		for (int i = 0; i < 4; i++)
+		{
+			if (_inventory[i])
+				delete _inventory[i];
+			_inventory[i] = NULL;
+			if (original._inventory[i])
+				_inventory[i] = original._inventory[i]->clone();
+		}
+		_name = original._name;
 	}
-	_name = original._name;
 	return (*this);
 }
 

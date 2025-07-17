@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 12:08:29 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/17 11:43:06 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/17 17:52:08 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ Cat::~Cat()
 Cat&	Cat::operator=(const Cat& original)
 {
 	std::cout << "Copy assignment operator of Cat called" << std::endl;
-	_type = original._type;
+	if (this != &original)
+		_type = original._type;
 	return (*this);
 }
 

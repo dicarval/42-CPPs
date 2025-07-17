@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 10:55:40 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/02 14:40:42 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/17 17:44:11 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ Animal::~Animal()
 Animal&	Animal::operator=(const Animal& original)
 {
 	std::cout << "Copy assignment operator of Animal " << _type << " called" << std::endl;
-	_type = original._type;
+	if (this != &original)
+		_type = original._type;
 	return (*this);
 }
 

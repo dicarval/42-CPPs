@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 14:47:17 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/17 13:50:41 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/17 18:08:34 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,11 @@ Brain::~Brain()
 Brain&	Brain::operator=(const Brain& original)
 {
 	std::cout << "Copy assignment operator of Brain called" << std::endl;
-	for (int i = 0; i < 100; ++i)
+	if (this != &original)
+	{
+		for (int i = 0; i < 100; ++i)
 		_ideas[i] = original._ideas[i];
+	}
 	return (*this);
 }
 

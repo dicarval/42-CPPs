@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 10:16:26 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/17 15:40:37 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/07/17 18:08:51 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ AMateria::~AMateria()
 
 AMateria&	AMateria::operator=(const AMateria& original)
 {
-	_type = original._type;
+	if (this != &original)
+		_type = original._type;
 	return (*this);
 }
 
