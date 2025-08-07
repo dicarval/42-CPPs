@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 10:16:58 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/04 11:26:36 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:06:36 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,16 @@ class AMateria
 
 	public:
 		AMateria();
-		AMateria(const AMateria& original);
-		AMateria(const std::string& type);
+		AMateria(const AMateria &original);
+		AMateria(const std::string &type);
 		virtual ~AMateria() = 0;
 
-		AMateria&			operator=(const AMateria& original);
+		AMateria&			operator=(const AMateria &original);
 
 		const std::string&	getType() const;
 
 		virtual AMateria*	clone() const = 0;
-		virtual void		use(ICharacter& target);
+		virtual void		use(ICharacter &target);
 };
 
 

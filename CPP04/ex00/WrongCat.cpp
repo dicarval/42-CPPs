@@ -20,7 +20,7 @@ WrongCat::WrongCat() : WrongAnimal()
 	_type = "WrongCat";
 }
 
-WrongCat::WrongCat(const WrongCat& original) : WrongAnimal(original)
+WrongCat::WrongCat(const WrongCat &original) : WrongAnimal(original)
 {
 	std::cout << "Copy constructor of WrongCat called" << std::endl;
 	*this = original;
@@ -33,7 +33,7 @@ WrongCat::~WrongCat()
 
 //OPERATOR
 
-WrongCat&	WrongCat::operator=(const WrongCat& original)
+WrongCat&	WrongCat::operator=(const WrongCat &original)
 {
 	std::cout << "Copy assignment operator of WrongCat called" << std::endl;
 	if (this != &original)

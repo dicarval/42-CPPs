@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 12:08:29 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/17 17:52:08 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:14:03 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Cat::Cat() : Animal()
 	_type = "Cat";
 }
 
-Cat::Cat(const Cat& original) : Animal(original)
+Cat::Cat(const Cat &original) : Animal(original)
 {
 	std::cout << "Copy constructor of Cat called" << std::endl;
 	*this = original;
@@ -33,7 +33,7 @@ Cat::~Cat()
 
 //OPERATOR
 
-Cat&	Cat::operator=(const Cat& original)
+Cat&	Cat::operator=(const Cat &original)
 {
 	std::cout << "Copy assignment operator of Cat called" << std::endl;
 	if (this != &original)

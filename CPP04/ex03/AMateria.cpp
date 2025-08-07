@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 10:16:26 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/17 18:08:51 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:06:54 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 AMateria::AMateria() : _type("Unknow")
 {}
 
-AMateria::AMateria(const std::string& type) : _type(type)
+AMateria::AMateria(const std::string &type) : _type(type)
 {}
 
-AMateria::AMateria(const AMateria& original)
+AMateria::AMateria(const AMateria &original)
 {
 	*this = original;
 }
@@ -30,7 +30,7 @@ AMateria::~AMateria()
 
 //OPERATOR
 
-AMateria&	AMateria::operator=(const AMateria& original)
+AMateria&	AMateria::operator=(const AMateria &original)
 {
 	if (this != &original)
 		_type = original._type;
@@ -46,7 +46,7 @@ const std::string&	AMateria::getType() const
 
 //MEMBER FUNCTIONS
 
-void	AMateria::use(ICharacter& target)
+void	AMateria::use(ICharacter &target)
 {
 	std::cout << "* Something unknow was thrown at " << target.getName() << " *" << std::endl;
 }

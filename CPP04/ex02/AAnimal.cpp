@@ -19,7 +19,7 @@ AAnimal::AAnimal() : _type("Default")
 	std::cout << _type << " constructor of AAnimal called" << std::endl;
 }
 
-AAnimal::AAnimal(const AAnimal& original)
+AAnimal::AAnimal(const AAnimal &original)
 {
 	std::cout << "Copy constructor of AAnimal " << _type << " called" << std::endl;
 	*this = original;
@@ -32,7 +32,7 @@ AAnimal::~AAnimal()
 
 //OPERATOR
 
-AAnimal&	AAnimal::operator=(const AAnimal& original)
+AAnimal&	AAnimal::operator=(const AAnimal &original)
 {
 	std::cout << "Copy assignment operator of AAnimal " << _type << " called" << std::endl;
 	if (this != &original)

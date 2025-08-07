@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 10:49:08 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/02 16:04:36 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:08:58 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 class Animal
 {
 	protected:
-		std::string _type;
+		std::string	_type;
 
 	public:
 		Animal();
-		Animal(const Animal& original);
+		Animal(const Animal &original);
 		virtual ~Animal();
 
 		Animal&			operator=(const Animal &original);

@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 14:01:17 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/02 15:21:25 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:08:36 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ class Brain
 
 	public:
 		Brain();
-		Brain(const Brain& original);
+		Brain(const Brain &original);
 		~Brain();
 
-		Brain&		operator=(const Brain& original);
+		Brain&		operator=(const Brain &original);
 
 		void		setIdea(std::string idea, unsigned int index);
 

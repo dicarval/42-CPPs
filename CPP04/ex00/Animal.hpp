@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 10:49:08 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/17 17:58:30 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:14:09 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Animal
 
 	public:
 		Animal();
-		Animal(const Animal& original);
+		Animal(const Animal &original);
 		virtual ~Animal();
 
 		Animal&			operator=(const Animal &original);

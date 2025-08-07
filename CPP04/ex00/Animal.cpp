@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 10:55:40 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/17 17:44:11 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:14:20 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Animal::Animal() : _type("Default")
 	std::cout << _type << " constructor of Animal called" << std::endl;
 }
 
-Animal::Animal(const Animal& original)
+Animal::Animal(const Animal &original)
 {
 	std::cout << "Copy constructor of Animal " << _type << " called" << std::endl;
 	*this = original;
@@ -32,7 +32,7 @@ Animal::~Animal()
 
 //OPERATOR
 
-Animal&	Animal::operator=(const Animal& original)
+Animal&	Animal::operator=(const Animal &original)
 {
 	std::cout << "Copy assignment operator of Animal " << _type << " called" << std::endl;
 	if (this != &original)

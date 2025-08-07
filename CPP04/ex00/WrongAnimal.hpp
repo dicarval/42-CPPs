@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:31:39 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/17 17:58:17 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:12:42 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class WrongAnimal
 
 	public:
 		WrongAnimal();
-		WrongAnimal(const WrongAnimal& original);
+		WrongAnimal(const WrongAnimal &original);
 		virtual ~WrongAnimal();
 
 		WrongAnimal&	operator=(const WrongAnimal &original);

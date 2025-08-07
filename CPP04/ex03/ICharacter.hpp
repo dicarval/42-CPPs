@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:42:42 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/17 15:06:30 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:03:43 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ class ICharacter
 		virtual const std::string&	getName() const = 0;
 
 		//MEMBER FUNCTIONS
-		virtual void				equip(AMateria* m) = 0;
+		virtual void				equip(AMateria *m) = 0;
 		virtual void				unequip(int idx) = 0;
-		virtual void				use(int idx, ICharacter& target) = 0;
+		virtual void				use(int idx, ICharacter &target) = 0;
 };
 
 #endif

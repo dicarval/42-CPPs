@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 17:23:21 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/17 18:09:56 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:03:01 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ MateriaSource::MateriaSource()
 		_learnedMateria[i] = NULL;
 }
 
-MateriaSource::MateriaSource(const MateriaSource& original)
+MateriaSource::MateriaSource(const MateriaSource &original)
 {
 	for (int i = 0; i < 4; i++)
 		_learnedMateria[i] = NULL;
@@ -38,7 +38,7 @@ MateriaSource::~MateriaSource()
 
 //OPERATOR
 
-MateriaSource&	MateriaSource::operator=(const MateriaSource& original)
+MateriaSource&	MateriaSource::operator=(const MateriaSource &original)
 {
 	if (this != &original)
 	{
@@ -56,7 +56,7 @@ MateriaSource&	MateriaSource::operator=(const MateriaSource& original)
 
 //MEMBER FUNCTIONS
 
-void	MateriaSource::learnMateria(AMateria* materia)
+void	MateriaSource::learnMateria(AMateria *materia)
 {
 	if (!materia)
 	{
@@ -79,7 +79,7 @@ void	MateriaSource::learnMateria(AMateria* materia)
 	}
 }
 
-AMateria*	MateriaSource::createMateria(const std::string& type)
+AMateria*	MateriaSource::createMateria(const std::string &type)
 {
 	for(int i = 0; i < 4; i++)
 	{

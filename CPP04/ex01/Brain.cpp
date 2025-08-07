@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 14:47:17 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/17 18:08:06 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:12:03 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Brain::Brain()
 		_ideas[i] = "Empty slot";
 }
 
-Brain::Brain(const Brain& original)
+Brain::Brain(const Brain &original)
 {
 	std::cout << "Copy constructor of Brain called" << std::endl;
 	*this = original;
@@ -34,7 +34,7 @@ Brain::~Brain()
 
 //OPERATOR
 
-Brain&	Brain::operator=(const Brain& original)
+Brain&	Brain::operator=(const Brain &original)
 {
 	std::cout << "Copy assignment operator of Brain called" << std::endl;
 	if (this != &original)

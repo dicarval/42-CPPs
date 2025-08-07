@@ -18,11 +18,11 @@
 class AAnimal
 {
 	protected:
-		std::string _type;
+		std::string	_type;
 
 	public:
 		AAnimal();
-		AAnimal(const AAnimal& original);
+		AAnimal(const AAnimal &original);
 		virtual ~AAnimal() = 0;
 
 		AAnimal&	operator=(const AAnimal &original);

@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 13:50:16 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/17 18:10:24 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:06:15 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ Character::Character() : _name("Asdrubal")
 		_inventory[i] = NULL;
 }
 
-Character::Character(const std::string& name) : _name(name)
+Character::Character(const std::string &name) : _name(name)
 {
 	for (int i = 0; i < 4; i++)
 		_inventory[i] = NULL;
 }
 
-Character::Character(const Character& original)
+Character::Character(const Character &original)
 {
 	for (int i = 0; i < 4; i++)
 		_inventory[i] = NULL;
@@ -44,7 +44,7 @@ Character::~Character()
 
 //OPERATOR
 
-Character&	Character::operator=(const Character& original)
+Character&	Character::operator=(const Character &original)
 {
 	if (this != &original)
 	{
@@ -63,7 +63,7 @@ Character&	Character::operator=(const Character& original)
 
 //SETTER
 
-void	Character::setName(const std::string& newName)
+void	Character::setName(const std::string &newName)
 {
 	_name = newName;
 }
@@ -102,7 +102,7 @@ bool	Character::_checkInvSlot(int idx)
 	return (false);
 }
 
-void	Character::equip(AMateria* m)
+void	Character::equip(AMateria *m)
 {
 	if (m == NULL)
 	{
@@ -131,7 +131,7 @@ void	Character::unequip(int idx)
 	std::cout << _name << " > * Inventory space " << (idx + 1) << " is now available *" << std::endl;
 }
 
-void	Character::use(int idx, ICharacter& target)
+void	Character::use(int idx, ICharacter &target)
 {
 	if (_checkInvSpace(idx) || _checkInvSlot(idx))
 		return ;

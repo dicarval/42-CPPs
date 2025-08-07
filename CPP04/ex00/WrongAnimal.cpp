@@ -19,7 +19,7 @@ WrongAnimal::WrongAnimal() : _type("WrongAnimal")
 	std::cout << "Default constructor of WrongAnimal called" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal& original)
+WrongAnimal::WrongAnimal(const WrongAnimal &original)
 {
 	std::cout << "Copy constructor of WrongAnimal called" << std::endl;
 	*this = original;
@@ -32,7 +32,7 @@ WrongAnimal::~WrongAnimal()
 
 //OPERATOR
 
-WrongAnimal&	WrongAnimal::operator=(const WrongAnimal& original)
+WrongAnimal&	WrongAnimal::operator=(const WrongAnimal &original)
 {
 	std::cout << "Copy assignment operator of WrongAnimal called" << std::endl;
 	if (this != &original)

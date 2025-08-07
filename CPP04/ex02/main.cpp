@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:48:37 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/17 14:11:01 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:01:32 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	test1()
 {
 	std::cout << "\n==========| TEST 1 |==========\n\n";
 
-	const AAnimal* j = new Dog();
-	const AAnimal* i = new Cat();
+	const AAnimal	*j = new Dog();
+	const AAnimal	*i = new Cat();
 
 	Dog	Bolinhas;
 	Dog	Bobby;
@@ -36,8 +36,8 @@ void	test2()
 {
 	std::cout << "\n==========| TEST 2 |==========\n\n";
 
-	Animal	*Bigfoot = new Animal();
-	AAnimal	*Tareco = new Cat();
+	Animal		*Bigfoot = new Animal();
+	AAnimal		*Tareco = new Cat();
 	//AAnimal	*LochNess = new AAnimal();
 
 	std::cout << std::endl;

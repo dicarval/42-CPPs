@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 13:14:53 by dicarval          #+#    #+#             */
-/*   Updated: 2025/08/07 08:41:42 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:13:34 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	test1()
 {
 	std::cout << "\n==========| TEST 1 |==========\n\n";
 
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	const Animal	*meta = new Animal();
+	const Animal	*j = new Dog();
+	const Animal	*i = new Cat();
 
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
@@ -37,9 +37,9 @@ void	test2()
 {
 	std::cout << "\n==========| TEST 2 |==========\n\n";
 
-	const WrongAnimal* meta = new WrongAnimal();
-	const Animal* j = new Dog();
-	const WrongAnimal* i = new WrongCat();
+	const WrongAnimal	*meta = new WrongAnimal();
+	const Animal		*j = new Dog();
+	const WrongAnimal	*i = new WrongCat();
 
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
@@ -64,7 +64,7 @@ void	test3()
 	Faneco.makeSound();
 	std::cout << std::endl;
 
-	Dog	Bolinhas;
+	Dog			Bolinhas;
 	Bolinhas.makeSound();
 	std::cout << std::endl;
 }
@@ -74,7 +74,7 @@ void	test4()
 	std::cout << "\n==========| TEST 4 |==========\n\n";
 
 	std::cout << "Creating Normal Veterinary.\n";
-	Animal	*normal_veterinary[]=
+	Animal		*normal_veterinary[]=
 	{
 		new Cat(),
 		new Cat(),
@@ -113,5 +113,5 @@ int main()
 	test2();
 	test3();
 	test4();
-	return (0);
+	return 0;
 }

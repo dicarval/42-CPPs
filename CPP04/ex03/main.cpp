@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 14:33:43 by dicarval          #+#    #+#             */
-/*   Updated: 2025/08/07 14:36:10 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:03:26 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,19 @@ void	test1()
 {
 	std::cout << "\n==========| TEST 1 |==========\n\n";
 
-	//IMateriaSource* test = new IMateriaSource();
-	IMateriaSource* src = new MateriaSource();
+	//IMateriaSource	*test = new IMateriaSource();
+	IMateriaSource	*src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
-	ICharacter* me = new Character("me");
-	AMateria* tmp;
+
+	ICharacter		*me = new Character("me");
+	AMateria		*tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
-	ICharacter* bob = new Character("bob");
+
+	ICharacter		*bob = new Character("bob");
 	me->use(0, *bob);
 	me->use(1, *bob);
 	delete bob;
@@ -43,22 +45,23 @@ void	test2()
 	std::cout << "\n==========| TEST 2 |==========\n";
 
 	std::cout << "\nMateriaSource :\n\n";
-	MateriaSource* src = new MateriaSource();
+	MateriaSource	*src = new MateriaSource();
 	src->learnMateria(new Ice());
-	MateriaSource* copy = new MateriaSource(*src);
-	//MateriaSource* copy = new MateriaSource();
+
+	MateriaSource	*copy = new MateriaSource(*src);
+	//MateriaSource	*copy = new MateriaSource();
 	//*copy = *src;
 	copy->learnMateria(new Cure());
 
 	std::cout << "\nsrc ("<< src <<") :\n";
-	AMateria *m1 = src->createMateria("cure");
+	AMateria	*m1 = src->createMateria("cure");
 
 	std::cout << "\ncopy ("<< copy <<") :\n";
-	AMateria *m2 = copy->createMateria("ice");
+	AMateria	*m2 = copy->createMateria("ice");
 
 	delete src;
 	std::cout << "\nDeleted src and still can use copy because its a deep copy:\n";
-	AMateria *m3 = copy->createMateria("ice");
+	AMateria*	m3 = copy->createMateria("ice");
 
 	std::cout << "\nEvery materia has diferent addresses:\n";
 	std::cout << "m1 (" << m1 << ")\n";
@@ -66,14 +69,14 @@ void	test2()
 	std::cout << "m3 (" << m3 << ")\n";
 	delete copy;
 
-	Character* quim = new Character("Quim");
-	Character* barreiros = new Character("Barreiros");
-	Character acordeao = *quim;
-	Character* bigode = &acordeao;
+	Character	*quim = new Character("Quim");
+	Character	*barreiros = new Character("Barreiros");
+	Character	acordeao = *quim;
+	Character	*bigode = &acordeao;
 
 	std::cout << "\nCharacters (using Materias from above) :\n\n";
 
-	Cure* cure = new Cure();
+	Cure		*cure = new Cure();
 	quim->equip(m2);
 	quim->equip(cure);
 	barreiros->equip(m3);
@@ -101,13 +104,13 @@ void	test2()
 void	test3()
 {
 	std::cout << "\n==========| TEST 3 |==========\n\n";
-	Character* vasco = new Character("Vasco");
-	Character* gama = new Character("Gama");
-	Ice *ice1 = new Ice();
-	Ice *ice2 = new Ice();
-	Cure *cure1 = new Cure();
-	Cure *cure2 = new Cure();
-	Cure *cure3 = new Cure();
+	Character	*vasco = new Character("Vasco");
+	Character	*gama = new Character("Gama");
+	Ice			*ice1 = new Ice();
+	Ice			*ice2 = new Ice();
+	Cure		*cure1 = new Cure();
+	Cure		*cure2 = new Cure();
+	Cure		*cure3 = new Cure();
 
 	vasco->equip(ice1);
 	vasco->equip(ice2);

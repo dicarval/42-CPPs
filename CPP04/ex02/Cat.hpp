@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 12:00:51 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/04 11:12:36 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:08:11 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 class Cat : public AAnimal
 {
 	private:
-		Brain* _processor;
+		Brain	*_processor;
 
 	public:
 		Cat();
-		Cat(const Cat& original);
+		Cat(const Cat &original);
 		~Cat();
 
 		Cat&		operator=(const Cat &original);

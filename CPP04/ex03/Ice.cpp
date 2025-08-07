@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 11:01:04 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/17 15:41:05 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:04:25 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Ice::~Ice()
 
 //OPERATOR
 
-Ice&	Ice::operator=(const Ice& original)
+Ice&	Ice::operator=(const Ice &original)
 {
 	(void)original;
 	return (*this);
@@ -37,11 +37,11 @@ Ice&	Ice::operator=(const Ice& original)
 
 Ice* Ice::clone() const
 {
-	Ice* newIce = new Ice(*this);
+	Ice	*newIce = new Ice(*this);
 	return (newIce);
 }
 
-void	Ice::use(ICharacter& target)
+void	Ice::use(ICharacter &target)
 {
 	std::cout << "* Shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }
