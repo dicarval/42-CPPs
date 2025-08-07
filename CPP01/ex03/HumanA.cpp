@@ -12,7 +12,7 @@
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string	human_name, Weapon &type) : name(human_name), weapon(type)
+HumanA::HumanA(std::string human_name, Weapon &type) : name(human_name), weapon(type)
 {
 	if (type.getType().empty())
 		weapon.setType("hands");

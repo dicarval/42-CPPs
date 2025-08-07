@@ -26,9 +26,9 @@ class FragTrap : public ClapTrap
 		FragTrap(const FragTrap& original);
 		~FragTrap();
 
-		void	highFivesGuys(void);
+		void			highFivesGuys(void);
 
-		unsigned int getHighFives();
+		unsigned int	getHighFives();
 
 		FragTrap& operator=(const FragTrap& original);
 };

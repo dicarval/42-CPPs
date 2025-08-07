@@ -26,9 +26,8 @@ class FragTrap : virtual public ClapTrap
 		FragTrap(const FragTrap& original);
 		~FragTrap();
 
-		void	highFivesGuys(void);
-
-		unsigned int getHighFives();
+		void			highFivesGuys(void);
+		unsigned int	getHighFives();
 
 		FragTrap& operator=(const FragTrap& original);
 };

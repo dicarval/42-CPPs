@@ -1,6 +1,6 @@
 
 NAME		= Polymorphism
-SRC			= main.cpp Animal.cpp AnimalFixed.cpp Cat.cpp Dog.cpp Brain.cpp
+SRC			= main.cpp Animal.cpp AAnimal.cpp Cat.cpp Dog.cpp Brain.cpp
 OBJ_DIR		= objects
 OBJS		= $(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))
 

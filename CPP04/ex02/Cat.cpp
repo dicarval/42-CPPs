@@ -14,14 +14,14 @@
 
 //CONSTRUCTORS & DESTRUCTOR
 
-Cat::Cat() : AnimalFixed()
+Cat::Cat() : AAnimal(), _processor(NULL)
 {
 	std::cout << "Default constructor of Cat called" << std::endl;
 	_type = "Cat";
 	_processor = new Brain();
 }
 
-Cat::Cat(const Cat& original) : AnimalFixed(original)
+Cat::Cat(const Cat& original) : AAnimal(original), _processor(NULL)
 {
 	std::cout << "Copy constructor of Cat called" << std::endl;
 	*this = original;
@@ -41,6 +41,8 @@ Cat&	Cat::operator=(const Cat& original)
 	if (this != &original)
 	{
 		_type = original._type;
+		if (_processor)
+			delete _processor;
 		_processor = new Brain(*original._processor);
 	}
 	return (*this);

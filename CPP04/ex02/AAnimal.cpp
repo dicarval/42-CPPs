@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AnimalFixed.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,31 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AnimalFixed.hpp"
+#include "AAnimal.hpp"
 
 //CONSTRUCTORS & DESTRUCTOR
 
-AnimalFixed::AnimalFixed() : _type("Default")
+AAnimal::AAnimal() : _type("Default")
 {
-	std::cout << _type << " constructor of AnimalFixed called" << std::endl;
+	std::cout << _type << " constructor of AAnimal called" << std::endl;
 }
 
-AnimalFixed::AnimalFixed(const AnimalFixed& original)
+AAnimal::AAnimal(const AAnimal& original)
 {
-	std::cout << "Copy constructor of AnimalFixed " << _type << " called" << std::endl;
+	std::cout << "Copy constructor of AAnimal " << _type << " called" << std::endl;
 	*this = original;
 }
 
-AnimalFixed::~AnimalFixed()
+AAnimal::~AAnimal()
 {
-	std::cout << "Default destructor of AnimalFixed " << _type << " called" << std::endl;
+	std::cout << "Default destructor of AAnimal " << _type << " called" << std::endl;
 }
 
 //OPERATOR
 
-AnimalFixed&	AnimalFixed::operator=(const AnimalFixed& original)
+AAnimal&	AAnimal::operator=(const AAnimal& original)
 {
-	std::cout << "Copy assignment operator of AnimalFixed " << _type << " called" << std::endl;
+	std::cout << "Copy assignment operator of AAnimal " << _type << " called" << std::endl;
 	if (this != &original)
 		_type = original._type;
 	return (*this);
@@ -42,14 +42,14 @@ AnimalFixed&	AnimalFixed::operator=(const AnimalFixed& original)
 
 //GETTER
 
-std::string	AnimalFixed::getType() const
+std::string	AAnimal::getType() const
 {
 	return (_type);
 }
 
 // MEMBER FUNCTIONS
 
-void	AnimalFixed::makeSound() const
+void	AAnimal::makeSound() const
 {
 	std::cout << "A random and irrecognizable sound." << std::endl;
 }

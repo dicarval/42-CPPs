@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AnimalFixed.hpp                                    :+:      :+:    :+:   */
+/*   AAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,22 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMALFIXED_HPP
-#define ANIMALFIXED_HPP
+#ifndef AAnimal_HPP
+#define AAnimal_HPP
 
 #include <iostream>
 
-class AnimalFixed
+class AAnimal
 {
 	protected:
 		std::string _type;
 
 	public:
-		AnimalFixed();
-		AnimalFixed(const AnimalFixed& original);
-		virtual ~AnimalFixed() = 0;
+		AAnimal();
+		AAnimal(const AAnimal& original);
+		virtual ~AAnimal() = 0;
 
-		AnimalFixed&	operator=(const AnimalFixed &original);
+		AAnimal&	operator=(const AAnimal &original);
 
 		std::string		getType() const;
 

@@ -76,7 +76,7 @@ void	Brain::printIdeas(unsigned int first, unsigned int last)
 	}
 	if (first > last)
 	{
-		std::cout << "The brain is overheating" << std::endl;
+		std::cout << "Brain is overheating" << std::endl;
 		return ;
 	}
 	for(unsigned int i = first; i <= last; i++)

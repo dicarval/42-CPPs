@@ -21,6 +21,12 @@ void	test1()
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 
+	Dog	Bolinhas;
+	Dog	Bobby;
+	Dog	Tutu(Bobby);
+
+	Bobby = Bolinhas;
+
 	delete j;
 	delete i;
 }

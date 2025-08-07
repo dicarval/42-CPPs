@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AnimalFixed.hpp"
+#include "AAnimal.hpp"
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
@@ -19,8 +19,14 @@ void	test1()
 {
 	std::cout << "\n==========| TEST 1 |==========\n\n";
 
-	const AnimalFixed* j = new Dog();
-	const AnimalFixed* i = new Cat();
+	const AAnimal* j = new Dog();
+	const AAnimal* i = new Cat();
+
+	Dog	Bolinhas;
+	Dog	Bobby;
+	Dog	Tutu(Bobby);
+
+	Bobby = Bolinhas;
 
 	delete j;
 	delete i;
@@ -30,75 +36,23 @@ void	test2()
 {
 	std::cout << "\n==========| TEST 2 |==========\n\n";
 
-	std::cout << "Construction:\n";
-	AnimalFixed	*veterinary[]=
-	{
-		new Cat(),
-		new Cat(),
-		new Cat(),
-		new Dog(),
-		new Dog(),
-		new Dog()
-	};
-
-	std::cout << "\nDestruction:\n";
-	for (int i = 0; i < 6; i++)
-		delete veterinary[i];
-}
-
-void	test3()
-{
-	std::cout << "\n==========| TEST 3 |==========\n\n";
-
-	Cat	*Patareco = new Cat();
-
-	std::cout << "\nPatareco:\n";
-	Patareco->printCatIdeas(0, 3);
-
-	std::cout << std::endl;
-	Patareco->setCatIdea("Lasanha!!", 0);
-	Patareco->setCatIdea("Scratch my back!", 1);
-	Patareco->setCatIdea("Scratch my back!", 2);
-	Patareco->setCatIdea("Scratch my belly!", 3);
-	Cat	*copy_cat = new Cat(*Patareco);
-	//Cat	*copy_cat = new Cat();
-	//*copy_cat = *Patareco;
-	Patareco->setCatIdea("What a confortable box to sleep in...", 1);
-	copy_cat->setCatIdea("Fur ball!", 0);
-
-	std::cout << "\nPatareco: (" << Patareco->getCatBrain() << ")\n";
-	Patareco->printCatIdeas(0, 3);
-	std::cout << "\ncopy_cat: (" << copy_cat->getCatBrain() << ")\n";
-	copy_cat->printCatIdeas(0, 3);
-
-	std::cout << std::endl;
-
-	delete Patareco;
-	delete copy_cat;
-}
-
-void	test4()
-{
-	std::cout << "\n==========| TEST 4 |==========\n\n";
-
 	Animal	*Bigfoot = new Animal();
-	AnimalFixed	*ChupaCabra = new Cat();
-	//AnimalFixed	*LochNess = new AnimalFixed();
+	AAnimal	*Tareco = new Cat();
+	//AAnimal	*LochNess = new AAnimal();
 
 	std::cout << std::endl;
 	Bigfoot->makeSound();
-	ChupaCabra->makeSound();
+	std::cout << std::endl;
+	Tareco->makeSound();
 	std::cout << std::endl;
 
 	delete Bigfoot;
-	delete ChupaCabra;
+	delete Tareco;
 }
 
 int main()
 {
 	test1();
 	test2();
-	test3();
-	test4();
 	return 0;
 }

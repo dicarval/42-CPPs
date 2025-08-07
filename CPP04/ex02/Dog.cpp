@@ -14,14 +14,14 @@
 
 //CONSTRUCTORS & DESTRUCTOR
 
-Dog::Dog() : AnimalFixed()
+Dog::Dog() : AAnimal(), _processor(NULL)
 {
 	std::cout << "Default constructor of Dog called" << std::endl;
 	_type = "Dog";
 	_processor = new Brain();
 }
 
-Dog::Dog(const Dog& original) : AnimalFixed(original)
+Dog::Dog(const Dog& original) : AAnimal(original), _processor(NULL)
 {
 	std::cout << "Copy constructor of Dog called" << std::endl;
 	*this = original;
@@ -41,6 +41,8 @@ Dog&	Dog::operator=(const Dog& original)
 	if (this != &original)
 	{
 		_type = original._type;
+		if (_processor)
+			delete _processor;
 		_processor = new Brain(*original._processor);
 	}
 	return (*this);

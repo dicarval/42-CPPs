@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/07 14:33:43 by dicarval          #+#    #+#             */
+/*   Updated: 2025/08/07 14:36:10 by dicarval         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Character.hpp"
 #include "MateriaSource.hpp"
 #include "AMateria.hpp"
@@ -8,6 +20,7 @@ void	test1()
 {
 	std::cout << "\n==========| TEST 1 |==========\n\n";
 
+	//IMateriaSource* test = new IMateriaSource();
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
@@ -53,30 +66,35 @@ void	test2()
 	std::cout << "m3 (" << m3 << ")\n";
 	delete copy;
 
-	std::cout << "\nCharacters (using AMaterias from above) :\n\n";
 	Character* quim = new Character("Quim");
 	Character* barreiros = new Character("Barreiros");
-	Cure* cure = new Cure();
+	Character acordeao = *quim;
+	Character* bigode = &acordeao;
 
+	std::cout << "\nCharacters (using Materias from above) :\n\n";
+
+	Cure* cure = new Cure();
 	quim->equip(m2);
 	quim->equip(cure);
 	barreiros->equip(m3);
 
 	*barreiros = *quim;
 
-	std::cout << "\nBarreiros now has Quim's name and Quim's AMaterias but they use different \
-addresses:\n\n";
+	std::cout << "\nBarreiros now has Quim's name and Quim's Materias but they use" <<\
+	"different addresses:\n\n";
 
 	barreiros->use(0, *quim);
 	barreiros->use(1, *quim);
 
-	std::cout << "Quim (" << quim << ")\n";
+	std::cout << "\nQuim (" << quim << ")\n";
 	std::cout << "Barreiros (" << barreiros << ")\n";
+	std::cout << "Acordeao ("<< &acordeao << ")\n";
+	std::cout << "Bigode ("<< bigode << ")\n";
 
 	delete quim;
 	delete barreiros;
 
-	std::cout << "\nThis test wont have leaks even though we didn't delete m3\n" <<\
+	std::cout << "\nThis test won't have leaks even though we didn't delete m3\n" <<\
 		"This is because when using the \"=\" operator on Barreiros all Materias were deleted\n";
 }
 
@@ -97,17 +115,18 @@ void	test3()
 	vasco->equip(cure2);
 	vasco->equip(cure3);
 	vasco->unequip(1);
+	vasco->equip(cure3);
 	vasco->unequip(3);
+
+	std::cout << std::endl;
 
 	gama->use(0, *vasco);
 	gama->equip(ice2);
 	gama->equip(cure2);
 	gama->use(0, *vasco);
-	(void)gama;
 
 	delete vasco;
 	delete gama;
-	delete cure3;
 }
 
 int main()
