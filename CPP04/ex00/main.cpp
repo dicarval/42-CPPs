@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 13:14:53 by dicarval          #+#    #+#             */
-/*   Updated: 2025/07/17 18:06:58 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/08/07 08:41:42 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,31 @@ void	test2()
 {
 	std::cout << "\n==========| TEST 2 |==========\n\n";
 
-	Animal	Unknown;
+	const WrongAnimal* meta = new WrongAnimal();
+	const Animal* j = new Dog();
+	const WrongAnimal* i = new WrongCat();
+
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound();
+	j->makeSound();
+	meta->makeSound();
+
+	delete meta;
+	delete j;
+	delete i;
+}
+
+void	test3()
+{
+	std::cout << "\n==========| TEST 3 |==========\n\n";
+
+	WrongAnimal	Unknown;
 	Unknown.makeSound();
 	std::cout << std::endl;
 
-	Cat	Pistache;
-	Pistache.makeSound();
+	WrongCat	Faneco;
+	Faneco.makeSound();
 	std::cout << std::endl;
 
 	Dog	Bolinhas;
@@ -50,9 +69,9 @@ void	test2()
 	std::cout << std::endl;
 }
 
-void	test3()
+void	test4()
 {
-	std::cout << "\n==========| TEST 3 |==========\n\n";
+	std::cout << "\n==========| TEST 4 |==========\n\n";
 
 	std::cout << "Creating Normal Veterinary.\n";
 	Animal	*normal_veterinary[]=
@@ -93,5 +112,6 @@ int main()
 	test1();
 	test2();
 	test3();
+	test4();
 	return (0);
 }
