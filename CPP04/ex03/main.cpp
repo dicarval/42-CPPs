@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 14:33:43 by dicarval          #+#    #+#             */
-/*   Updated: 2025/08/13 11:34:55 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:03:26 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	test2()
 
 	delete src;
 	std::cout << "\nDeleted src and still can use copy because its a deep copy:\n";
-	AMateria	*m3 = copy->createMateria("ice");
+	AMateria*	m3 = copy->createMateria("ice");
 
 	std::cout << "\nEvery materia has diferent addresses:\n";
 	std::cout << "m1 (" << m1 << ")\n";

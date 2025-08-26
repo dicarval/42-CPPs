@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 16:35:53 by dicarval          #+#    #+#             */
-/*   Updated: 2025/08/26 18:03:09 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/08/26 18:03:53 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 //CONSTRUCTORS & DESTRUCTOR
-Form::Form() : _name("Default"), _signed(false), _gradeToSign(150) ,_gradeToExec(150)
+AForm::AForm() : _name("Default"), _signed(false), _gradeToSign(150) ,_gradeToExec(150)
 {}
 
-Form::Form(const std::string &name, const int &gradeToSign, const int &gradeToExec) : \
+AForm::AForm(const std::string &name, const int &gradeToSign, const int &gradeToExec) : \
 _name(name), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec), _signed(false)
 {
 	try
@@ -38,51 +38,51 @@ _name(name), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec), _signed(false
 	}
 }
 
-Form::Form(const Form &original)
+AForm::AForm(const AForm &original)
 : _name(original._name), _signed(false),\
  _gradeToSign(original._gradeToSign), _gradeToExec(original._gradeToExec)
 {}
 
-Form::~Form()
+AForm::~AForm()
 {}
 
 //OPERATORS
-Form&	Form::operator=(const Form &original)
+AForm&	AForm::operator=(const AForm &original)
 {
 	_signed = original._signed;
 	return (*this);
 }
 
-std::ostream&	operator<<(std::ostream &stream, const Form &Form)
+std::ostream&	operator<<(std::ostream &stream, const AForm &form)
 {
-	stream << Form.getName() << ", bureaucrat expected grade to sign " << Form.getGradeToSign() <<\
-	 "and expected grade to execute " << Form.getGradeToExec();
+	stream << form.getName() << ", bureaucrat expected grade to sign " << form.getGradeToSign() <<\
+	 "and expected grade to execute " << form.getGradeToExec();
 	return (stream);
 }
 
 //GETTERS
-std::string	Form::getName() const
+std::string	AForm::getName() const
 {
 	return(_name);
 }
 
-bool	Form::getSigned() const
+bool	AForm::getSigned() const
 {
 	return(_signed);
 }
 
-int	Form::getGradeToSign() const
+int	AForm::getGradeToSign() const
 {
 	return(_gradeToSign);
 }
 
-int	Form::getGradeToExec() const
+int	AForm::getGradeToExec() const
 {
 	return(_gradeToExec);
 }
 
 //MEMBER FUNCTIONS
-int	Form::beSigned(const Bureaucrat &bur)
+int	AForm::beSigned(const Bureaucrat &bur)
 {
 	if (getSigned() == true)
 		return (PREVIOUSLY_SIGNED);
@@ -96,9 +96,32 @@ int	Form::beSigned(const Bureaucrat &bur)
 		else
 			throw (101);
 	}
-	catch (int &e)
+	catch (const int &e)
 	{
 		GradeTooLowException();
 		return (NOT_SIGNED);
+	}
+}
+
+int	AForm::checkToExecute(const Bureaucrat &executor)
+{
+	try
+	{
+		if (getSigned() == false)
+			throw (202);
+		if (executor.getGrade() > getGradeToExec())
+			throw (303);
+		else
+			return (SUCCESS);
+	}
+	catch(const int &e)
+	{
+		if (e == 202)
+			return (std::cerr << "The " << _name << " form is not signed" <<\
+			 std::endl, NOT_SIGNED);
+		else
+			return (std::cerr << "The bureaucrat " <<\
+			 executor.getName() << "has not enough grade to execute "<<\
+			 _name << std::endl, NOT_EXECUTED);
 	}
 }

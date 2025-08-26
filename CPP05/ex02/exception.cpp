@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 13:04:27 by dicarval          #+#    #+#             */
-/*   Updated: 2025/08/26 15:02:56 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/08/26 15:02:14 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	Bureaucrat::GradeTooLowException()
 		 " is too Low." << std::endl;
 }
 
-void	Form::GradeTooHighException()
+void	AForm::GradeTooHighException()
 {
 	if (_gradeToSign < 1)
 		std::cerr << "Form " << _name << ": invalid grade, grade to sign " <<\
@@ -43,7 +43,7 @@ void	Form::GradeTooHighException()
 		 _gradeToExec << " is too High." << std::endl;
 }
 
-void	Form::GradeTooLowException()
+void	AForm::GradeTooLowException()
 {
 	if (_gradeToSign > 150)
 	std::cerr << "Form " << _name << ": invalid grade, grade to sign " <<\

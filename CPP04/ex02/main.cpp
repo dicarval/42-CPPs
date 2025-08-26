@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:48:37 by dicarval          #+#    #+#             */
-/*   Updated: 2025/08/07 15:01:32 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/08/25 17:53:36 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,10 @@ void	test2()
 
 	std::cout << std::endl;
 	Bigfoot->makeSound();
+	std::cout << (*Bigfoot).getType() << std::endl;
 	std::cout << std::endl;
 	Tareco->makeSound();
+	std::cout << (*Tareco).getType() << std::endl;
 	std::cout << std::endl;
 
 	delete Bigfoot;

@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 13:59:43 by dicarval          #+#    #+#             */
-/*   Updated: 2025/08/12 16:23:11 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/08/26 16:55:56 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ void	test1()
 	Bureaucrat tony("Tony", 149);
 	Bureaucrat van_damme("Van Damme", 174);
 
-	guy.IncrementGrade();
-	guy.IncrementGrade();
-	guy.IncrementGrade();
-	guy.IncrementGrade();
-	tony.DecrementGrade();
-	tony.DecrementGrade();
+	std::cout << "\n";
+
+	guy.incrementGrade();
+	guy.incrementGrade();
+	guy.incrementGrade();
+	guy.incrementGrade();
+	tony.decrementGrade();
+	tony.decrementGrade();
 }
 
 void	test2()

@@ -1,6 +1,6 @@
 
 NAME		= Bureaucrat
-SRC			= main.cpp Bureaucrat.cpp Form.cpp exception.cpp
+SRC			= main.cpp AForm.cpp Bureaucrat.cpp exception.cpp
 OBJ_DIR		= objects
 OBJS		= $(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))
 

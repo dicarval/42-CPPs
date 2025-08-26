@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 13:59:43 by dicarval          #+#    #+#             */
-/*   Updated: 2025/08/26 16:56:19 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/08/25 17:31:26 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ void	test1()
 	Bureaucrat tony("Tony", 149);
 	Bureaucrat van_damme("Van Damme", 174);
 
-	guy.incrementGrade();
-	guy.incrementGrade();
-	guy.incrementGrade();
-	guy.incrementGrade();
-	tony.decrementGrade();
-	tony.decrementGrade();
+	guy.IncrementGrade();
+	guy.IncrementGrade();
+	guy.IncrementGrade();
+	guy.IncrementGrade();
+	tony.DecrementGrade();
+	tony.DecrementGrade();
 }
 
 void	test2()
@@ -50,7 +50,7 @@ void	test3()
 	xico.signForm(build);
 	xico.signForm(build);
 	tony.signForm(demolition);
-	tony.incrementGrade();
+	tony.IncrementGrade();
 	tony.signForm(demolition);
 }
 

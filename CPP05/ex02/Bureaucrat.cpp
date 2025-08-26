@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:40:25 by dicarval          #+#    #+#             */
-/*   Updated: 2025/08/26 17:59:38 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/08/26 18:01:35 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,7 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &original)
 
 std::ostream&	operator<<(std::ostream &stream, const Bureaucrat &bur)
 {
-	stream << bur.getName() << ", bureaucrat grade " << bur.getGrade() << "."\
-	 << std::endl;
+	stream << bur.getName() << ", bureaucrat grade " << bur.getGrade() << "." << std::endl;
 	return (stream);
 }
 
@@ -71,11 +70,11 @@ int	Bureaucrat::getGrade() const
 }
 
 //MEMBER FUNCTIONS
-void	Bureaucrat::incrementGrade()
+void	Bureaucrat::IncrementGrade()
 {
 	try
 	{
-		if (_grade = 1)
+		if ((_grade - 1) < 1)
 			throw (505);
 		else
 		{
@@ -90,11 +89,11 @@ void	Bureaucrat::incrementGrade()
 	}
 }
 
-void	Bureaucrat::decrementGrade()
+void	Bureaucrat::DecrementGrade()
 {
 	try
 	{
-		if (_grade = 150)
+		if ((_grade + 1) > 150)
 			throw (101);
 		else
 		{
@@ -106,5 +105,22 @@ void	Bureaucrat::decrementGrade()
 	{
 		std::cerr << "Grade Decremented >> ";
 		GradeTooLowException();
+	}
+}
+
+void	Bureaucrat::signForm(AForm &Form)
+{
+	int sign_status;
+
+	sign_status = Form.beSigned(*this);
+	if (sign_status == SIGNED)
+		std::cout << _name << " signed " << Form.getName() <<"." << std::endl;
+	else
+	{
+		std::cout << _name << " couldn't sign " << Form.getName() << " because ";
+		if (sign_status == NOT_SIGNED)
+			std::cout << _name << " is not qualified enough to sign it." << std::endl;
+		else
+			std::cout << "the form is already signed." << std::endl;
 	}
 }
