@@ -1,6 +1,7 @@
 
 NAME		= Bureaucrat
-SRC			= main.cpp AForm.cpp Bureaucrat.cpp exception.cpp
+SRC			= main.cpp AForm.cpp Bureaucrat.cpp RobotomyRequestForm.cpp\
+			PresidentialPardonForm.cpp ShrubberyCreationForm.cpp exception.cpp
 OBJ_DIR		= objects
 OBJS		= $(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))
 
@@ -24,6 +25,7 @@ clean:
 
 fclean:		clean
 			@${RM} ${NAME}
+			@${RM} *_shrubbery
 			@echo "Executable removed"
 
 re: fclean all

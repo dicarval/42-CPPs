@@ -29,28 +29,46 @@ class Bureaucrat;
 class AForm
 {
 	protected:
-		std::string			_name;
-		int					_gradeToSign;
-		int					_gradeToExec;
+		const std::string	_name;
+		const std::string	_target;
+		const int			_gradeToSign;
+		const int			_gradeToExec;
 		bool				_signed;
 
 	public:
 		AForm();
-		AForm(const std::string &name, const int &gradeToSign, const int &gradeToExec);
+		AForm(const std::string &name, const std::string &target,\
+		const int &gradeToSign, const int &gradeToExec);
 		AForm(const AForm &original);
 		virtual ~AForm() = 0;
 
 		AForm&	operator=(const AForm &original);
 
-		void				GradeTooHighException();
-		void				GradeTooLowException();
-		int					beSigned(const Bureaucrat &bur);
-		int					checkToExecute(const Bureaucrat &executor);
-		virtual int			execute(const Bureaucrat &executor) = 0;
 		std::string			getName() const;
 		bool				getSigned() const;
 		int					getGradeToSign() const;
 		int					getGradeToExec() const;
+
+		void				beSigned(const Bureaucrat &bur);
+		void				checkToExecute(const Bureaucrat &executor) const;
+		virtual void		execute(const Bureaucrat &executor) const = 0;
+
+	class	GradeTooHighException: public std::exception
+	{
+		virtual const char* what() const throw();
+	};
+	class	GradeTooLowException: public std::exception
+	{
+		virtual const char* what() const throw();
+	};
+	class	AlreadySigned: public std::exception
+	{
+		virtual const char* what() const throw();
+	};
+	class	NotSigned: public std::exception
+	{
+		virtual const char* what() const throw();
+	};
 };
 
 #endif

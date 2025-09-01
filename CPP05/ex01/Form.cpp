@@ -6,41 +6,37 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 16:35:53 by dicarval          #+#    #+#             */
-/*   Updated: 2025/08/26 18:03:09 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/09/01 15:00:57 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
 //CONSTRUCTORS & DESTRUCTOR
-Form::Form() : _name("Default"), _signed(false), _gradeToSign(150) ,_gradeToExec(150)
+Form::Form() : _name("Default"), _gradeToSign(150) ,_gradeToExec(150), _signed(false)
 {}
 
-Form::Form(const std::string &name, const int &gradeToSign, const int &gradeToExec) : \
-_name(name), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec), _signed(false)
+Form::Form(const std::string &name, const int &gradeToSign, const int &gradeToExec)
+ : _name(name), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec), _signed(false)
 {
 	try
 	{
 		if (_gradeToSign > MIN || _gradeToExec > MIN)
-			throw (101);
+			throw GradeTooLowException();
 		else if (_gradeToSign < MAX || _gradeToExec < MAX)
-			throw (505);
-		else
-			std::cout << "Valid Grades from " << _name << ", starting instantiation!"\
-			 << std::endl;
+			throw GradeTooHighException();
+		std::cout << "Form " << _name << " has a valid Grades" << " >> "\
+		 << "starting instantiation!" << std::endl;
 	}
-	catch (int &e)
+	catch (std::exception &e)
 	{
-		if (e == 505)
-			GradeTooHighException();
-		else
-			GradeTooLowException();
+		std::cerr << "Constructor exception: " << e.what() << std::endl;
 	}
 }
 
 Form::Form(const Form &original)
-: _name(original._name), _signed(false),\
- _gradeToSign(original._gradeToSign), _gradeToExec(original._gradeToExec)
+ : _name(original._name), _gradeToSign(original._gradeToSign),\
+ _gradeToExec(original._gradeToExec), _signed(false)
 {}
 
 Form::~Form()
@@ -49,14 +45,15 @@ Form::~Form()
 //OPERATORS
 Form&	Form::operator=(const Form &original)
 {
-	_signed = original._signed;
+	if (this != &original)
+		_signed = original._signed;
 	return (*this);
 }
 
-std::ostream&	operator<<(std::ostream &stream, const Form &Form)
+std::ostream&	operator<<(std::ostream &stream, const Form &form)
 {
-	stream << Form.getName() << ", bureaucrat expected grade to sign " << Form.getGradeToSign() <<\
-	 "and expected grade to execute " << Form.getGradeToExec();
+	stream << form.getName() << ", bureaucrat expected grade to sign " << form.getGradeToSign() <<\
+	 "and expected grade to execute " << form.getGradeToExec();
 	return (stream);
 }
 
@@ -84,21 +81,21 @@ int	Form::getGradeToExec() const
 //MEMBER FUNCTIONS
 int	Form::beSigned(const Bureaucrat &bur)
 {
-	if (getSigned() == true)
-		return (PREVIOUSLY_SIGNED);
 	try
 	{
+		if (getSigned() == true)
+			return (PREVIOUSLY_SIGNED);
 		if (bur.getGrade() <= getGradeToSign())
 		{
 			_signed = true;
 			return (SIGNED);
 		}
 		else
-			throw (101);
+			throw GradeTooLowException();
 	}
-	catch (int &e)
+	catch (std::exception &e)
 	{
-		GradeTooLowException();
+		std::cerr << "beSigned exception: " << e.what() << std::endl;
 		return (NOT_SIGNED);
 	}
 }

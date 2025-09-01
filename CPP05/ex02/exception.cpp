@@ -6,49 +6,39 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 13:04:27 by dicarval          #+#    #+#             */
-/*   Updated: 2025/08/26 15:02:14 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/09/01 16:10:35 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
-void	Bureaucrat::GradeTooHighException()
+const char*	Bureaucrat::GradeTooHighException::what() const throw()
 {
-	if (_grade == 1)
-		std::cerr << _name << ": grade " << _grade <<\
-		 " is already the Highest." << std::endl;
-	else
-		std::cerr << "Bureaucrat " << _name << ": invalid grade, grade " << _grade <<\
-		 " is too High." << std::endl;
+	return ("the Bureaucrat grade is too high");
 }
 
-void	Bureaucrat::GradeTooLowException()
+const char*	Bureaucrat::GradeTooLowException::what() const throw()
 {
-	if (_grade == 150)
-		std::cerr << _name << ": grade " << _grade <<\
-		 " is already the Lowest." << std::endl;
-	else
-		std::cerr << "Bureaucrat " << _name << ": invalid grade, grade " << _grade <<\
-		 " is too Low." << std::endl;
+	return ("the Bureaucrat grade is too low");
 }
 
-void	AForm::GradeTooHighException()
+const char*	AForm::GradeTooHighException::what() const throw()
 {
-	if (_gradeToSign < 1)
-		std::cerr << "Form " << _name << ": invalid grade, grade to sign " <<\
-		 _gradeToSign << " is too High." << std::endl;
-	if (_gradeToExec < 1)
-		std::cerr << "Form " << _name << ": invalid grade, grade to execute " <<\
-		 _gradeToExec << " is too High." << std::endl;
+	return ("the Form grade is too high");
 }
 
-void	AForm::GradeTooLowException()
+const char*	AForm::GradeTooLowException::what() const throw()
 {
-	if (_gradeToSign > 150)
-	std::cerr << "Form " << _name << ": invalid grade, grade to sign " <<\
-	 _gradeToSign << " is too Low." << std::endl;
-	if (_gradeToExec > 150)
-		std::cerr << "Form " << _name << ": invalid grade, grade to execute " <<\
-		 _gradeToExec << " is too Low." << std::endl;
+	return ("the Form grade is too low");
+}
+
+const char*	AForm::AlreadySigned::what() const throw()
+{
+	return ("the Form is already signed");
+}
+
+const char*	AForm::NotSigned::what() const throw()
+{
+	return ("the Bureaucrat grade is too low");
 }

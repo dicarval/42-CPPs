@@ -6,57 +6,64 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 13:59:43 by dicarval          #+#    #+#             */
-/*   Updated: 2025/08/25 17:31:26 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/09/01 16:41:00 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-void	test1()
+void	ShrubberyCreationForm_test(Bureaucrat &good, Bureaucrat &bad)
 {
-	std::cout << "\n==========| TEST 1 |==========\n\n";
-	Bureaucrat guy("Guy", 4);
-	Bureaucrat dennis("Dennis", -5);
-	Bureaucrat tony("Tony", 149);
-	Bureaucrat van_damme("Van Damme", 174);
-
-	guy.IncrementGrade();
-	guy.IncrementGrade();
-	guy.IncrementGrade();
-	guy.IncrementGrade();
-	tony.DecrementGrade();
-	tony.DecrementGrade();
+	std::cout << "\n----- Shrubbery Creation Form -----\n\n";
+	ShrubberyCreationForm	form("Churrasqueira");
+	bad.signForm(form);
+	good.executeForm(form);
+	good.signForm(form);
+	bad.executeForm(form);
+	good.executeForm(form);
 }
 
-void	test2()
+void	RobotomyRequestForm_test(Bureaucrat &good, Bureaucrat &bad)
 {
-	std::cout << "\n==========| TEST 2 |==========\n\n";
-	Bureaucrat phill("Phill", 42);
+	std::cout << "\n----- Robotomy Request Form -----\n\n";
 
-	std::cout << "This is " << phill;
+	RobotomyRequestForm	form("Sheldon");
+	bad.signForm(form);
+	good.executeForm(form);
+	good.signForm(form);
+	bad.executeForm(form);
+	good.executeForm(form);
+	good.executeForm(form);
+	good.executeForm(form);
 }
 
-void	test3()
+void	PresidentialPardonForm_test(Bureaucrat &good, Bureaucrat &bad)
 {
-	std::cout << "\n==========| TEST 3 |==========\n\n";
-	Bureaucrat	xico("Xico", 4);
-	Bureaucrat	tony("Tony", 56);
-	Form		build("Building Autorization", 7, 2);
-	Form		demolition("Demolition Autorization", 55, 55);
-
-	std::cout << "\n";
-
-	xico.signForm(build);
-	xico.signForm(build);
-	tony.signForm(demolition);
-	tony.IncrementGrade();
-	tony.signForm(demolition);
+	std::cout << "\n----- Presidential Pardon Form -----\n\n";
+	PresidentialPardonForm	form("Socrates");
+	bad.signForm(form);
+	good.executeForm(form);
+	good.signForm(form);
+	bad.executeForm(form);
+	good.executeForm(form);
 }
 
-int	main()
+int main()
 {
-	test1();
-	test2();
-	test3();
+		Bureaucrat Alberto("Alberto", 1);
+		Bureaucrat Ulisses("Ulisses", 150);
+		std::cout << "\n\n----- Initial values -----\n\n";
+		std::cout << Alberto;
+		std::cout << Ulisses;
+
+		Alberto.incrementGrade();
+		Ulisses.decrementGrade();
+
+		ShrubberyCreationForm_test(Alberto, Ulisses);
+		RobotomyRequestForm_test(Alberto, Ulisses);
+		PresidentialPardonForm_test(Alberto, Ulisses);
 }

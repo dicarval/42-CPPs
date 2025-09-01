@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShruberryCreationForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/26 10:40:13 by dicarval          #+#    #+#             */
-/*   Updated: 2025/08/26 15:29:46 by dicarval         ###   ########.fr       */
+/*   Created: 2025/08/29 16:19:55 by dicarval          #+#    #+#             */
+/*   Updated: 2025/09/01 16:15:28 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBERRYCREATIONFORM_HPP
-#define SHRUBERRYCREATIONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
-#include <fstream>
+#include <cstdlib>
 
-class ShruberryCreationForm : public AForm
+class RobotomyRequestForm : public AForm
 {
-	private:
-		const std::string	_fileName;
-
 	public:
-		ShruberryCreationForm(std::string target);
-		~ShruberryCreationForm();
+		RobotomyRequestForm();
+		RobotomyRequestForm(std::string target);
+		RobotomyRequestForm(const RobotomyRequestForm &original);
+		~RobotomyRequestForm();
 
-		int	execute(const Bureaucrat &executor);
+		RobotomyRequestForm&	operator=(const RobotomyRequestForm &original);
+
+		void	execute(const Bureaucrat &executor) const;
 };
+
 
 #endif

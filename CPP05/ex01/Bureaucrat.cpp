@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:40:25 by dicarval          #+#    #+#             */
-/*   Updated: 2025/08/26 17:59:04 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/09/01 15:01:37 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,16 @@ Bureaucrat::Bureaucrat(const std::string &name, const int &grade) : _name(name),
 	try
 	{
 		if (_grade > 150)
-			throw (101);
-		else if (_grade < 1)
-			throw (505);
-		else
-			std::cout << "Valid Grade from " << _name << " >> " << _grade <<\
-			 ", starting instantiation!" << std::endl;
+			throw GradeTooLowException();
+		if (_grade < 1)
+			throw GradeTooHighException();
+		std::cout << "Bureaucrat " << _name << " has a valid Grade" << " >> "\
+		 << _grade << ", starting instantiation!" << std::endl;
 	}
-	catch (int &e)
+	catch (std::exception &e)
 	{
-		if (e == 505)
-			GradeTooHighException();
-		else
-			GradeTooLowException();
+		std::cerr << "Constructor exception (" << _name << "): "\
+		 << e.what() << std::endl;
 	}
 }
 
@@ -48,7 +45,8 @@ Bureaucrat::~Bureaucrat()
 //OPERATORS
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &original)
 {
-	_grade = original._grade;
+	if (this != &original)
+		_grade = original._grade;
 	return (*this);
 }
 
@@ -75,18 +73,15 @@ void	Bureaucrat::incrementGrade()
 {
 	try
 	{
-		if (_grade = 1)
-			throw (505);
-		else
-		{
-			_grade--;
-			std::cout << "Grade Incremented >> " << *this;
-		}
+		if (_grade == 1)
+			throw GradeTooHighException();
+		_grade--;
+		std::cout << "Grade Incremented >> " << *this;
 	}
-	catch (int &e)
+	catch (std::exception &e)
 	{
-		std::cerr << "Grade Incremented >> ";
-		GradeTooHighException();
+		std::cerr << "Grade incrementing exception (" << _name << "): "\
+		 << e.what() << std::endl;
 	}
 }
 
@@ -94,18 +89,15 @@ void	Bureaucrat::decrementGrade()
 {
 	try
 	{
-		if (_grade = 150)
-			throw (101);
-		else
-		{
-			_grade++;
-			std::cout << "Grade Decremented >> " << *this;
-		}
+		if (_grade == 150)
+			throw GradeTooLowException();
+		_grade++;
+		std::cout << "Grade Decremented >> " << *this;
 	}
-	catch (int &e)
+	catch (std::exception &e)
 	{
-		std::cerr << "Grade Decremented >> ";
-		GradeTooLowException();
+		std::cerr << "Grade decrementing exception (" << _name << "): "\
+		 << e.what() << std::endl;
 	}
 }
 
@@ -122,6 +114,6 @@ void	Bureaucrat::signForm(Form &form)
 		if (sign_status == NOT_SIGNED)
 			std::cout << _name << " is not qualified enough to sign it." << std::endl;
 		else
-			std::cout << " the form is already signed." << std::endl;
+			std::cout << "the form is already signed." << std::endl;
 	}
 }

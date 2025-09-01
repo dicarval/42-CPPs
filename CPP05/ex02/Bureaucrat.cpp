@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:40:25 by dicarval          #+#    #+#             */
-/*   Updated: 2025/08/26 18:01:35 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/09/01 16:23:44 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ Bureaucrat::~Bureaucrat()
 //OPERATORS
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &original)
 {
-	_grade = original._grade;
+	if (this != &original)
+		_grade = original._grade;
 	return (*this);
 }
 
@@ -70,57 +71,64 @@ int	Bureaucrat::getGrade() const
 }
 
 //MEMBER FUNCTIONS
-void	Bureaucrat::IncrementGrade()
+void	Bureaucrat::incrementGrade()
 {
 	try
 	{
-		if ((_grade - 1) < 1)
-			throw (505);
-		else
-		{
-			_grade--;
-			std::cout << "Grade Incremented >> " << *this;
-		}
+		if (_grade == 1)
+			throw GradeTooHighException();
+		_grade--;
+		std::cout << "Grade Incremented >> " << *this;
 	}
-	catch (int &e)
+	catch (std::exception &e)
 	{
-		std::cerr << "Grade Incremented >> ";
-		GradeTooHighException();
+		std::cerr << "Grade incrementing exception (" << _name << "): "\
+		 << e.what() << std::endl;
 	}
 }
 
-void	Bureaucrat::DecrementGrade()
+void	Bureaucrat::decrementGrade()
+{
+try
+	{
+		if (_grade == 150)
+			throw GradeTooLowException();
+		_grade++;
+		std::cout << "Grade Decremented >> " << *this;
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << "Grade decrementing exception (" << _name << "): "\
+		 << e.what() << std::endl;
+	}
+}
+
+void	Bureaucrat::signForm(AForm &form)
 {
 	try
 	{
-		if ((_grade + 1) > 150)
-			throw (101);
-		else
-		{
-			_grade++;
-			std::cout << "Grade Decremented >> " << *this;
-		}
+		form.beSigned(*this);
+		std::cout << _name << " signed " << form.getName() << std::endl;
 	}
-	catch (int &e)
+	catch(std::exception &e)
 	{
-		std::cerr << "Grade Decremented >> ";
-		GradeTooLowException();
+		std::cout <<"Exception: the bureaucrat " << _name << " couldn't sign " <<\
+		 form.getName() << " because " << e.what() << std::endl;
 	}
 }
 
-void	Bureaucrat::signForm(AForm &Form)
+void	Bureaucrat::executeForm(AForm const &form)
 {
-	int sign_status;
-
-	sign_status = Form.beSigned(*this);
-	if (sign_status == SIGNED)
-		std::cout << _name << " signed " << Form.getName() <<"." << std::endl;
-	else
+	try
 	{
-		std::cout << _name << " couldn't sign " << Form.getName() << " because ";
-		if (sign_status == NOT_SIGNED)
-			std::cout << _name << " is not qualified enough to sign it." << std::endl;
-		else
-			std::cout << "the form is already signed." << std::endl;
+		form.checkToExecute(*this);
+		form.execute(*this);
+		std::cout << "The bureaucrat " << _name << " has executed the form "\
+		 << form.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << "Exception: the bureaucrat " << _name << " has not executed the form "\
+		<< form.getName() << " because " << e.what() << std::endl;
 	}
 }

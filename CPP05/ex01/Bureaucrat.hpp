@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:03:41 by dicarval          #+#    #+#             */
-/*   Updated: 2025/08/26 17:04:45 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/09/01 14:15:37 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,21 @@ class Bureaucrat
 
 		Bureaucrat& operator=(const Bureaucrat &original);
 
-		void			GradeTooHighException();
-		void			GradeTooLowException();
+		std::string		getName() const;
+		int				getGrade() const;
+
 		void			incrementGrade();
 		void			decrementGrade();
 		void			signForm(Form &form);
-		std::string		getName() const;
-		int				getGrade() const;
+
+	class	GradeTooHighException: public std::exception
+	{
+		virtual const char* what() const throw();
+	};
+	class	GradeTooLowException: public std::exception
+	{
+		virtual const char* what() const throw();
+	};
 };
 
 std::ostream& operator<<(std::ostream& stream, const Bureaucrat& bur);

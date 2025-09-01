@@ -6,41 +6,37 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 16:35:53 by dicarval          #+#    #+#             */
-/*   Updated: 2025/08/26 18:03:53 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/09/01 16:34:03 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
 //CONSTRUCTORS & DESTRUCTOR
-AForm::AForm() : _name("Default"), _signed(false), _gradeToSign(150) ,_gradeToExec(150)
+AForm::AForm() : _name("Default"), _gradeToSign(150) ,_gradeToExec(150), _signed(false)
 {}
 
-AForm::AForm(const std::string &name, const int &gradeToSign, const int &gradeToExec) : \
-_name(name), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec), _signed(false)
+AForm::AForm(const std::string &name, const std::string &target, const int &gradeToSign, const int &gradeToExec)
+ : _name(name), _target(target), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec), _signed(false)
 {
 	try
 	{
 		if (_gradeToSign > MIN || _gradeToExec > MIN)
-			throw (101);
+			throw GradeTooLowException();
 		else if (_gradeToSign < MAX || _gradeToExec < MAX)
-			throw (505);
-		else
-			std::cout << "Valid Grades from " << _name << ", starting instantiation!"\
-			 << std::endl;
+			throw GradeTooHighException();
+		std::cout << "Form " << _name << " has valid Grades" << " >> "\
+		 << "starting instantiation!" << std::endl;
 	}
-	catch (int &e)
+	catch (std::exception &e)
 	{
-		if (e == 505)
-			GradeTooHighException();
-		else
-			GradeTooLowException();
+		std::cerr << "Constructor exception: " << e.what() << std::endl;
 	}
 }
 
 AForm::AForm(const AForm &original)
-: _name(original._name), _signed(false),\
- _gradeToSign(original._gradeToSign), _gradeToExec(original._gradeToExec)
+ : _name(original._name), _target(original._target), _gradeToSign(original._gradeToSign),\
+ _gradeToExec(original._gradeToExec), _signed(false)
 {}
 
 AForm::~AForm()
@@ -49,14 +45,18 @@ AForm::~AForm()
 //OPERATORS
 AForm&	AForm::operator=(const AForm &original)
 {
-	_signed = original._signed;
+	if (this != &original)
+		_signed = original._signed;
 	return (*this);
 }
 
 std::ostream&	operator<<(std::ostream &stream, const AForm &form)
 {
-	stream << form.getName() << ", bureaucrat expected grade to sign " << form.getGradeToSign() <<\
-	 "and expected grade to execute " << form.getGradeToExec();
+	stream << form.getName() << "Form requires a grade to sign of " << form.getGradeToSign() <<\
+	 " and requires a grade to execute of " << form.getGradeToExec() << " and it has ";
+	if (form.getSigned() == false)
+		stream << "not ";
+	stream << "been signed" << std::endl;
 	return (stream);
 }
 
@@ -82,46 +82,20 @@ int	AForm::getGradeToExec() const
 }
 
 //MEMBER FUNCTIONS
-int	AForm::beSigned(const Bureaucrat &bur)
+void	AForm::beSigned(const Bureaucrat &bur)
 {
 	if (getSigned() == true)
-		return (PREVIOUSLY_SIGNED);
-	try
-	{
-		if (bur.getGrade() <= getGradeToSign())
-		{
-			_signed = true;
-			return (SIGNED);
-		}
-		else
-			throw (101);
-	}
-	catch (const int &e)
-	{
-		GradeTooLowException();
-		return (NOT_SIGNED);
-	}
+		throw AlreadySigned();
+	if (bur.getGrade() > getGradeToSign())
+		throw Bureaucrat::GradeTooLowException();
+	_signed = true;
 }
 
-int	AForm::checkToExecute(const Bureaucrat &executor)
+void	AForm::checkToExecute(const Bureaucrat &executor) const
 {
-	try
-	{
-		if (getSigned() == false)
-			throw (202);
-		if (executor.getGrade() > getGradeToExec())
-			throw (303);
-		else
-			return (SUCCESS);
-	}
-	catch(const int &e)
-	{
-		if (e == 202)
-			return (std::cerr << "The " << _name << " form is not signed" <<\
-			 std::endl, NOT_SIGNED);
-		else
-			return (std::cerr << "The bureaucrat " <<\
-			 executor.getName() << "has not enough grade to execute "<<\
-			 _name << std::endl, NOT_EXECUTED);
-	}
+
+	if (getSigned() == false)
+		throw NotSigned();
+	if (executor.getGrade() > getGradeToExec())
+		throw Bureaucrat::GradeTooLowException();
 }
