@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 18:19:02 by dicarval          #+#    #+#             */
-/*   Updated: 2025/09/01 19:13:13 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/09/02 16:44:55 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ AForm*	Intern::makeForm(const std::string &formName, const std::string &formTarg
 			if (formName == formsName[i])
 			{
 				AForm *form = createForm(formTarget, i);
-				std::cout << "Intern creates " << formName << std::endl;
+				std::cout << "Intern creates " << formName << " form" << std::endl;
 				return (form);
 			}
 		}

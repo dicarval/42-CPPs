@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 13:59:43 by dicarval          #+#    #+#             */
-/*   Updated: 2025/09/01 16:41:00 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/09/02 16:59:15 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	ShrubberyCreationForm_test(Bureaucrat &good, Bureaucrat &bad)
 	bad.signForm(form);
 	good.executeForm(form);
 	good.signForm(form);
+	good.signForm(form);
 	bad.executeForm(form);
 	good.executeForm(form);
 }
@@ -34,6 +35,7 @@ void	RobotomyRequestForm_test(Bureaucrat &good, Bureaucrat &bad)
 	RobotomyRequestForm	form("Sheldon");
 	bad.signForm(form);
 	good.executeForm(form);
+	good.signForm(form);
 	good.signForm(form);
 	bad.executeForm(form);
 	good.executeForm(form);
@@ -48,6 +50,7 @@ void	PresidentialPardonForm_test(Bureaucrat &good, Bureaucrat &bad)
 	bad.signForm(form);
 	good.executeForm(form);
 	good.signForm(form);
+	good.signForm(form);
 	bad.executeForm(form);
 	good.executeForm(form);
 }
@@ -56,7 +59,7 @@ int main()
 {
 		Bureaucrat Alberto("Alberto", 1);
 		Bureaucrat Ulisses("Ulisses", 150);
-		std::cout << "\n\n----- Initial values -----\n\n";
+		std::cout << "\n----- Initial values -----\n\n";
 		std::cout << Alberto;
 		std::cout << Ulisses;
 

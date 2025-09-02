@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 13:04:27 by dicarval          #+#    #+#             */
-/*   Updated: 2025/09/01 16:10:35 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/09/02 16:58:36 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ const char*	AForm::AlreadySigned::what() const throw()
 
 const char*	AForm::NotSigned::what() const throw()
 {
-	return ("the Bureaucrat grade is too low");
+	return ("the Form is not signed");
 }

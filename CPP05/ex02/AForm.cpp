@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 16:35:53 by dicarval          #+#    #+#             */
-/*   Updated: 2025/09/01 16:34:03 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/09/02 16:51:04 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ void	AForm::beSigned(const Bureaucrat &bur)
 
 void	AForm::checkToExecute(const Bureaucrat &executor) const
 {
-
 	if (getSigned() == false)
 		throw NotSigned();
 	if (executor.getGrade() > getGradeToExec())
