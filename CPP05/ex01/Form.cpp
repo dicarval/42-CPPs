@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 16:35:53 by dicarval          #+#    #+#             */
-/*   Updated: 2025/09/01 15:00:57 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/09/03 13:46:58 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Form::Form(const std::string &name, const int &gradeToSign, const int &gradeToEx
 			throw GradeTooLowException();
 		else if (_gradeToSign < MAX || _gradeToExec < MAX)
 			throw GradeTooHighException();
-		std::cout << "Form " << _name << " has a valid Grades" << " >> "\
+		std::cout << "Form " << _name << " has valid Grades" << " >> "\
 		 << "starting instantiation!" << std::endl;
 	}
 	catch (std::exception &e)

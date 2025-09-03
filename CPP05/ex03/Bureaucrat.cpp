@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:40:25 by dicarval          #+#    #+#             */
-/*   Updated: 2025/09/03 10:50:13 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/09/03 13:41:58 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,17 @@ Bureaucrat::Bureaucrat(const std::string &name, const int &grade) : _name(name),
 {
 	try
 	{
-		if (_grade > 150)
-			throw (101);
-		else if (_grade < 1)
-			throw (505);
-		else
-			std::cout << "Valid Grade from " << _name << " >> " << _grade <<\
-			 ", starting instantiation!" << std::endl;
+		if (_grade > MIN)
+			throw GradeTooLowException();
+		if (_grade < MAX)
+			throw GradeTooHighException();
+		std::cout << "Bureaucrat " << _name << " has a valid Grade" << " >> "\
+		 << _grade << ", starting instantiation!" << std::endl;
 	}
-	catch (int &e)
+	catch (std::exception &e)
 	{
-		if (e == 505)
-			GradeTooHighException();
-		else
-			GradeTooLowException();
+		std::cerr << "Constructor exception (" << _name << "): "\
+		 << e.what() << std::endl;
 	}
 }
 
@@ -75,7 +72,7 @@ void	Bureaucrat::incrementGrade()
 {
 	try
 	{
-		if (_grade == 1)
+		if (_grade == MAX)
 			throw GradeTooHighException();
 		_grade--;
 		std::cout << "Grade Incremented >> " << *this;
@@ -91,7 +88,7 @@ void	Bureaucrat::decrementGrade()
 {
 try
 	{
-		if (_grade == 150)
+		if (_grade == MIN)
 			throw GradeTooLowException();
 		_grade++;
 		std::cout << "Grade Decremented >> " << *this;

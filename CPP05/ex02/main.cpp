@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 13:59:43 by dicarval          #+#    #+#             */
-/*   Updated: 2025/09/02 16:59:15 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/09/03 14:10:47 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int main()
 {
 		Bureaucrat Alberto("Alberto", 1);
 		Bureaucrat Ulisses("Ulisses", 150);
+		//AForm RandomForm;
 		std::cout << "\n----- Initial values -----\n\n";
 		std::cout << Alberto;
 		std::cout << Ulisses;

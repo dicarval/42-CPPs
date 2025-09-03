@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 13:59:43 by dicarval          #+#    #+#             */
-/*   Updated: 2025/09/03 11:54:20 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/09/03 14:05:39 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,27 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-void	InternTest(Bureaucrat &good, Bureaucrat &bad)
+AForm*	Intern_exception(AForm* form, Bureaucrat &bur,\
+ const std::string formName, const std::string target)
+{
+	Intern someRandomIntern;
+
+	try
+	{
+		form = someRandomIntern.makeForm(formName, target);
+		bur.executeForm(*form);
+		bur.signForm(*form);
+		bur.executeForm(*form);
+		return (form);
+	}
+	catch(std::exception &e)
+	{
+		std::cerr << "Exception: the intern realized that " << e.what()  << std::endl;
+	}
+	return (NULL);
+}
+
+void	Intern_test(Bureaucrat &good, Bureaucrat &bad)
 {
 	Intern someRandomIntern;
 	std::cout << "\n----- Intern Test -----\n\n";
@@ -25,39 +45,9 @@ void	InternTest(Bureaucrat &good, Bureaucrat &bad)
 	AForm* bruh = NULL;
 	AForm* rrf = NULL;
 
-	try
-	{
-		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-		good.executeForm(*rrf);
-		good.signForm(*rrf);
-		good.executeForm(*rrf);
-	}
-	catch(std::exception &e)
-	{
-		std::cerr << "Exception: the intern realized that " << e.what()  << std::endl;
-	}
-
-	try
-	{
-		blah = someRandomIntern.makeForm ("blah", "the Universe");
-		good.signForm(*blah);
-		good.executeForm(*blah);
-	}
-	catch(std::exception &e)
-	{
-		std::cerr << "Exception: the intern realized that " << e.what()  << std::endl;
-	}
-
-	try
-	{
-		bruh = someRandomIntern.makeForm ("Bruh", "the Moon");
-		bad.signForm(*bruh);
-		bad.executeForm(*bruh);
-	}
-	catch(std::exception &e)
-	{
-		std::cerr << "Exception: the intern realized that " << e.what()  << std::endl;
-	}
+	rrf = Intern_exception(rrf, good, "robotomy request", "Bender");
+	blah = Intern_exception (blah, good, "blah", "the Universe");
+	bruh = Intern_exception (bruh, bad, "Bruh", "the Universe");
 
 	if (rrf)
 		delete rrf;
@@ -116,7 +106,7 @@ int main()
 	Alberto.incrementGrade();
 	Ulisses.decrementGrade();
 
-	InternTest(Alberto, Ulisses);
+	Intern_test(Alberto, Ulisses);
 	ShrubberyCreationForm_test(Alberto, Ulisses);
 	RobotomyRequestForm_test(Alberto, Ulisses);
 	PresidentialPardonForm_test(Alberto, Ulisses);

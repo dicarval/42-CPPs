@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 13:04:27 by dicarval          #+#    #+#             */
-/*   Updated: 2025/09/03 11:43:32 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/09/03 13:42:15 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,5 @@ const char*	AForm::NotSigned::what() const throw()
 
 const char*	Intern::NameNotExist::what() const throw()
 {
-	return ("the form doesn't exist");
+	return ("the Form doesn't exist");
 }

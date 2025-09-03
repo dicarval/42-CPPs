@@ -16,12 +16,6 @@
 #define MAX 1
 #define MIN 150
 
-#define SUCCESS 0
-#define SIGNED 2
-#define PREVIOUSLY_SIGNED 3
-#define NOT_SIGNED 4
-#define NOT_EXECUTED 5
-
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;

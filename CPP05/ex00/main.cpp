@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 13:59:43 by dicarval          #+#    #+#             */
-/*   Updated: 2025/08/26 16:55:56 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/09/03 13:43:56 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	test1()
 	Bureaucrat guy("Guy", 4);
 	Bureaucrat dennis("Dennis", -5);
 	Bureaucrat tony("Tony", 149);
-	Bureaucrat van_damme("Van Damme", 174);
+	Bureaucrat vanDamme("Van Damme", 174);
 
 	std::cout << "\n";
 
