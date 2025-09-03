@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:03:41 by dicarval          #+#    #+#             */
-/*   Updated: 2025/09/03 10:50:19 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/09/03 17:18:54 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class AForm;
 class Bureaucrat
 {
 	private:
-		std::string		_name;
-		int				_grade;
+		const std::string	_name;
+		int					_grade;
 
 	public:
 		Bureaucrat();

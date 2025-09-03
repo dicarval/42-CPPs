@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:40:25 by dicarval          #+#    #+#             */
-/*   Updated: 2025/09/01 14:44:30 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/09/03 17:19:22 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ Bureaucrat::Bureaucrat(const std::string &name, const int &grade) : _name(name),
 {
 	try
 	{
-		if (_grade > 150)
+		if (_grade > MIN)
 			throw GradeTooLowException();
-		if (_grade < 1)
+		if (_grade < MAX)
 			throw GradeTooHighException();
 		std::cout << "Bureaucrat " << _name << " has a valid Grade" << " >> "\
 		 << _grade << ", starting instantiation!" << std::endl;
@@ -73,7 +73,7 @@ void	Bureaucrat::incrementGrade()
 {
 	try
 	{
-		if (_grade == 1)
+		if (_grade == MAX)
 			throw GradeTooHighException();
 		_grade--;
 		std::cout << "Grade Incremented >> " << *this;
@@ -89,7 +89,7 @@ void	Bureaucrat::decrementGrade()
 {
 	try
 	{
-		if (_grade == 150)
+		if (_grade == MIN)
 			throw GradeTooLowException();
 		_grade++;
 		std::cout << "Grade Decremented >> " << *this;
