@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:03:41 by dicarval          #+#    #+#             */
-/*   Updated: 2025/09/01 15:25:09 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/09/03 10:50:19 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class Bureaucrat
 
 		void			incrementGrade();
 		void			decrementGrade();
-		void			signForm(AForm &Form);
+		void			signForm(AForm &form);
 		void			executeForm(AForm const &form);
 
 	class	GradeTooHighException: public std::exception

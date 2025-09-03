@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 16:19:45 by dicarval          #+#    #+#             */
-/*   Updated: 2025/09/01 16:15:22 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/09/03 11:17:30 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void	RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
 	std::cout << "* BZZZZZZZZZZZZZZZZZ * - Drilling noises" << std::endl;
 	if (std::rand() % 2)
-		std::cout << _target << " has been robotomized successfully by " <<\
-		 executor.getName() << "!" << std::endl;
+		std::cout << "* " << _target << " has been robotomized successfully by " <<\
+		 executor.getName() << "! *" << std::endl;
 	else
-		std::cout << "Robotomy failed on " << _target << "!" << std::endl;
+		std::cout << "* Robotomy failed on " << _target << "!*" << std::endl;
 }
