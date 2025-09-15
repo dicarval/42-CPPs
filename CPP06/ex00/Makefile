@@ -23,7 +23,6 @@ clean:
 
 fclean:		clean
 			@${RM} ${NAME}
-			@${RM} *_shrubbery
 			@echo "Executable removed"
 
 re: fclean all
