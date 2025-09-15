@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 14:44:54 by dicarval          #+#    #+#             */
-/*   Updated: 2025/09/10 18:08:51 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/09/15 15:38:17 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 size_t	longLen(long nb)
 {
 	size_t length = 0;
+
 	if (nb == 0)
 		length = 1;
 	else
@@ -33,39 +34,58 @@ size_t	longLen(long nb)
 	return length;
 }
 
+bool	isSpecial(const std::string &input)
+{
+	if (input == "-inff" || input == "-inf" || input == "nanf" \
+	|| input == "+inff" || input == "+inf" || input == "nan")
+		return true;
+	return false;
+}
+
+
 bool	isDouble(const std::string &input)
 {
 	std::istringstream iss(input);
-	double f;
+	double d;
 	char c;
-	if (!(iss >> f))
+
+	if (!(iss >> d) || iss >> c)
 		return false;
-	if (iss >> c)
+	else if (d > std::numeric_limits<double>::max() || d < std::numeric_limits<double>::min())
 		return false;
 	return true;
 }
 
 bool	isFloat(const std::string &input)
 {
-	std::istringstream iss(input);
+	std::string temp = input;
 	float f;
 	char c;
-	if (!(iss >> f))
-		return false;
-	if (iss >> c)
-		return false;
-	return true;
+
+	if (!temp.empty() && temp[temp.size() - 1] == 'f')
+	{
+		temp.erase(temp.size() - 1);
+		std::istringstream iss(temp);
+		if (!(iss >> f) || iss >> c)
+			return false;
+		else if (f > std::numeric_limits<float>::max() || f < std::numeric_limits<float>::min())
+			return false;
+		return true;
+	}
+	return false;
 }
 
 bool	isInt(const std::string &input)
 {
 	long nb;
+
 	if (std::strlen(input.c_str()) > 19)
-		throw std::invalid_argument("The integer limits were crossed");
-	else if (sscanf(input.c_str(), "%ld", &nb) < 0  || \
-		std::strlen(input.c_str()) != longLen(nb))
+		throw std::invalid_argument("Error: the integer limits were crossed");
+	else if (sscanf(input.c_str(), "%ld", &nb) < 0)
+		throw std::invalid_argument("Error: sscanf error");
+	else if (std::strlen(input.c_str()) != longLen(nb))
 		return false;
-	else if (nb > INT_MAX || nb < INT_MIN)
-		throw std::invalid_argument("The integer limits were crossed");
+	else if (nb > std::numeric_limits<int>::max() || nb < std::numeric_limits<int>::min())
+		throw std::invalid_argument("Error: the integer limits were crossed");
 	return true;
 }

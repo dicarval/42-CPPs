@@ -6,13 +6,12 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 18:39:40 by dicarval          #+#    #+#             */
-/*   Updated: 2025/09/10 18:09:05 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/09/15 15:43:43 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-#include "displaySomething.cpp"
-#include "isSomething.cpp"
+#include "include.hpp"
 
 //CONSTRUCTORS & DESTRUCTOR
 ScalarConverter::ScalarConverter()
@@ -37,17 +36,19 @@ void	ScalarConverter::convert(const std::string &input)
 	{
 		if (input.length() == 1 && !isdigit(input[0]))
 			charDisplay(input);
-		else if (isInt(input))
-			 intDisplay(input);
-		else if (isFloat(input))
-			floatDisplay(input);
-		else if (isDouble(input))
-			std::cout << "OK";
-		/*	doubleDisplay(input);
-		else if (isSpecial(input))
-			specialDisplay(input);
 		else
-			invalidDisplay(); */
+		{
+			if (isInt(input))
+				intDisplay(input);
+			else if (isFloat(input))
+				floatDisplay(input);
+			else if (isDouble(input))
+				doubleDisplay(input);
+			else if (isSpecial(input))
+				specialDisplay(input);
+			else
+				invalidDisplay();
+		}
 	}
 	catch (std::exception &e)
 	{

@@ -1,5 +1,5 @@
-NAME		= ScalarTypes
-SRC			= main.cpp ScalarConverter.cpp displaySomething.cpp isSomething.cpp
+NAME		=  Serialization
+SRC			= main.cpp Serializer.cpp
 OBJ_DIR		= objects
 OBJS		= $(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))
 
@@ -8,7 +8,7 @@ CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 RM			= @rm -rf
 
 all:		${NAME}
-			@echo "Compiling done"
+			@echo Compiling done
 
 ${NAME}:	$(OBJS)
 			@$(CC) $(CPPFLAGS) $^ -o $@
@@ -19,11 +19,11 @@ $(OBJ_DIR)/%.o: %.cpp
 
 clean:
 			@${RM} $(OBJ_DIR)
-			@echo "Objects removed"
+			@echo Objects removed
 
 fclean:		clean
 			@${RM} ${NAME}
-			@echo "Executable removed"
+			@echo Executable removed
 
 re: fclean all
 

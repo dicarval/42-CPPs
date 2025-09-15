@@ -27,9 +27,10 @@ i=2
 while [ $i -le $# ]; do
   echo -n " " >> Makefile && echo "${!i}.cpp" >> Makefile
   touch "${!i}.cpp" "${!i}.hpp"
+  let i++
 done
 
-echo "" "OBJ_DIR		= objects
+echo "" >> Makefile && echo "OBJ_DIR		= objects
 OBJS		= \$(addprefix \$(OBJ_DIR)/, \$(SRC:%.cpp=%.o))
 
 CC			= c++
