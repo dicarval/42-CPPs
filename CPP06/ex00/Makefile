@@ -1,4 +1,4 @@
-NAME		= ScalarTypes
+NAME		= convert
 SRC			= main.cpp ScalarConverter.cpp displaySomething.cpp isSomething.cpp
 OBJ_DIR		= objects
 OBJS		= $(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))

@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 14:44:54 by dicarval          #+#    #+#             */
-/*   Updated: 2025/09/15 15:38:17 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/09/16 18:33:34 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ bool	isSpecial(const std::string &input)
 	return false;
 }
 
-
 bool	isDouble(const std::string &input)
 {
 	std::istringstream iss(input);
@@ -51,7 +50,7 @@ bool	isDouble(const std::string &input)
 
 	if (!(iss >> d) || iss >> c)
 		return false;
-	else if (d > std::numeric_limits<double>::max() || d < std::numeric_limits<double>::min())
+	else if (d > std::numeric_limits<double>::max() || d < -std::numeric_limits<double>::max())
 		return false;
 	return true;
 }
@@ -68,7 +67,7 @@ bool	isFloat(const std::string &input)
 		std::istringstream iss(temp);
 		if (!(iss >> f) || iss >> c)
 			return false;
-		else if (f > std::numeric_limits<float>::max() || f < std::numeric_limits<float>::min())
+		else if (f > std::numeric_limits<float>::max() || f < -std::numeric_limits<float>::max())
 			return false;
 		return true;
 	}
@@ -79,13 +78,13 @@ bool	isInt(const std::string &input)
 {
 	long nb;
 
-	if (std::strlen(input.c_str()) > 19)
-		throw std::invalid_argument("Error: the integer limits were crossed");
+	if (!input.find('.') && std::strlen(input.c_str()) > 19)
+		throw std::invalid_argument("Error: max digits crossed");
 	else if (sscanf(input.c_str(), "%ld", &nb) < 0)
 		throw std::invalid_argument("Error: sscanf error");
 	else if (std::strlen(input.c_str()) != longLen(nb))
 		return false;
 	else if (nb > std::numeric_limits<int>::max() || nb < std::numeric_limits<int>::min())
-		throw std::invalid_argument("Error: the integer limits were crossed");
+		return false;
 	return true;
 }
