@@ -1,40 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.cpp                                     :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/15 19:07:00 by dicarval          #+#    #+#             */
-/*   Updated: 2025/09/17 11:51:32 by dicarval         ###   ########.fr       */
+/*   Created: 2025/09/17 11:53:19 by dicarval          #+#    #+#             */
+/*   Updated: 2025/09/17 12:40:08 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
 
-//CONSTRUCTORS & DESTRUCTOR
-Serializer::Serializer()
-{}
-
-Serializer::Serializer(Serializer &original)
+int	main()
 {
-	*this = original;
-}
+	Data *ptr = new Data;
+	uintptr_t uint;
 
-//OPERATORS
-Serializer&	Serializer::operator=(const Serializer &original)
-{
-	(void)original;
-	return *this;
-}
-
-//MEMBER FUNCTIONS
-uintptr_t	Serializer::serialize(Data* ptr)
-{
-	return reinterpret_cast<uintptr_t>(ptr);
-}
-
-Data*	Serializer::deserialize(uintptr_t raw)
-{
-	return reinterpret_cast<Data*>(raw);
+	std::cout << "Pointer adress: " << ptr << std::endl;
+	uint = Serializer::serialize(ptr);
+	std::cout << "Unsigned int(serialize): " << uint << std::endl;
+	std::cout << "Pointer adress(deserialize): "\
+	 << Serializer::deserialize(uint) << std::endl;
+	delete ptr;
 }

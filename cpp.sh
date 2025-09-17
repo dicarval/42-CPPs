@@ -11,7 +11,7 @@ fi
 
 mkdir -p $NEW_EX
 cd $NEW_EX
-touch Makefile
+touch Makefile main.cpp
 
 echo -n "NAME		=" >> Makefile
 
@@ -25,7 +25,7 @@ echo -n "SRC			= main.cpp"  >> Makefile
 
 i=2
 while [ $i -le $# ]; do
-  echo -n " " >> Makefile && echo "${!i}.cpp" >> Makefile
+  echo -n " " >> Makefile && echo -n "${!i}.cpp" >> Makefile
   touch "${!i}.cpp" "${!i}.hpp"
   let i++
 done
