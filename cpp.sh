@@ -16,7 +16,7 @@ touch Makefile main.cpp
 echo -n "NAME		=" >> Makefile
 
 if [ $# -gt 0 ]; then
-  echo " " $1 >> Makefile
+  echo " $1" >> Makefile
 else
   echo "" >> Makefile
 fi
@@ -25,7 +25,7 @@ echo -n "SRC			= main.cpp"  >> Makefile
 
 i=2
 while [ $i -le $# ]; do
-  echo -n " " >> Makefile && echo -n "${!i}.cpp" >> Makefile
+  echo -n " ${!i}.cpp" >> Makefile
   touch "${!i}.cpp" "${!i}.hpp"
   let i++
 done
