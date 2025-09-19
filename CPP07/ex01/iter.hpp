@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 13:29:20 by dicarval          #+#    #+#             */
-/*   Updated: 2025/09/18 15:23:45 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/09/19 19:58:13 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,9 @@
 #include <iostream>
 
 template <typename t>
-void printIt(t &tchar)
-{
-	std::cout << tchar << std::endl;
-}
-template <typename t>
 void changeIt(t &tchar)
 {
-	static_cast<int>(tchar++);
+	tchar += 1;
 	std::cout << tchar << std::endl;
 }
 
@@ -33,12 +28,12 @@ void printIt(const t &tchar)
 	std::cout << tchar << std::endl;
 }
 
-/* template <typename T>
+template <typename T>
 void iter(const T* array, size_t len, void (*func)(const T&))
 {
 	for (size_t i = 0; i < len; ++i)
 		func(array[i]);
-} */
+}
 
 template <typename T>
 void iter(T* array, size_t len, void (*func)(T&))
