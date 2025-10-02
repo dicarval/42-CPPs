@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   smoothOperators.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 11:24:41 by dicarval          #+#    #+#             */
-/*   Updated: 2025/06/27 16:55:49 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/10/02 18:35:07 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,24 +73,24 @@ bool	Fixed::operator!=(const Fixed& compare)const
 		return (false);
 }
 
-float	Fixed::operator+(const Fixed& value)
+Fixed	Fixed::operator+(const Fixed& value)
 {
-	return((float)(_fpNumber + value._fpNumber) / (1 << _fractBits));
+	return(Fixed(this->toFloat() + value.toFloat()));
 }
 
-float	Fixed::operator-(const Fixed& value)
+Fixed		Fixed::operator-(const Fixed& value)
 {
-	return((float)(_fpNumber - value._fpNumber) / (1 << _fractBits));
+	return(Fixed(this->toFloat() - value.toFloat()));
 }
 
-float	Fixed::operator*(const Fixed& value)
+Fixed	Fixed::operator*(const Fixed& value)
 {
-	return ((float)(_fpNumber * value._fpNumber) / (1 << _fractBits * 2));
+	return(Fixed(this->toFloat() * value.toFloat()));;
 }
 
-float	Fixed::operator/(const Fixed& value)
+Fixed	Fixed::operator/(const Fixed& value)
 {
-	return((float)(_fpNumber / value._fpNumber) / (1 << _fractBits));
+	return(Fixed(this->toFloat() / value.toFloat()));
 }
 
 Fixed&	Fixed::operator++()

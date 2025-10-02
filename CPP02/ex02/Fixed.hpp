@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 17:02:12 by dicarval          #+#    #+#             */
-/*   Updated: 2025/06/25 16:39:57 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/10/02 18:21:09 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ class Fixed
 		bool			operator==(const Fixed& compare)const;
 		bool			operator!=(const Fixed& compare)const;
 
-		float			operator+(const Fixed& value);
-		float			operator-(const Fixed& value);
-		float			operator*(const Fixed& value);
-		float			operator/(const Fixed& value);
+		Fixed			operator+(const Fixed& value);
+		Fixed			operator-(const Fixed& value);
+		Fixed			operator*(const Fixed& value);
+		Fixed			operator/(const Fixed& value);
 
 		Fixed&			operator++();
 		Fixed&			operator--();

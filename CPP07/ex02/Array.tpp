@@ -29,7 +29,7 @@ Array<T>::Array(unsigned int n) : _len(n), _array(NULL)
 }
 
 template<typename T>
-Array<T>::Array(Array &original) : _array(NULL)
+Array<T>::Array(const Array &original) : _array(NULL)
 {
 	*this = original;
 }

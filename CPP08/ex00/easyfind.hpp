@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Array.hpp                                          :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/22 10:59:52 by dicarval          #+#    #+#             */
-/*   Updated: 2025/10/02 11:21:14 by dicarval         ###   ########.fr       */
+/*   Created: 2025/10/02 11:06:13 by dicarval          #+#    #+#             */
+/*   Updated: 2025/10/02 16:18:47 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ARRAY_HPP
-#define ARRAY_HPP
+#ifndef EASYFIND_HPP
+#define EASYFIND_HPP
 
+#include <algorithm>
+#include <vector>
 #include <iostream>
+#include "easyfind.tpp"
 
 template<typename T>
-class Array
-{
-	private:
-		unsigned int	_len;
-		T*				_array;
+typename T::iterator	easyfind(T &one, int sec);
 
-	public:
-		Array();
-		Array(unsigned int n);
-		Array(const Array &original);
-		~Array();
+template<typename T>
+typename T::const_iterator	easyfind(const T &one, int sec);
 
-		Array&			operator=(const Array &original);
-		T& 				operator[](unsigned int index);
-
-		unsigned int	size() const;
-		void			iter( void (*func)(T&));
-};
-
-#include "Array.tpp"
 
 #endif
