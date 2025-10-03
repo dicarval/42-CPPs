@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   isSomething.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 14:44:54 by dicarval          #+#    #+#             */
-/*   Updated: 2025/09/16 18:33:34 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/10/03 15:06:30 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

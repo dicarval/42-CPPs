@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 11:24:41 by dicarval          #+#    #+#             */
-/*   Updated: 2025/10/02 18:35:07 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/10/03 16:48:47 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Fixed&	Fixed::operator=(const Fixed& original)
 	return (*this);
 }
 
-std::ostream	&operator<<(std::ostream &stream, const Fixed &fixed)
+std::ostream&	operator<<(std::ostream &stream, const Fixed &fixed)
 {
 	stream << fixed.toFloat();
 	return (stream);

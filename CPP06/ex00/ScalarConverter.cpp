@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 18:39:40 by dicarval          #+#    #+#             */
-/*   Updated: 2025/09/15 15:43:43 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/10/03 15:06:39 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
