@@ -9,4 +9,4 @@
 .DS_Store
 a.out
 .nfs*
-.csv
+*.csv
