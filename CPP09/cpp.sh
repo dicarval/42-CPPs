@@ -25,8 +25,8 @@ echo -n "SRC			= main.cpp"  >> Makefile
 
 i=2
 while [ $i -le $# ]; do
-  echo -n " ${!i}.tpp" >> Makefile
-  touch "${!i}.tpp" "${!i}.hpp"
+  echo -n " ${!i}.cpp" >> Makefile
+  touch "${!i}.cpp" "${!i}.hpp"
   let i++
 done
 
