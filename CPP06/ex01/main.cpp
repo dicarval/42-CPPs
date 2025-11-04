@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 11:53:19 by dicarval          #+#    #+#             */
-/*   Updated: 2025/10/03 15:07:05 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/04 13:29:49 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	main()
 {
 	Data *ptr = new Data;
+	ptr->number = 42;
 	uintptr_t uint;
 
 	std::cout << "Pointer adress: " << ptr << std::endl;

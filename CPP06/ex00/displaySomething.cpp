@@ -6,13 +6,13 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 15:37:46 by dicarval          #+#    #+#             */
-/*   Updated: 2025/10/03 15:06:21 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/04 14:03:42 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include.hpp"
 
-void	charConvert(const int &i)
+void	charConvert(const long &i)
 {
 	std::cout << "char: ";
 	if (i < 32 || i > 126)
@@ -21,26 +21,13 @@ void	charConvert(const int &i)
 		std::cout << static_cast<char>(i) << std::endl;
 }
 
-void intConvert(int i)
+void intConvert(const long &i)
 {
 	std::cout << "int: ";
-	if (i == std::numeric_limits<int>::max() || i == std::numeric_limits<int>::min())
+	if (i > std::numeric_limits<int>::max() || i < std::numeric_limits<int>::min())
 		std::cout << "Impossible" << std::endl;
 	else
-		std::cout << i << std::endl;
-}
-
-size_t	decimalDigits(const std::string &input)
-{
-	size_t decimal = input.find('.');
-	size_t size = input.size() - 1;
-	if (decimal == std::string::npos || decimal == size)
-		return 1;
-	else if ((size - decimal) > 18)
-		return 19;
-	else
-		return ((size - decimal));
-
+		std::cout << static_cast<int>(i) << std::endl;
 }
 
 void	invalidDisplay()
@@ -53,7 +40,7 @@ void	specialDisplay(const std::string &input)
 	std::cout << "char: Impossible" << std::endl;
 	std::cout << "int: Impossible" << std::endl;
 	std::cout << "float: " << static_cast<float>(strtof(input.c_str(), NULL)) << "f" << std::endl;
-	std::cout << "double: " << static_cast<double>(strtof(input.c_str(), NULL)) << std::endl;
+	std::cout << "double: " << static_cast<double>(strtod(input.c_str(), NULL)) << std::endl;
 }
 
 void	doubleDisplay(const std::string &input)
@@ -61,35 +48,38 @@ void	doubleDisplay(const std::string &input)
 	std::istringstream iss(input);
 	double d;
 	iss >> d;
-	int i = static_cast<int>(d);
+	long i = static_cast<long>(d);
 
 	charConvert(i);
 
 	intConvert(i);
 
-	size_t decimals = decimalDigits(input);
-	std::cout << std::fixed << std::setprecision(decimals);
+	std::cout << std::fixed << std::setprecision(1);
+	if (d > std::numeric_limits<int>::max() || d < std::numeric_limits<int>::min())
+		std::cout << "float: Impossible" << std::endl;
+	else
+		std::cout << "float: "  << static_cast<float>(d) << "f" << std::endl;
 
-	std::cout << "float: "  << static_cast<float>(d) << "f" << std::endl;
 	std::cout << "double: " << d << std::endl;
 }
 
 void	floatDisplay(const std::string &input)
 {
 	std::istringstream iss(input);
-	std::string temp = input;
 	float f;
 	iss >> f;
-	int i = static_cast<int>(f);
+	long i = static_cast<long>(f);
 
 	charConvert(i);
 
 	intConvert(i);
 
-	temp = temp.erase(temp.size() - 1);
-	size_t decimals = decimalDigits(temp);
-	std::cout << std::fixed << std::setprecision(decimals);
-	std::cout << "float: "  << f << "f" << std::endl;
+	std::cout << std::fixed << std::setprecision(1);
+	if (f > std::numeric_limits<int>::max() || f < std::numeric_limits<int>::min())
+		std::cout << "float: Impossible" << std::endl;
+	else
+		std::cout << "float: "  << f << "f" << std::endl;
+
 	std::cout << "double: " << static_cast<double>(f) << std::endl;
 }
 
@@ -99,6 +89,7 @@ void	intDisplay(const std::string &input)
 
 	if (sscanf(input.c_str(), "%d", &i) < 0)
 		throw std::invalid_argument("Error: sscanf error");
+
 	charConvert(i);
 
 	std::cout << "int: " << i << std::endl;

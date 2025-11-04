@@ -6,14 +6,11 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 14:55:55 by dicarval          #+#    #+#             */
-/*   Updated: 2025/10/03 15:09:10 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/04 13:16:58 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include.hpp"
-#include <unistd.h>
-#include <cstdlib>
-#include <ctime>
 
 void	identify(Base* p)
 {
@@ -53,7 +50,7 @@ Base*	generate(void)
 
 int	main()
 {
-	std::srand(static_cast<unsigned int>(std::time(0)) ^ getpid());
+	std::srand(static_cast<unsigned int>(std::time(NULL)) ^ static_cast<unsigned int>(getpid()));
 
 	for (int i = 0; i < 10; ++i)
 		std::rand();
@@ -61,13 +58,19 @@ int	main()
 	Base* ptr2 = generate();
 	Base* ptr3 = generate();
 	Base* ptr4 = generate();
+	Base* ptr5 = generate();
+	Base* ptr6 = generate();
 
 	identify(ptr1);
 	delete ptr1;
 	identify(ptr2);
 	delete ptr2;
-	identify(*ptr3);
+	identify(ptr3);
 	delete ptr3;
 	identify(*ptr4);
 	delete ptr4;
+	identify(*ptr5);
+	delete ptr5;
+	identify(*ptr6);
+	delete ptr6;
 }

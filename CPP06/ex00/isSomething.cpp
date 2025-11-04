@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 14:44:54 by dicarval          #+#    #+#             */
-/*   Updated: 2025/10/03 15:06:30 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/04 13:58:53 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ bool	isDouble(const std::string &input)
 
 	if (!(iss >> d) || iss >> c)
 		return false;
-	else if (d > std::numeric_limits<double>::max() || d < -std::numeric_limits<double>::max())
+	else if (d > std::numeric_limits<float>::max() || d < -std::numeric_limits<float>::max())
 		return false;
 	return true;
 }
@@ -61,13 +61,13 @@ bool	isFloat(const std::string &input)
 	float f;
 	char c;
 
-	if (!temp.empty() && temp[temp.size() - 1] == 'f')
+	if (temp[temp.size() - 1] == 'f')
 	{
 		temp.erase(temp.size() - 1);
 		std::istringstream iss(temp);
 		if (!(iss >> f) || iss >> c)
 			return false;
-		else if (f > std::numeric_limits<float>::max() || f < -std::numeric_limits<float>::max())
+		else if (f > std::numeric_limits<int>::max() || f < std::numeric_limits<int>::min())
 			return false;
 		return true;
 	}
@@ -78,7 +78,7 @@ bool	isInt(const std::string &input)
 {
 	long nb;
 
-	if (!input.find('.') && std::strlen(input.c_str()) > 19)
+	if (std::strlen(input.c_str()) > 15)
 		throw std::invalid_argument("Error: max digits crossed");
 	else if (sscanf(input.c_str(), "%ld", &nb) < 0)
 		throw std::invalid_argument("Error: sscanf error");

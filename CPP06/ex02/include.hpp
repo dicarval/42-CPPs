@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 14:44:42 by dicarval          #+#    #+#             */
-/*   Updated: 2025/10/03 15:09:07 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/04 13:19:58 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #define INCLUDE_HPP
 
 #include <iostream>
+#include <unistd.h>
+#include <cstdlib>
+#include <ctime>
 #include "Base.hpp"
 #include "A.hpp"
 #include "B.hpp"
@@ -23,5 +26,4 @@ Base*	generate(void);
 void	identify(Base* p);
 void	identify(Base &p);
 
-bool	operator==(const Base* lhs, const A &rhs);
 #endif
