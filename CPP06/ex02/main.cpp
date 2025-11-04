@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 14:55:55 by dicarval          #+#    #+#             */
-/*   Updated: 2025/11/04 13:16:58 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/04 15:02:06 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,33 @@ void	identify(Base* p)
 		std::cout << "Pointer to B class" << std::endl;
 	else if (dynamic_cast<C*>(p))
 		std::cout << "Pointer to C class" << std::endl;
-	else
-		std::cout << "Pointer to any class" << std::endl;
 }
 
 void	identify(Base &p)
 {
-	if (dynamic_cast<A*>(&p))
+	try
+	{
+		A	&a = dynamic_cast<A&>(p);
+		(void)a;
 		std::cout << "Reference to A class" << std::endl;
-	else if (dynamic_cast<B*>(&p))
+	}
+	catch(const std::exception& e){}
+
+	try
+	{
+		B	&b = dynamic_cast<B&>(p);
+		(void)b;
 		std::cout << "Reference to B class" << std::endl;
-	else if (dynamic_cast<C*>(&p))
+	}
+	catch(const std::exception& e) {}
+
+	try
+	{
+		C	&c = dynamic_cast<C&>(p);
+		(void)c;
 		std::cout << "Reference to C class" << std::endl;
-	else
-		std::cout << "Reference to any class" << std::endl;
+	}
+	catch(const std::exception& e){}
 }
 
 Base*	generate(void)
@@ -54,12 +67,12 @@ int	main()
 
 	for (int i = 0; i < 10; ++i)
 		std::rand();
-	Base* ptr1 = generate();
-	Base* ptr2 = generate();
-	Base* ptr3 = generate();
-	Base* ptr4 = generate();
-	Base* ptr5 = generate();
-	Base* ptr6 = generate();
+	Base*	ptr1 = generate();
+	Base*	ptr2 = generate();
+	Base*	ptr3 = generate();
+	Base*	ptr4 = generate();
+	Base*	ptr5 = generate();
+	Base*	ptr6 = generate();
 
 	identify(ptr1);
 	delete ptr1;
