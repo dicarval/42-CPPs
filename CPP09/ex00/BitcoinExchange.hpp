@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 16:46:32 by dicarval          #+#    #+#             */
-/*   Updated: 2025/10/31 18:40:06 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/05 20:52:27 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,17 @@
 #define BITCOINEXCHANGE_HPP
 
 #include <queue>
+#include <limits>
 #include <iostream>
 #include <fstream>
-//#include <string>
+#include <sstream>
+#include <string>
 
 class BitcoinExchange
 {
 	protected:
 		std::queue<std::string>	_qe;
-		std::string				_csvContent;
+		std::ifstream			_csv;
 
 	public:
 		BitcoinExchange();
@@ -32,14 +34,17 @@ class BitcoinExchange
 		BitcoinExchange&	operator=(const BitcoinExchange &original);
 
 		void				loadInput(std::string &input);
-		void				extractCsv();
+		void				openCsv();
 		void				printExchangeResults();
 		void				checkInputHeader();
 		void				checkAndPrint();
 		std::string			checkYear(std::string year);
 		std::string			checkMonth(std::string month);
 		std::string			checkDay(std::string year, std::string month, std::string day);
-		void				checkSeparator(std::string separ);
+		void				checkSeparators(std::string hyphen1, std::string hyphen2, std::string separ);
+		float				numberExtract(std::string number);
+		float				exchangeExtract(std::string year, std::string month, std::string day);
+		void				foundPreviousDate(std::string &year, std::string &month, std::string &day);
 
 		class InputFileUnableOpen : public std::runtime_error
 		{
