@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 13:01:45 by dicarval          #+#    #+#             */
-/*   Updated: 2025/10/03 15:09:19 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/06 09:00:17 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	main()
 {
-	int a = 2;
-	int b = 3;
-	::swap( a, b );
+	int	a = 2;
+	int	b = 3;
+	::swap( a, b);
 	std::cout << "a = " << a << ", b = " << b << std::endl;
 	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
 	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
