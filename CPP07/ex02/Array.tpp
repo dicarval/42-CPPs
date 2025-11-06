@@ -6,18 +6,18 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 15:09:45 by dicarval          #+#    #+#             */
-/*   Updated: 2025/10/03 15:09:50 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/06 11:43:21 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
 //CONSTRUCTORS & DESTRUCTOR
-
 template<typename T>
-Array<T>::Array() : _len(0), _array(NULL)
+Array<T>::Array() : _len(1), _array(NULL)
 {
 	_array = new T[_len];
+	_array[0] = 0;
 }
 
 template<typename T>
@@ -57,9 +57,9 @@ Array<T>&	Array<T>::operator=(const Array &original)
 }
 
 template<typename T>
-T& Array<T>::operator[](unsigned int index)
+T& Array<T>::operator[](int index)
 {
-	if (index >= _len)
+	if (index >= static_cast<int>(_len) || index < 0)
 		throw std::out_of_range("Index out of bounds");
 	return _array[index];
 }

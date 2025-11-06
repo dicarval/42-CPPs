@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 10:59:52 by dicarval          #+#    #+#             */
-/*   Updated: 2025/10/03 15:09:43 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/06 11:33:18 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define ARRAY_HPP
 
 #include <iostream>
+#include <cstdlib>
 
 template<typename T>
 class Array
@@ -29,7 +30,7 @@ class Array
 		~Array();
 
 		Array&			operator=(const Array &original);
-		T& 				operator[](unsigned int index);
+		T& 				operator[](int index);
 
 		unsigned int	size() const;
 		void			iter( void (*func)(T&));
