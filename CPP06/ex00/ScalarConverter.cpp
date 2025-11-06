@@ -6,21 +6,16 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 18:39:40 by dicarval          #+#    #+#             */
-/*   Updated: 2025/11/04 09:28:03 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/06 08:35:45 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 #include "include.hpp"
 
-//CONSTRUCTORS & DESTRUCTOR
-ScalarConverter::ScalarConverter()
+//DESTRUCTOR
+ScalarConverter::~ScalarConverter()
 {}
-
-ScalarConverter::ScalarConverter(ScalarConverter &original)
-{
-	*this = original;
-}
 
 //OPERATORS
 ScalarConverter&	ScalarConverter::operator=(const ScalarConverter &original)

@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 19:06:57 by dicarval          #+#    #+#             */
-/*   Updated: 2025/11/04 10:40:29 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/06 08:30:37 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ typedef unsigned long uintptr_t;
 
 class	Serializer
 {
-	public:
+	private:
 		Serializer();
 		Serializer(Serializer &original);
-		virtual ~Serializer() = 0;
-
 		Serializer&	operator=(const Serializer &original);
 
+	public:
+		~Serializer();
 		static uintptr_t	serialize(Data* ptr);
 		static Data*		deserialize(uintptr_t raw);
 };

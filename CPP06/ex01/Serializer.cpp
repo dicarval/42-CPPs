@@ -6,20 +6,15 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 19:07:00 by dicarval          #+#    #+#             */
-/*   Updated: 2025/11/04 10:40:19 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/06 08:37:41 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
 
-//CONSTRUCTORS & DESTRUCTOR
-Serializer::Serializer()
+//DESTRUCTOR
+Serializer::~Serializer()
 {}
-
-Serializer::Serializer(Serializer &original)
-{
-	*this = original;
-}
 
 //OPERATORS
 Serializer&	Serializer::operator=(const Serializer &original)
