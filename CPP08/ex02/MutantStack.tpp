@@ -6,12 +6,11 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 15:01:36 by dicarval          #+#    #+#             */
-/*   Updated: 2025/10/09 18:32:05 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/07 13:43:55 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //CONSTRUCTORS & DESTRUCTOR
-
 template<typename T>
 MutantStack<T>::MutantStack() : std::stack<T>()
 {}
@@ -47,7 +46,6 @@ typename MutantStack<T>::const_reference	MutantStack<T>::operator[](size_type in
 }
 
 //MEMBER FUNCTIONS
-
 template<typename T>
 typename MutantStack<T>::iterator MutantStack<T>::begin()
 {
@@ -67,7 +65,10 @@ typename MutantStack<T>::const_iterator MutantStack<T>::begin() const
 }
 
 template<typename T>
-typename MutantStack<T>::const_iterator MutantStack<T>::end() const{ return this->c.end(); }
+typename MutantStack<T>::const_iterator MutantStack<T>::end() const
+{
+	return this->c.end();
+}
 
 template<typename T>
 typename MutantStack<T>::reverse_iterator MutantStack<T>::rbegin()

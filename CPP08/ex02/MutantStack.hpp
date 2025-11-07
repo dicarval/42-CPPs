@@ -26,6 +26,7 @@ class MutantStack : public std::stack<T>
 
 		MutantStack&	operator=(const MutantStack &original);
 
+		//std::stack<int>::container_type blah;
 		typedef typename std::stack<T>::container_type container_type;
 		typedef typename container_type::reference reference;
 		typedef typename container_type::const_reference const_reference;

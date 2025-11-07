@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:00:52 by dicarval          #+#    #+#             */
-/*   Updated: 2025/10/08 14:27:43 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/07 12:03:59 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,39 +46,42 @@ Span&	Span::operator=(const Span &original)
 }
 
 //MEMBER FUNCTIONS
-void	Span::addNumber(const int &newNb)
+void	Span::addNumber(const long &newNb)
 {
 	if (_theVector.size() == _theVector.capacity())
 		throw std::length_error("Span::addNumber : Span list is full, no more numbers can be added");
+	else if (newNb > std::numeric_limits<int>::max() || newNb < std::numeric_limits<int>::min())
+		throw OutOfRange();
 	_theVector.push_back(newNb);
 }
 
-void	Span::addRange(const int &begin, const int &end)
+void	Span::addRange(const long &begin, const long &end)
 {
-	unsigned int diff = (begin > end) ? (begin - end) : (end - begin);
-	unsigned int availableSpace = _theVector.capacity() - _theVector.size();
-	if (diff <= availableSpace && diff && diff <= INT_MAX)
+	unsigned long diff = (begin > end) ? (begin - end) : (end - begin);
+	if (diff <= std::numeric_limits<unsigned int>::max())
 	{
-		int direction = (begin < end) ? 1 : -1;
-		for (unsigned int i = 0; i <= diff; i++)
-			addNumber (begin + static_cast<int>(i * direction));
+		int direction = (begin <= end) ? 1 : -1;
+		for (unsigned long i = 0; i <= diff; i++)
+			addNumber (begin + static_cast<long>(i * direction));
 	}
 	else
 		throw std::length_error("Span::addRange : Invalid Range");
 }
 
-unsigned int	Span::shortestSpan()
+unsigned long	Span::shortestSpan()
 {
 	if (_theVector.size() <= 1)
 		throw LessThanTwo();
 
-	unsigned int span = UINT_MAX;
+	unsigned long span = std::numeric_limits<unsigned int>::max();
 	for (unsigned int iter = 0; iter < _theVector.size(); iter++)
 	{
 		for (unsigned int i = iter + 1; i < _theVector.size(); i++)
 		{
-			unsigned int diff = (_theVector[iter] > _theVector[i])\
-			 ? (_theVector[iter] - _theVector[i]) : (_theVector[i] - _theVector[iter]);
+			long iterNumber = _theVector[iter];
+			long iNumber = _theVector[i];
+			unsigned long diff = (iterNumber > iNumber)\
+			 ? (iterNumber - iNumber) : (iNumber - iterNumber);
 			if (diff < span)
 				span = diff;
 		}
@@ -86,18 +89,20 @@ unsigned int	Span::shortestSpan()
 	return span;
 }
 
-unsigned int	Span::longestSpan()
+unsigned long	Span::longestSpan()
 {
 	if (_theVector.size() <= 1)
 		throw LessThanTwo();
 
-	unsigned int span = 0;
+	unsigned long span = 0;
 	for (unsigned int iter = 0; iter < _theVector.size(); iter++)
 	{
 		for (unsigned int i = iter + 1; i < _theVector.size(); i++)
 		{
-			unsigned int diff = (_theVector[iter] > _theVector[i])\
-			 ? (_theVector[iter] - _theVector[i]) : (_theVector[i] - _theVector[iter]);
+			long iterNumber = _theVector[iter];
+			long iNumber = _theVector[i];
+			unsigned long diff = (iterNumber > iNumber)\
+			 ? (iterNumber - iNumber) : (iNumber - iterNumber);
 			if (diff > span)
 				span = diff;
 		}
@@ -105,7 +110,13 @@ unsigned int	Span::longestSpan()
 	return span;
 }
 
+//EXCEPTIONS
 const char*	Span::LessThanTwo::what() const throw()
 {
 	return ("The vector has less than two numbers");
+}
+
+const char*	Span::OutOfRange::what() const throw()
+{
+	return ("Number is out of range");
 }

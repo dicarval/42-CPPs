@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:54:48 by dicarval          #+#    #+#             */
-/*   Updated: 2025/10/08 14:52:47 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/07 11:12:00 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <iostream>
 #include <vector>
-#include <climits>
+#include <limits>
 
 class Span
 {
@@ -28,10 +28,10 @@ class Span
 		Span(const Span &original);
 		~Span();
 
-		void			addNumber(const int &newNb);
-		void			addRange(const int &begin, const int &end);
-		unsigned int	shortestSpan();
-		unsigned int	longestSpan();
+		void			addNumber(const long &newNb);
+		void			addRange(const long &begin, const long &end);
+		unsigned long	shortestSpan();
+		unsigned long	longestSpan();
 
 		Span&			operator=(const Span &original);
 
@@ -39,6 +39,12 @@ class Span
 		{
 			virtual const char* what() const throw();
 		};
+		class OutOfRange : public std::exception
+		{
+			virtual const char* what() const throw();
+		};
+
+
 };
 
 #endif
