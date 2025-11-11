@@ -6,13 +6,14 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 16:46:32 by dicarval          #+#    #+#             */
-/*   Updated: 2025/11/05 20:52:27 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/10 11:52:44 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BITCOINEXCHANGE_HPP
 #define BITCOINEXCHANGE_HPP
 
+#include <cstdlib>
 #include <queue>
 #include <limits>
 #include <iostream>
@@ -65,6 +66,7 @@ class BitcoinExchange
 		};
 };
 
-bool	isLeap(int year);
+bool		isLeap(int year);
+std::string	intToString(int number);
 
 #endif

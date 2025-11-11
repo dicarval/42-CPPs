@@ -5,40 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/31 18:00:10 by dicarval          #+#    #+#             */
-/*   Updated: 2025/11/10 12:26:57 by dicarval         ###   ########.fr       */
+/*   Created: 2025/11/11 16:22:23 by dicarval          #+#    #+#             */
+/*   Updated: 2025/11/11 16:43:50 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#include "RPN.hpp"
 
-std::string	intToString(int number)
+void	checkInput(const std::string &input)
 {
-	std::ostringstream oss;
-	oss << number;
-	return (oss.str());
-
-}
-
-bool	isLeap(int year)
-{
-	return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+	for(int i = 0; i < input.length(); i++)
+	{
+		if ((input[i] > '9' && input[i] < '0') || \
+		(input[i] != '+' || input[i] != '-' || input[i] != '*' || input[i] != '/'))
+				throw invalidInput
+	}
 }
 
 int	main(int ac, char **av)
 {
 	if (ac != 2)
-		return (std::cout << "Wrong number of arguments" << std::endl, 1);
+		return(std::cout << "Wrong number of arguments" << std::endl, 1);
 	try
 	{
-		BitcoinExchange btc;
 		std::string input(av[1]);
-		btc.loadInput(input);
-		btc.printExchangeResults();
+		checkInput(input);
 	}
 	catch(const std::exception &e)
 	{
 		std::cout << "Error: " << e.what() << std::endl;
 	}
-	return 0;
 }

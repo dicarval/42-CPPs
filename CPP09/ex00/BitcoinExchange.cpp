@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 09:52:06 by dicarval          #+#    #+#             */
-/*   Updated: 2025/11/05 20:56:02 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/10 16:25:40 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &original)
 void	BitcoinExchange::foundPreviousDate(std::string &year, std::string &month, std::string &day)
 {
 	const int	mDays[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-	int			yearD = strtod(year.c_str(), NULL);
-	int			monthD = strtod(month.c_str(), NULL);
-	int			dayD = strtod(day.c_str(), NULL);
+	int			yearD = atoi(year.c_str());
+	int			monthD = atoi(month.c_str());
+	int			dayD = atoi(day.c_str());
 
 	if (dayD == 1)
 	{
@@ -49,14 +49,17 @@ void	BitcoinExchange::foundPreviousDate(std::string &year, std::string &month, s
 			monthD = 12;
 		}
 		dayD = mDays[monthD - 1];
-		if (monthD = 2 && isLeap(atoi(year.c_str())))
+		if (monthD == 2 && isLeap(atoi(year.c_str())))
 			dayD = 29;
 	}
 	else
 		dayD -= 1;
-	year = std::to_string(yearD);
-	month = std::to_string(monthD);
-	day = std::to_string(dayD);
+	if ((yearD == 2009 && monthD == 01 && dayD == 01) || yearD < 2009 \
+	|| yearD > 2022 || (yearD == 2022 && monthD > 02))
+		throw InputInvalidDate("date (" + year + "-" + month + "-" + day + ")");
+	year = intToString(yearD);
+	month = intToString(monthD);
+	day = intToString(dayD);
 }
 
 float	BitcoinExchange::exchangeExtract(std::string year, std::string month, std::string day)
@@ -88,15 +91,16 @@ float	BitcoinExchange::exchangeExtract(std::string year, std::string month, std:
 float	BitcoinExchange::numberExtract(std::string number)
 {
 	float nbF;
+//	int nbI;
 	char c;
 	std::istringstream iss(number);
 
 	if (!(iss >> nbF) || (iss >> c))
-		throw InputInvalidFormat("invalid input", number);
+		throw InputInvalidFormat("input", number);
 	else if (nbF < 0)
-		throw InputInvalidFormat("negative number", number);
-	else if (nbF > std::numeric_limits<int>::max())
-		throw InputInvalidFormat("too large number", number);
+		throw InputInvalidFormat("input", number);
+	else if (nbF > 1000)
+		throw InputInvalidFormat("input", number);
 	return nbF;
 }
 
@@ -122,7 +126,7 @@ std::string	BitcoinExchange::checkDay(std::string year,std::string month, std::s
 	std::istringstream dayS(day);
 	long dayL;
 	if (!(dayS >> dayL) || dMonth <= dayL || dayL < 1)
-		throw InputInvalidDate("day = " + day);
+		throw InputInvalidDate("day (" + day + ")");
 	return day;
 }
 
@@ -132,7 +136,7 @@ std::string	BitcoinExchange::checkMonth(std::string month)
 	long monthL;
 
 	if (!(monthS >> monthL) || monthL > 12 || monthL < 1)
-		throw InputInvalidDate("month = " + month);
+		throw InputInvalidDate("month (" + month + ")");
 	return month;
 }
 
@@ -142,7 +146,7 @@ std::string	BitcoinExchange::checkYear(std::string year)
 	long yearL;
 
 	if (!(yearS >> yearL) || year.size() != 4|| yearL < 0)
-		throw InputInvalidDate("year = " + year);
+		throw InputInvalidDate("year (" + year + ")");
 	return year;
 }
 
@@ -150,7 +154,7 @@ void	BitcoinExchange::openCsv()
 {
 	std::string		csvName = "data.csv";
 
-	_csv.open(csvName);
+	_csv.open(csvName.c_str());
 	if (!_csv.is_open())
 		throw InputFileUnableOpen(csvName);
 }
@@ -162,20 +166,21 @@ void	BitcoinExchange::checkAndPrint()
 	{
 		try
 		{
-			checkSeparators(_qe.front().substr(4, 1), _qe.front().substr(7, 1), \
-			_qe.front().substr(10, 3));
 			std::string year = checkYear(_qe.front().substr(0, 4));
 			std::string month = checkMonth(_qe.front().substr(5, 2));
 			std::string day =checkDay(year, month, _qe.front().substr(8, 2));
+			checkSeparators(_qe.front().substr(4, 1), _qe.front().substr(7, 1), \
+			_qe.front().substr(10, 3));
 			float inputNumber = numberExtract(_qe.front().substr(13));
 			float csvNumber = exchangeExtract(year, month, day);
 			std::cout << year << "-" << month << "-" << day << " => " << inputNumber \
-			<< "= " << (csvNumber * inputNumber)  << std::endl;
+			<< " = " << (csvNumber * inputNumber)  << std::endl;
 			_qe.pop();
 		}
 		catch(const std::exception& e)
 		{
 			std::cout << e.what() << std::endl;
+			_qe.pop();
 		}
 	}
 }
@@ -200,8 +205,6 @@ void	BitcoinExchange::printExchangeResults()
 	}
 }
 
-
-
 void	BitcoinExchange::loadInput(std::string& input)
 {
 	std::fstream	inFile;
@@ -215,16 +218,15 @@ void	BitcoinExchange::loadInput(std::string& input)
 	inFile.close();
 }
 
-
 //EXCEPTIONS
 BitcoinExchange::InputInvalidDate::InputInvalidDate(std::string date)
-: std::runtime_error("The " + date + " is not valid")
+: std::runtime_error("Error: the " + date + " is not valid")
 {}
 
 BitcoinExchange::InputInvalidFormat::InputInvalidFormat(std::string invalid, std::string &format)
-: std::runtime_error("The " + invalid + " has a invalid format: " + format)
+: std::runtime_error("Error: the " + invalid + " has a invalid format: " + format)
 {}
 
 BitcoinExchange::InputFileUnableOpen::InputFileUnableOpen(std::string &filename)
-: std::runtime_error("The input file failed to open: " + filename)
+: std::runtime_error("Error: the input file failed to open: " + filename)
 {}
