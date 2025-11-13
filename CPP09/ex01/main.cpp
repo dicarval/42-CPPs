@@ -6,19 +6,23 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 16:22:23 by dicarval          #+#    #+#             */
-/*   Updated: 2025/11/11 16:43:50 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/13 21:18:12 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-void	checkInput(const std::string &input)
+void	checkChars(const std::string &input)
 {
-	for(int i = 0; i < input.length(); i++)
+	if (!std::isdigit(input[0]))
+		throw RPN::InvalidInput();
+	for(unsigned int i = 0; i < input.length(); i++)
 	{
-		if ((input[i] > '9' && input[i] < '0') || \
-		(input[i] != '+' || input[i] != '-' || input[i] != '*' || input[i] != '/'))
-				throw invalidInput
+		if (!std::isdigit(input[i]) && !std::isspace(input[i]) &&\
+		std::strchr("+-*/", input[i]) == NULL)
+			throw RPN::InvalidInput();
+		else if (input.length() == (i + 1) && std::isdigit(input[i]))
+			throw RPN::InvalidInput();
 	}
 }
 
@@ -29,7 +33,10 @@ int	main(int ac, char **av)
 	try
 	{
 		std::string input(av[1]);
-		checkInput(input);
+		checkChars(input);
+		RPN rpn;
+		rpn.convertToList(input);
+		rpn.performTheMagic();
 	}
 	catch(const std::exception &e)
 	{
