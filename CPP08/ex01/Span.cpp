@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:00:52 by dicarval          #+#    #+#             */
-/*   Updated: 2025/11/07 12:03:59 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/11 17:14:35 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ Span&	Span::operator=(const Span &original)
 {
 	if (this != &original)
 	{
-		if (original._theVector.size() > _theVector.capacity())
-			throw std::length_error("Span::operator= : source has more elements than destination capacity");
 		std::vector<int> newVector;
 		newVector.reserve(original._theVector.capacity());
 		std::swap(this->_theVector, newVector);
+		for (unsigned int i = 0; i < original._theVector.size(); i++)
+			this->_theVector.push_back(original._theVector[i]);
 	}
 	return *this;
 }

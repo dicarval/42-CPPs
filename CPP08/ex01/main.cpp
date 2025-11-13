@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 16:29:43 by dicarval          #+#    #+#             */
-/*   Updated: 2025/11/07 13:39:47 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/11 17:11:34 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,23 @@ void	test3(Span &test)
 	}
 }
 
+void	test4(Span &test)
+{
+	try
+	{
+		std::cout <<"\n--- Test4 ---\n\n";
+		test.addRange(0, 23);
+		Span brah = test;
+
+		std::cout << brah.shortestSpan() << std::endl;
+		std::cout << brah.longestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+}
+
 int main()
 {
 	Span sp1 = Span(5);
@@ -82,6 +99,9 @@ int main()
 
 	Span sp3 = Span(500);
 	test3(sp3);
+
+	Span sp4(420);
+	test4(sp4);
 
 	return 0;
 }
