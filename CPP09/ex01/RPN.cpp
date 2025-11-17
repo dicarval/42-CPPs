@@ -6,14 +6,14 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 16:18:34 by dicarval          #+#    #+#             */
-/*   Updated: 2025/11/13 21:13:35 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/14 15:50:18 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
 //CONSTRUCTORS & DESTRUCTOR
-RPN::RPN()
+RPN::RPN() : _args(NULL)
 {}
 
 RPN::RPN(const RPN &original)
