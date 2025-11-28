@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:00:52 by dicarval          #+#    #+#             */
-/*   Updated: 2025/11/11 17:14:35 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/19 13:54:33 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Span&	Span::operator=(const Span &original)
 	{
 		std::vector<int> newVector;
 		newVector.reserve(original._theVector.capacity());
-		std::swap(this->_theVector, newVector);
+		this->_theVector = newVector;
 		for (unsigned int i = 0; i < original._theVector.size(); i++)
 			this->_theVector.push_back(original._theVector[i]);
 	}

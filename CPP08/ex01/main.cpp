@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 16:29:43 by dicarval          #+#    #+#             */
-/*   Updated: 2025/11/11 17:11:34 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/19 13:47:10 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,12 @@ void	test1(Span &test)
 		test.addNumber(17);
 		test.addNumber(9);
 		test.addNumber(11);
-		std::cout <<test.shortestSpan() << std::endl;
-		std::cout << test.longestSpan() << std::endl;
+		std::cout << "test1 short: " <<test.shortestSpan() << std::endl;
+		std::cout << "test1 long: " << test.longestSpan() << std::endl;
+
+		Span op = test;
+		std::cout << "op short: " <<test.shortestSpan() << std::endl;
+		std::cout << "op long: " << test.longestSpan() << std::endl;
 	}
 	catch(const std::exception &e)
 	{
@@ -37,18 +41,18 @@ void	test2(Span &test)
 	{
 		std::cout <<"\n--- Test2 ---\n\n";
 		test.addRange(2147483000, 2147483647);
-		std::cout << test.shortestSpan() << std::endl;
-		std::cout << test.longestSpan() << std::endl;
+		std::cout << "test2 short: " << test.shortestSpan() << std::endl;
+		std::cout << "test2 long: " << test.longestSpan() << std::endl;
 		std::cout << std::endl;
 
 		test.addRange(-2147483648, -2147483647);
-		std::cout << test.shortestSpan() << std::endl;
-		std::cout << test.longestSpan() << std::endl;
+		std::cout << "test2 short: " << test.shortestSpan() << std::endl;
+		std::cout << "test2 long: " << test.longestSpan() << std::endl;
 		std::cout << std::endl;
 
 		test.addRange(1, 1000990909090900900);
-		std::cout << test.shortestSpan() << std::endl;
-		std::cout << test.longestSpan() << std::endl;
+		std::cout << "test2 short: " << test.shortestSpan() << std::endl;
+		std::cout << "test2 long: " << test.longestSpan() << std::endl;
 		std::cout << std::endl;
 	}
 	catch(const std::exception& e)
@@ -63,8 +67,8 @@ void	test3(Span &test)
 	{
 		std::cout <<"\n--- Test3 ---\n\n";
 		test.addRange(0, 0);
-		std::cout << test.shortestSpan() << std::endl;
-		std::cout << test.longestSpan() << std::endl;
+		std::cout << "test3 short: " << test.shortestSpan() << std::endl;
+		std::cout  << "test3 long: " << test.longestSpan() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -80,8 +84,8 @@ void	test4(Span &test)
 		test.addRange(0, 23);
 		Span brah = test;
 
-		std::cout << brah.shortestSpan() << std::endl;
-		std::cout << brah.longestSpan() << std::endl;
+		std::cout  << "test4 short: " << brah.shortestSpan() << std::endl;
+		std::cout  << "test4 short: " << brah.longestSpan() << std::endl;
 	}
 	catch(const std::exception& e)
 	{

@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 17:30:41 by dicarval          #+#    #+#             */
-/*   Updated: 2025/11/07 15:27:59 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/28 09:38:50 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,19 @@ void	test1()
 
 void	test2()
 {
-	std::list<int> mstack;
-	mstack.push_back(5);
-	mstack.push_back(17);
-	std::cout << mstack.back() << std::endl << std::endl;
-	mstack.pop_back();
-	std::cout << mstack.size() << std::endl << std::endl;
-	mstack.push_back(3);
-	mstack.push_back(5);
-	mstack.push_back(737);
+	std::list<int> list;
+	list.push_back(5);
+	list.push_back(17);
+	std::cout << list.back() << std::endl << std::endl;
+	list.pop_back();
+	std::cout << list.size() << std::endl << std::endl;
+	list.push_back(3);
+	list.push_back(5);
+	list.push_back(737);
 	//[...]
-	mstack.push_back(0);
-	std::list<int>::iterator it = mstack.begin();
-	std::list<int>::iterator ite = mstack.end();
+	list.push_back(0);
+	std::list<int>::iterator it = list.begin();
+	std::list<int>::iterator ite = list.end();
 	++it;
 	--it;
 	while (it != ite)
@@ -62,13 +62,13 @@ void	test2()
 		++it;
 	}
 	std::cout << std::endl;
-	std::list<int> s(mstack);
+	std::list<int> s(list);
 }
 
 int main()
 {
 	test1();
-	std::cout << std::endl;
+	std::cout << std::endl << "------------------" << std::endl << std::endl;
 	test2();
 	return 0;
 }
