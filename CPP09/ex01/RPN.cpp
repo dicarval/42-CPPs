@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 16:18:34 by dicarval          #+#    #+#             */
-/*   Updated: 2025/11/19 13:48:30 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/12/02 11:18:19 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ RPN&	RPN::operator=(const RPN &original)
 void	RPN::performTheMagic()
 {
 	long temp;
-	std::list<int> rpn;
+	std::list<long> rpn;
 	std::list<char>::iterator it = _args.begin();
 	while (it != _args.end())
 	{
@@ -46,8 +46,8 @@ void	RPN::performTheMagic()
 		{
 			while (rpn.size() != 1)
 			{
-				std::list<int>::iterator itrpn = rpn.begin();
-				int arithmeticOp = *(it++);
+				std::list<long>::iterator itrpn = rpn.begin();
+				char arithmeticOp = *(it++);
 				temp = *(itrpn++);
 				if (arithmeticOp == '*')
 						*itrpn = *itrpn * temp;
@@ -57,6 +57,9 @@ void	RPN::performTheMagic()
 						*itrpn = *itrpn - temp;
 				else if (arithmeticOp == '/')
 						*itrpn = *itrpn / temp;
+				if (*itrpn > std::numeric_limits<unsigned int>::max() \
+				|| *itrpn < -std::numeric_limits<unsigned int>::max())
+					throw InvalidInput();
 				rpn.pop_front();
 			}
 		}

@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 14:41:18 by dicarval          #+#    #+#             */
-/*   Updated: 2025/11/06 16:23:54 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/11/28 09:50:06 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,7 @@ int	main()
 
 	std::cout << "\n--- LIST ---" << std::endl;
 	int myints[] = {75,23,65,42,13};
-  	std::list<int> list(myints, myints+5);
+	std::list<int> list(myints, myints+5);
 
 	test5(list);
 

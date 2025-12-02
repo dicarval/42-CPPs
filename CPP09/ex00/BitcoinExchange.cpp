@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 09:52:06 by dicarval          #+#    #+#             */
-/*   Updated: 2025/11/10 16:25:40 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/12/02 10:40:22 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,12 @@ void	BitcoinExchange::foundPreviousDate(std::string &year, std::string &month, s
 	}
 	else
 		dayD -= 1;
-	if ((yearD == 2009 && monthD == 01 && dayD == 01) || yearD < 2009 \
-	|| yearD > 2022 || (yearD == 2022 && monthD > 02))
+	if ((yearD == 2009 && monthD == 1 && dayD == 1) || yearD < 2009 \
+	|| yearD > 2022 || (yearD == 2022 && monthD > 2))
 		throw InputInvalidDate("date (" + year + "-" + month + "-" + day + ")");
-	year = intToString(yearD);
-	month = intToString(monthD);
-	day = intToString(dayD);
+	year = intToDateFormat(yearD);
+	month = intToDateFormat(monthD);
+	day = intToDateFormat(dayD);
 }
 
 float	BitcoinExchange::exchangeExtract(std::string year, std::string month, std::string day)
@@ -91,7 +91,6 @@ float	BitcoinExchange::exchangeExtract(std::string year, std::string month, std:
 float	BitcoinExchange::numberExtract(std::string number)
 {
 	float nbF;
-//	int nbI;
 	char c;
 	std::istringstream iss(number);
 
@@ -108,9 +107,9 @@ void	BitcoinExchange::checkSeparators(std::string hyphen1, std::string hyphen2, 
 std::string separ)
 {
 	if (hyphen1 != "-")
-		throw InputInvalidFormat("hyphen", hyphen1);
+		throw InputInvalidFormat("data separator", hyphen1);
 	else if (hyphen2 != "-")
-		throw InputInvalidFormat("hyphen", hyphen2);
+		throw InputInvalidFormat("data separator", hyphen2);
 	else  if (separ != " | ")
 		throw InputInvalidFormat("separator", separ);
 }
@@ -179,7 +178,7 @@ void	BitcoinExchange::checkAndPrint()
 		}
 		catch(const std::exception& e)
 		{
-			std::cout << e.what() << std::endl;
+			std::cout << "Error: " << e.what() << std::endl;
 			_qe.pop();
 		}
 	}
@@ -220,13 +219,13 @@ void	BitcoinExchange::loadInput(std::string& input)
 
 //EXCEPTIONS
 BitcoinExchange::InputInvalidDate::InputInvalidDate(std::string date)
-: std::runtime_error("Error: the " + date + " is not valid")
+: std::runtime_error("the " + date + " is not valid")
 {}
 
 BitcoinExchange::InputInvalidFormat::InputInvalidFormat(std::string invalid, std::string &format)
-: std::runtime_error("Error: the " + invalid + " has a invalid format: " + format)
+: std::runtime_error("the " + invalid + " has a invalid format: \"" + format + "\"")
 {}
 
 BitcoinExchange::InputFileUnableOpen::InputFileUnableOpen(std::string &filename)
-: std::runtime_error("Error: the input file failed to open: " + filename)
+: std::runtime_error("the input file failed to open: " + filename)
 {}

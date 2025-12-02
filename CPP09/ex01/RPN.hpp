@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 16:41:05 by dicarval          #+#    #+#             */
-/*   Updated: 2025/11/13 20:40:16 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/12/02 11:16:28 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <sstream>
 #include <cctype>
 #include <cstring>
+#include <limits>
 //#include <string>
 
 class RPN

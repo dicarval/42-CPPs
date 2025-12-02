@@ -6,16 +6,20 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 18:00:10 by dicarval          #+#    #+#             */
-/*   Updated: 2025/11/10 12:26:57 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/12/02 10:41:55 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-std::string	intToString(int number)
+std::string	intToDateFormat(int number)
 {
 	std::ostringstream oss;
-	oss << number;
+
+	if (number < 10)
+		oss << "0" << number;
+	else
+		oss << number;
 	return (oss.str());
 
 }

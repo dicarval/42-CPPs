@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 13:00:18 by dicarval          #+#    #+#             */
-/*   Updated: 2025/11/17 11:23:44 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/12/02 11:30:14 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	checkInput(const std::vector<std::string> &input)
 {
+	if (input.size() > 10000)
+		throw PmergeME::InvalidInput();
 	for (std::vector<std::string>::const_iterator it = input.begin(); it != input.end(); it++)
 	{
 		for(unsigned int i = 0; i < (*it).length(); i++)

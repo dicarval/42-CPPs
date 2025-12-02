@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 16:46:32 by dicarval          #+#    #+#             */
-/*   Updated: 2025/11/10 11:52:44 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/12/02 10:42:17 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,6 @@ class BitcoinExchange
 };
 
 bool		isLeap(int year);
-std::string	intToString(int number);
+std::string	intToDateFormat(int number);
 
 #endif

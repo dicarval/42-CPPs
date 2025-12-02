@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 13:25:13 by dicarval          #+#    #+#             */
-/*   Updated: 2025/11/17 11:57:04 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/12/02 11:33:03 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,46 +37,6 @@ PmergeME&	PmergeME::operator=(const PmergeME &original)
 }
 
 //MEMBER FUNCTIONS
-/* void	PmergeME::vecSort(std::vector<long> &leftVect, \
-std::vector<long> &rightVect, std::vector<long> &vect)
-{
-	unsigned int leftSize = vect.size() / 2;
-	unsigned int rightSize = vect.size() - leftSize;
-	unsigned int i = 0, l = 0, r = 0;
-
-	while (l < leftSize && r < rightSize)
-	{
-		if (leftVect[l] < rightVect[r])
-			vect[i++] = leftVect[l++];
-		else
-			vect[i++] = rightVect[r++];
-	}
-	while (l < leftSize)
-		vect[i++] = leftVect[l++];
-	while (r < rightSize)
-		vect[i++] = rightVect[r++];
-} */
-
-/* void	PmergeME::vecMergeSort(std::vector<long> &vect)
-{
-	unsigned int size = vect.size();
-	if (size <= 1)
-		return;
-	int mid = size / 2;
-	std::vector<long> leftVect;
-	std::vector<long> rightVect;
-	for(unsigned int i= 0; i < size; i++)
-	{
-		if (i < mid)
-			leftVect.push_back(_vec[i]);
-		else
-			rightVect.push_back(_vec[i]);
-	}
-	vecMergeSort(leftVect);
-	vecMergeSort(rightVect);
-	vecSort(leftVect, rightVect, vect);
-} */
-
 void	PmergeME::printExec(std::vector<long> &vect)
 {
 	std::cout << "Before: ";
@@ -107,7 +67,6 @@ void	PmergeME::algoExec()
 	dequ.mergeSort(_deq);
 	gettimeofday(&tEnd, NULL);
 	_deqExecTime = (tEnd.tv_sec - tStart.tv_sec) * 1000.0 + (tEnd.tv_usec - tStart.tv_usec) / 1000.0;
-
 	printExec(ogVector);
 }
 

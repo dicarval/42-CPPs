@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 16:21:20 by dicarval          #+#    #+#             */
-/*   Updated: 2025/11/18 16:58:01 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/12/02 11:31:54 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ Container<cont>::~Container()
 template<typename cont>
 Container<cont>&	Container<cont>::operator=(const Container &original)
 {
+	(void)original;
 	return (*this);
 }
 
@@ -45,6 +46,8 @@ cont &rightCont, cont &cntr)
 
 	while (l < leftSize && r < rightSize)
 	{
+		/* if (leftCont[l] < rightCont[r])
+			throw InvalidInput(); */
 		if (leftCont[l] < rightCont[r])
 			cntr[i++] = leftCont[l++];
 		else
