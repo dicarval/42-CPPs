@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 16:21:20 by dicarval          #+#    #+#             */
-/*   Updated: 2025/12/03 14:31:40 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/12/03 16:37:43 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,10 @@ cont &rightCont, cont &cntr)
 		else
 			cntr[i++] = rightCont[r++];
 	}
-	if (l < leftSize)
-		cntr[i] = leftCont[l];
-	else if (r < rightSize)
-		cntr[i] = rightCont[r];
+	while (l < leftSize)
+		cntr[i++] = leftCont[l++];
+	while (r < rightSize)
+		cntr[i++] = rightCont[r++];
 }
 
 template<typename cont>

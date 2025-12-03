@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 16:18:34 by dicarval          #+#    #+#             */
-/*   Updated: 2025/12/02 11:18:19 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/12/03 16:31:44 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	RPN::performTheMagic()
 				else if (arithmeticOp == '/')
 						*itrpn = *itrpn / temp;
 				if (*itrpn > std::numeric_limits<unsigned int>::max() \
-				|| *itrpn < -std::numeric_limits<unsigned int>::max())
+				|| *itrpn < -(static_cast<long>(std::numeric_limits<unsigned int>::max())))
 					throw InvalidInput();
 				rpn.pop_front();
 			}

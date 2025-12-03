@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 09:52:06 by dicarval          #+#    #+#             */
-/*   Updated: 2025/12/03 14:41:50 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/12/03 16:25:41 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	BitcoinExchange::foundPreviousDate(std::string &year, std::string &month, s
 	day = intToDateFormat(dayD);
 }
 
-float	BitcoinExchange::exchangeExtract(std::string year, std::string month, std::string day)
+double	BitcoinExchange::exchangeExtract(std::string year, std::string month, std::string day)
 {
 	std::string	date = year + "-" + month + "-" + day;
 	std::string	line;
@@ -85,12 +85,12 @@ float	BitcoinExchange::exchangeExtract(std::string year, std::string month, std:
 		return (exchangeExtract(year, month, day));
 	}
 	line = line.substr(11);
-	return (strtof(line.c_str(), NULL));
+	return (strtod(line.c_str(), NULL));
 }
 
-float	BitcoinExchange::numberExtract(std::string number)
+double	BitcoinExchange::numberExtract(std::string number)
 {
-	float nbF;
+	double nbF;
 	char c;
 	std::istringstream iss(number);
 
@@ -168,8 +168,8 @@ void	BitcoinExchange::checkAndPrint()
 			std::string day =checkDay(year, month, _qe.front().substr(8, 2));
 			checkSeparators(_qe.front().substr(4, 1), _qe.front().substr(7, 1), \
 			_qe.front().substr(10, 3));
-			float inputNumber = numberExtract(_qe.front().substr(13));
-			float csvNumber = exchangeExtract(year, month, day);
+			double inputNumber = numberExtract(_qe.front().substr(13));
+			double csvNumber = exchangeExtract(year, month, day);
 			std::cout << year << "-" << month << "-" << day << " => " << inputNumber \
 			<< " = " << (csvNumber * inputNumber)  << std::endl;
 			_qe.pop();

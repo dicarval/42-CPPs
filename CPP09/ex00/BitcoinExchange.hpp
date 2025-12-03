@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 16:46:32 by dicarval          #+#    #+#             */
-/*   Updated: 2025/12/02 10:42:17 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/12/03 16:25:44 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ class BitcoinExchange
 		std::string			checkMonth(std::string month);
 		std::string			checkDay(std::string year, std::string month, std::string day);
 		void				checkSeparators(std::string hyphen1, std::string hyphen2, std::string separ);
-		float				numberExtract(std::string number);
-		float				exchangeExtract(std::string year, std::string month, std::string day);
+		double				numberExtract(std::string number);
+		double				exchangeExtract(std::string year, std::string month, std::string day);
 		void				foundPreviousDate(std::string &year, std::string &month, std::string &day);
 
 		class InputFileUnableOpen : public std::runtime_error
