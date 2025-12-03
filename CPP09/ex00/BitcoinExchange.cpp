@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 09:52:06 by dicarval          #+#    #+#             */
-/*   Updated: 2025/12/02 10:40:22 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/12/03 14:41:50 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,7 @@ float	BitcoinExchange::numberExtract(std::string number)
 
 	if (!(iss >> nbF) || (iss >> c))
 		throw InputInvalidFormat("input", number);
-	else if (nbF < 0)
-		throw InputInvalidFormat("input", number);
-	else if (nbF > 1000)
+	else if (nbF < 0 || nbF > 1000)
 		throw InputInvalidFormat("input", number);
 	return nbF;
 }
