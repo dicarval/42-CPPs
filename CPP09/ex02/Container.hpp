@@ -6,17 +6,17 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 10:14:43 by dicarval          #+#    #+#             */
-/*   Updated: 2025/11/17 11:11:24 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/12/05 08:26:02 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTAINER_HPP
 #define CONTAINER_HPP
 
-#include "PmergeME.hpp"
+#include "PmergeMe.hpp"
 
 template <typename cont>
-class Container : public PmergeME
+class Container : public PmergeMe
 {
 	public:
 		Container();

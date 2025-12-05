@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PmergeME.hpp                                       :+:      :+:    :+:   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 10:22:19 by dicarval          #+#    #+#             */
-/*   Updated: 2025/11/17 11:47:16 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/12/05 08:25:27 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #include <sys/time.h>
 #include <iomanip>
 
-class PmergeME
+class PmergeMe
 {
 	protected:
 		std::vector<long>	_vec;
@@ -31,11 +31,11 @@ class PmergeME
 		double				_deqExecTime;
 
 	public:
-		PmergeME();
-		PmergeME(const PmergeME &original);
-		~PmergeME();
+		PmergeMe();
+		PmergeMe(const PmergeMe &original);
+		~PmergeMe();
 
-		PmergeME&	operator=(const PmergeME &original);
+		PmergeMe&	operator=(const PmergeMe &original);
 
 		void	converterToContainer(const std::vector<std::string> &input);
 		void	algoExec();

@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PmergeME.cpp                                       :+:      :+:    :+:   */
+/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 13:25:13 by dicarval          #+#    #+#             */
-/*   Updated: 2025/12/03 14:17:42 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/12/05 08:25:43 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PmergeME.hpp"
+#include "PmergeMe.hpp"
 #include "Container.hpp"
 
 //CONSTRUCTORS & DESTRUCTOR
-PmergeME::PmergeME()
+PmergeMe::PmergeMe()
 {}
 
-PmergeME::PmergeME(const PmergeME &original)
+PmergeMe::PmergeMe(const PmergeMe &original)
 {
 	*this = original;
 }
 
-PmergeME::~PmergeME()
+PmergeMe::~PmergeMe()
 {}
 
 //OPERATORS
-PmergeME&	PmergeME::operator=(const PmergeME &original)
+PmergeMe&	PmergeMe::operator=(const PmergeMe &original)
 {
 	if(this != &original)
 	{
@@ -37,7 +37,7 @@ PmergeME&	PmergeME::operator=(const PmergeME &original)
 }
 
 //MEMBER FUNCTIONS
-void	PmergeME::printExec(std::vector<long> &vect)
+void	PmergeMe::printExec(std::vector<long> &vect)
 {
 	std::cout << "Before: ";
 	for (std::vector<long>::const_iterator it = vect.begin(); it != vect.end(); it++)
@@ -52,7 +52,7 @@ void	PmergeME::printExec(std::vector<long> &vect)
 	<< _deqExecTime << " milliseconds" << std::endl;
 }
 
-void	PmergeME::algoExec()
+void	PmergeMe::algoExec()
 {
 	struct timeval tStart, tEnd;
 	std::vector<long> ogVector = _vec;
@@ -70,7 +70,7 @@ void	PmergeME::algoExec()
 	printExec(ogVector);
 }
 
-void	PmergeME::converterToContainer(const std::vector<std::string> &input)
+void	PmergeMe::converterToContainer(const std::vector<std::string> &input)
 {
 	for(std::vector<std::string>::const_iterator it = input.begin(); it != input.end(); it++)
 	{
@@ -87,7 +87,7 @@ void	PmergeME::converterToContainer(const std::vector<std::string> &input)
 }
 
 //EXCEPTIONS
-const char*	PmergeME::InvalidInput::what() const throw()
+const char*	PmergeMe::InvalidInput::what() const throw()
 {
 	return ("invalid input introduced");
 }
