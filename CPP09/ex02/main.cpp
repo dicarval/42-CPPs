@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 13:00:18 by dicarval          #+#    #+#             */
-/*   Updated: 2025/12/05 08:26:36 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/12/30 14:33:47 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int ac, char **av)
 		std::vector<std::string> input(av + 1, av + ac);
 		checkInput(input);
 		PmergeMe mergeInsert;
-		mergeInsert.converterToContainer(input);
+		mergeInsert.convertToContainer(input);
 		mergeInsert.algoExec();
 	}
 	catch(const std::exception& e)

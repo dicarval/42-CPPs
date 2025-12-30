@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 16:18:34 by dicarval          #+#    #+#             */
-/*   Updated: 2025/12/03 16:31:44 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/12/29 11:45:59 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ RPN&	RPN::operator=(const RPN &original)
 void	RPN::performTheMagic()
 {
 	long temp;
-	std::list<long> rpn;
-	std::list<char>::iterator it = _args.begin();
+	std::deque<long> rpn;
+	std::deque<char>::iterator it = _args.begin();
 	while (it != _args.end())
 	{
 		if (std::isdigit(*it))
@@ -46,7 +46,7 @@ void	RPN::performTheMagic()
 		{
 			while (rpn.size() != 1)
 			{
-				std::list<long>::iterator itrpn = rpn.begin();
+				std::deque<long>::iterator itrpn = rpn.begin();
 				char arithmeticOp = *(it++);
 				temp = *(itrpn++);
 				if (arithmeticOp == '*')
@@ -67,7 +67,7 @@ void	RPN::performTheMagic()
 	std::cout << *rpn.begin() << std::endl;
 }
 
-void	RPN::convertToList(const std::string &input)
+void	RPN::convertToDeque(const std::string &input)
 {
 	for (unsigned int i = 0; input.find(input[i]) != std::string::npos; i++)
 	{
@@ -76,7 +76,7 @@ void	RPN::convertToList(const std::string &input)
 	}
 	unsigned int digits = 0;
 	unsigned int operators = 0;
-	for (std::list<char>::const_iterator it = _args.begin(); it != _args.end(); ++it)
+	for (std::deque<char>::iterator it = _args.begin(); it != _args.end(); it++)
 	{
 		if (std::isdigit(*it))
 			digits++;

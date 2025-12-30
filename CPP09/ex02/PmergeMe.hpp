@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 10:22:19 by dicarval          #+#    #+#             */
-/*   Updated: 2025/12/05 08:25:27 by dicarval         ###   ########.fr       */
+/*   Updated: 2025/12/30 20:06:15 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define PMERGEME_HPP
 
 #include <vector>
-#include <deque>
+#include <list>
 #include <iostream>
 #include <limits>
 #include <cstdlib>
@@ -27,8 +27,8 @@ class PmergeMe
 		std::vector<long>	_vec;
 		double				_vecExecTime;
 
-		std::deque<long>	_deq;
-		double				_deqExecTime;
+		std::list<long>	_list;
+		double				_listExecTime;
 
 	public:
 		PmergeMe();
@@ -37,7 +37,12 @@ class PmergeMe
 
 		PmergeMe&	operator=(const PmergeMe &original);
 
-		void	converterToContainer(const std::vector<std::string> &input);
+		void	mergeInsertionVec(long pairSize);
+		void	pairSortingVec(long &pairSize, long &sizeVec);
+		void	binaryInsertionVec(long &pairSize, long &sizeVec);
+		void	mainPendSeparationVec(std::vector<long> &main, std::vector<long> &pend, long &pairSize, long &sizeVec);
+
+		void	convertToContainer(const std::vector<std::string> &input);
 		void	algoExec();
 		void	printExec(std::vector<long> &vect);
 
