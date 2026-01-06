@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 10:22:19 by dicarval          #+#    #+#             */
-/*   Updated: 2025/12/30 20:06:15 by dicarval         ###   ########.fr       */
+/*   Updated: 2026/01/05 18:07:20 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,18 @@
 #include <vector>
 #include <list>
 #include <iostream>
+#include <algorithm>
 #include <limits>
 #include <cstdlib>
 #include <sys/time.h>
 #include <iomanip>
+
+typedef struct s_jacobVec
+{
+	std::vector<long>			numbers;
+	std::vector<std::string>	aOrB;
+	std::vector<long>			position;
+}				jacobVec;
 
 class PmergeMe
 {
@@ -40,7 +48,8 @@ class PmergeMe
 		void	mergeInsertionVec(long pairSize);
 		void	pairSortingVec(long &pairSize, long &sizeVec);
 		void	binaryInsertionVec(long &pairSize, long &sizeVec);
-		void	mainPendSeparationVec(std::vector<long> &main, std::vector<long> &pend, long &pairSize, long &sizeVec);
+		void	binarySearchVec(jacobVec &main, jacobVec &pend, long &pairSize, long insertions, long jacobsthalN);
+		void	mainPendSeparationVec(jacobVec &main, jacobVec &pend, long &pairSize, long &sizeVec);
 
 		void	convertToContainer(const std::vector<std::string> &input);
 		void	algoExec();

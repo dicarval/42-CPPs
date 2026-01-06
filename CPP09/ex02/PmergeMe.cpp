@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 13:25:13 by dicarval          #+#    #+#             */
-/*   Updated: 2025/12/30 14:27:20 by dicarval         ###   ########.fr       */
+/*   Updated: 2026/01/05 13:14:29 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,14 @@ void	PmergeMe::convertToContainer(const std::vector<std::string> &input)
 			throw InvalidInput();
 		_vec.push_back(atol((*it).c_str()));
 	}
+	std::vector<long> temp = _vec;
+	std::sort(temp.begin(), temp.end());
+	for(std::vector<long>::iterator it = temp.begin(); it != temp.end(); it++)
+	{
+		if (*it == *(it + 1))
+			throw InvalidInput();
+	}
+	temp.clear();
 	for(std::vector<std::string>::const_iterator it = input.begin(); it != input.end(); it++)
 	{
 		if (atoll((*it).c_str()) > std::numeric_limits<unsigned int>::max())
