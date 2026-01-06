@@ -6,12 +6,11 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 13:25:13 by dicarval          #+#    #+#             */
-/*   Updated: 2026/01/05 13:14:29 by dicarval         ###   ########.fr       */
+/*   Updated: 2026/01/06 16:44:11 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-#include "Container.hpp"
 
 //CONSTRUCTORS & DESTRUCTOR
 PmergeMe::PmergeMe()
@@ -56,11 +55,9 @@ void	PmergeMe::algoExec()
 {
 	struct timeval tStart, tEnd;
 	std::vector<long> ogVector = _vec;
-	//Container<std::vector<long> > vect;
-	//Container<std::list<long> > list;
 
 	gettimeofday(&tStart, NULL);
-	mergeInsertionVec(2);
+	mergeInsertionVec(1);
 	gettimeofday(&tEnd, NULL);
 	_vecExecTime = (tEnd.tv_sec - tStart.tv_sec) * 1000.0 + (tEnd.tv_usec - tStart.tv_usec) / 1000.0;
 	/* gettimeofday(&tStart, NULL);
