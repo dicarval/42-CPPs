@@ -1,5 +1,5 @@
 NAME		= PmergeMe
-SRC			= main.cpp PmergeMe.cpp vector.cpp
+SRC			= main.cpp PmergeMe.cpp vector.cpp list.cpp
 OBJ_DIR		= objects
 OBJS		= $(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))
 

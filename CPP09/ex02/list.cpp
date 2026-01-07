@@ -15,10 +15,22 @@ long m, long &pairSize, long &pendIndex)
 	}
 	long realPendIndex = pendIndex > pairSize ? ((pendIndex + 1) / pairSize) - 1 : 0;
 	long realM = m > pairSize ? ((m + 1) / pairSize) - 1 : 0;
-/* 	main.aOrB.insert(main.aOrB.begin() + realM + 1, pend.aOrB[realPendIndex]);
-	pend.aOrB.erase(pend.aOrB.begin() + realPendIndex);
-	main.position.insert(main.position.begin() + realM + 1, pend.position[realPendIndex]);
-	pend.position.erase(pend.position.begin() + realPendIndex);
+
+	std::list<std::string>::iterator mainAB = main.aOrB.begin();
+	std::list<std::string>::iterator pendAB = pend.aOrB.begin();
+
+	advance(mainAB, (realM + 1));
+	advance(pendAB, (realPendIndex));
+	main.aOrB.insert(mainAB, *pendAB);
+	pend.aOrB.erase(pendAB);
+
+	std::list<long>::iterator mainPos = main.position.begin();
+	std::list<long>::iterator pendPos = pend.position.begin();
+
+	advance(mainPos, (realM + 1));
+	advance(pendPos, (realPendIndex));
+	main.position.insert(mainPos, *pendPos);
+	pend.position.erase(pendPos);
 }
 
 void	PmergeMe::binarySearchList(jacobList &main, jacobList &pend, \
@@ -28,25 +40,41 @@ long &pairSize, long insertions, long n)
 	{
 		long R = 0;
 		long L = 0;
-		for (; main.position.size() != static_cast<size_t>(R) && (( n > main.position[R] && main.aOrB[R] == "a") || main.aOrB[R] == "b"); R++){}
+		std::list<long>::iterator mainPos = main.position.begin();
+		std::list<std::string>::iterator mainAB = main.aOrB.begin();
+
+		for (; main.position.size() != static_cast<size_t>(R) && (( n > *(mainPos++) && *mainAB == "a") || *(mainAB++) == "b"); R++)
+		{
+			//mainPos++;
+			//mainAB++;
+		}
 		if (n > 2)
 			n--;
 		for (size_t insertionConfirm = main.numbers.size() + pairSize; insertionConfirm != main.numbers.size();)
 		{
+			std::list<long>::iterator mainIt = main.numbers.begin();
+			std::list<long>::iterator mainNext = main.numbers.begin();
+			std::list<long>::iterator mainPrev = main.numbers.begin();
+			std::list<long>::iterator pendIt = pend.numbers.begin();
+
 			long m = ((((L + ((R - L) / 2))) * pairSize) - 1) < 0 ? 0 : ((((L + ((R - L) / 2))) * pairSize) - 1);
-			if (m == ((R + 1) * pairSize) - 1 || (pend.numbers[pendIndex] > main.numbers[m] && pend.numbers[pendIndex] < main.numbers[m + pairSize]))
+			advance(mainIt, m);
+			advance(pendIt, pendIndex);
+			advance(mainNext, m + pairSize);
+			advance(mainPrev, m - pairSize);
+			if (m == ((R + 1) * pairSize) - 1 || (*pendIt > *mainIt && *pendIt < *mainNext))
 				insertPairInMainList(main, pend, m, pairSize, pendIndex);
-			else if (m == pairSize - 1 && pend.numbers[pendIndex] < main.numbers[m])
+			else if (m == pairSize - 1 && *pendIt < *mainIt)
 				insertPairInMainList(main, pend, -1, pairSize, pendIndex);
-			else if ((pend.numbers[pendIndex] < main.numbers[m] && pend.numbers[pendIndex] > main.numbers[m - pairSize]))
+			else if ((*pendIt < *mainIt && *pendIt > *mainPrev))
 				insertPairInMainList(main, pend, m - pairSize, pairSize, pendIndex);
-			else if (pend.numbers[pendIndex] > main.numbers[m])
+			else if (*pendIt > *mainIt)
 				L = ((m + 1) / pairSize) + 1;
-			else if (pend.numbers[pendIndex] < main.numbers[m])
+			else if (*pendIt < *mainIt)
 				R = ((m + 1) / pairSize) - 1;
 		}
 	}
-} */
+}
 
 bool	PmergeMe::mainPendSeparationList(jacobList &main, jacobList &pend,
 long &pairSize, long &sizeList)
@@ -112,7 +140,7 @@ void	PmergeMe::binaryInsertionList(long &pairSize, long &sizeList)
 		jacobsthalN = std::pow(2, n++) - jacobsthalN;
 	}
 	while (!pend.numbers.empty())
-		binarySearchList(main, pend, pairSize, 1, pend.position[0]);
+		binarySearchList(main, pend, pairSize, 1, *(pend.position.begin()));
 	std::list<long>::iterator itv = _list.begin();
 	for (std::list<long>::iterator itm = main.numbers.begin(); itm != main.numbers.end(); itm++)
 		*(itv++) = *itm;
@@ -124,19 +152,35 @@ void	PmergeMe::pairSortingList(long &pairSize, long &sizeList)
 
 	for (long a = (pairSize - 1); a < sizeList; a += pairSize)
 	{
+		std::list<long>::iterator aIt = _list.begin();
+		std::list<long>::iterator bIt = _list.begin();
 		long b = a - (pairSize / 2);
-		if (_list.at(a) < _list.at(b))
+
+		advance(aIt, a);
+		advance(bIt, b);
+		if (*aIt < *bIt)
 		{
 			long k = 0;
 			for (long i = a; i != b; i--)
 			{
-				tmp.insert(tmp.begin(), _list.at(i));
-				_list.at(i) = _list.at(b - k++);
+				aIt = _list.begin();
+				bIt = _list.begin();
+				advance(aIt, i);
+				advance(bIt, b - k++);
+				tmp.insert(tmp.begin(), *aIt);
+				*aIt = *bIt;
 			}
 			long prevPair = a - pairSize;
 			k = 0;
 			for (long j = b; j != prevPair; j--)
-				_list.at(j) = tmp.at(((pairSize / 2) - 1) - k++);
+			{
+				std::list<long>::iterator tmpIt = tmp.begin();
+
+				bIt = _list.begin();
+				advance(tmpIt, ((pairSize / 2) - 1) - k++);
+				advance(bIt, j);
+				*bIt = *tmpIt;
+			}
 		}
 	}
 }
@@ -148,14 +192,7 @@ void	PmergeMe::mergeInsertionList(long pairSize)
 	if (sizeList <= 1 || pairSize > sizeList / 2)
 		return ;
 	if (pairSize >= 2)
-	{
 		pairSortingList(pairSize, sizeList);
-		mergeInsertionList(pairSize * 2);
-		binaryInsertionList(pairSize, sizeList);
-	}
-	else
-	{
-		mergeInsertionList(pairSize * 2);
-		binaryInsertionList(pairSize, sizeList);
-	}
+	mergeInsertionList(pairSize * 2);
+	binaryInsertionList(pairSize, sizeList);
 }
