@@ -5,6 +5,12 @@ long m, long &pairSize, long &pendIndex)
 {
 	for (long i = 0; i != pairSize; i++)
 	{
+		//std::cout << "main: " << main.numbers.size() << std::endl;
+		//std::cout << "m:   " << m << std::endl;
+		//std::cout << "pend: " << pend.numbers.size() << std::endl;
+		//std::cout << "pendIndex: " << pendIndex << std::endl;
+		//std::cout << "i: " << i << std::endl;
+		//std::cout << "pairSize: " << pairSize << std::endl;
 		main.numbers.insert(main.numbers.begin() + (m + 1), pend.numbers[pendIndex - i]);
 		pend.numbers.erase((pend.numbers.begin() + (pendIndex - i)));
 	}
@@ -29,7 +35,16 @@ long &pairSize, long insertions, long n)
 		for (size_t insertionConfirm = main.numbers.size() + pairSize; insertionConfirm != main.numbers.size();)
 		{
 			long m = ((((L + ((R - L) / 2))) * pairSize) - 1) < 0 ? 0 : ((((L + ((R - L) / 2))) * pairSize) - 1);
-			if (m == ((R + 1) * pairSize) - 1 || (pend.numbers[pendIndex] > main.numbers[m] && pend.numbers[pendIndex] < main.numbers[m + pairSize]))
+			std::cout << "pend size: " << pend.numbers.size() << std::endl;
+			std::cout << "pendIndex: " << pendIndex << std::endl;
+			std::cout << "main size: " << main.numbers.size() << std::endl;
+			std::cout << "m + pairSize: " << (m + pairSize) << std::endl;
+			std::cout << "m: " << m << std::endl;
+			std::cout << "pairSize: " << pairSize << std::endl;
+			long vecSize = static_cast<long>(main.numbers.size());
+			if (m == vecSize - 1)
+				insertPairInMainVec(main, pend, m, pairSize, pendIndex);
+			else if ((pend.numbers[pendIndex] > main.numbers[m] && pend.numbers[pendIndex] < main.numbers[m + pairSize]))
 				insertPairInMainVec(main, pend, m, pairSize, pendIndex);
 			else if (m == pairSize - 1 && pend.numbers[pendIndex] < main.numbers[m])
 				insertPairInMainVec(main, pend, -1, pairSize, pendIndex);

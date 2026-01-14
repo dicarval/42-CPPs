@@ -7,7 +7,6 @@ long m, long &pairSize, long &pendIndex)
 	{
 		std::list<long>::iterator mainIt = main.numbers.begin();
 		std::list<long>::iterator pendIt = pend.numbers.begin();
-
 		advance(mainIt, (m + 1));
 		advance(pendIt, (pendIndex - i));
 		main.numbers.insert(mainIt, *pendIt);
@@ -43,11 +42,8 @@ long &pairSize, long insertions, long n)
 		std::list<long>::iterator mainPos = main.position.begin();
 		std::list<std::string>::iterator mainAB = main.aOrB.begin();
 
-		for (; main.position.size() != static_cast<size_t>(R) && (( n > *(mainPos++) && *mainAB == "a") || *(mainAB++) == "b"); R++)
-		{
-			//mainPos++;
-			//mainAB++;
-		}
+		for (; main.position.size() != static_cast<size_t>(R) && (( n > *(mainPos++) && *mainAB == "a") || *(mainAB++) == "b"); R++){}
+
 		if (n > 2)
 			n--;
 		for (size_t insertionConfirm = main.numbers.size() + pairSize; insertionConfirm != main.numbers.size();)
