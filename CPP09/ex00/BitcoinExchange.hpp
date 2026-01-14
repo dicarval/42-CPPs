@@ -17,6 +17,7 @@
 #include <queue>
 #include <limits>
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <sstream>
 #include <string>
@@ -57,6 +58,12 @@ class BitcoinExchange
 		{
 			public:
 				InputInvalidFormat(std::string invalid, std::string &format);
+		};
+
+		class InputInvalidNumber : public std::runtime_error
+		{
+			public:
+				InputInvalidNumber(std::string &number);
 		};
 
 		class InputInvalidDate : public std::runtime_error

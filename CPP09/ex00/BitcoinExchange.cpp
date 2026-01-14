@@ -97,7 +97,7 @@ double	BitcoinExchange::numberExtract(std::string number)
 	if (!(iss >> nbF) || (iss >> c))
 		throw InputInvalidFormat("input", number);
 	else if (nbF < 0 || nbF > 1000)
-		throw InputInvalidFormat("input", number);
+		throw InputInvalidNumber(number);
 	return nbF;
 }
 
@@ -170,6 +170,7 @@ void	BitcoinExchange::checkAndPrint()
 			_qe.front().substr(10, 3));
 			double inputNumber = numberExtract(_qe.front().substr(13));
 			double csvNumber = exchangeExtract(year, month, day);
+			std::cout << std::fixed << std::setprecision(3);
 			std::cout << year << "-" << month << "-" << day << " => " << inputNumber \
 			<< " = " << (csvNumber * inputNumber)  << std::endl;
 			_qe.pop();
@@ -223,6 +224,11 @@ BitcoinExchange::InputInvalidDate::InputInvalidDate(std::string date)
 BitcoinExchange::InputInvalidFormat::InputInvalidFormat(std::string invalid, std::string &format)
 : std::runtime_error("the " + invalid + " has a invalid format: \"" + format + "\"")
 {}
+
+BitcoinExchange::InputInvalidNumber::InputInvalidNumber(std::string &number)
+: std::runtime_error("the number \"" + number + "\" is out of the range {0-1000}")
+{}
+
 
 BitcoinExchange::InputFileUnableOpen::InputFileUnableOpen(std::string &filename)
 : std::runtime_error("the input file failed to open: " + filename)
