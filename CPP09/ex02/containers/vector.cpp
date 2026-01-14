@@ -1,4 +1,4 @@
-#include "PmergeMe.hpp"
+#include "../PmergeMe.hpp"
 
 void	PmergeMe::insertPairInMainVec(jacobVec &main, jacobVec &pend, \
 long m, long &pairSize, long &pendIndex)

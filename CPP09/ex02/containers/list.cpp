@@ -1,4 +1,4 @@
-#include "PmergeMe.hpp"
+#include "../PmergeMe.hpp"
 
 void	PmergeMe::insertPairInMainList(jacobList &main, jacobList &pend, \
 long m, long &pairSize, long &pendIndex)

@@ -1,5 +1,5 @@
 NAME		= PmergeMe
-SRC			= main.cpp PmergeMe.cpp vector.cpp list.cpp
+SRC			= main.cpp PmergeMe.cpp containers/vector.cpp containers/list.cpp
 OBJ_DIR		= objects
 OBJS		= $(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))
 
@@ -14,7 +14,7 @@ ${NAME}:	$(OBJS)
 			@$(CC) $(CPPFLAGS) $^ -o $@
 
 $(OBJ_DIR)/%.o: %.cpp
-			@mkdir -p $(OBJ_DIR)
+			@mkdir -p $(dir $@)
 			@$(CC) $(CPPFLAGS) -c $< -o $@
 
 clean:

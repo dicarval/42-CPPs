@@ -38,13 +38,13 @@ PmergeMe&	PmergeMe::operator=(const PmergeMe &original)
 //MEMBER FUNCTIONS
 void	PmergeMe::printExec(std::vector<long> &vect)
 {
-	std::cout << "Before:       ";
+	std::cout << "Before:         ";
 	for (std::vector<long>::iterator it = vect.begin(); it != vect.end(); it++)
 		std::cout << *it << " ";
-	std::cout << std::endl << "After vector: ";
+	std::cout << std::endl << "After (vector): ";
 	for (std::vector<long>::iterator it = _vec.begin(); it != _vec.end(); it++)
 		std::cout << *it << " ";
-	std::cout << std::endl << "After list:   ";
+	std::cout << std::endl << "After (list):   ";
 	for (std::vector<long>::iterator it = _vec.begin(); it != _vec.end(); it++)
 		std::cout << *it << " ";
 	std::cout << std::fixed << std::setprecision(5);
@@ -83,7 +83,7 @@ void	PmergeMe::convertToContainer(const std::vector<std::string> &input)
 	std::sort(tmp.begin(), tmp.end());
 	for(std::vector<long>::iterator it = tmp.begin(); it != tmp.end(); it++)
 	{
-		if (*it == *(it + 1))
+		if ((it + 1) != tmp.end() && *it == *(it + 1))
 			throw InvalidInput();
 	}
 	tmp.clear();
