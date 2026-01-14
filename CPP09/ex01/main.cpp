@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 16:22:23 by dicarval          #+#    #+#             */
-/*   Updated: 2025/12/02 10:59:22 by dicarval         ###   ########.fr       */
+/*   Updated: 2026/01/14 09:44:40 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int ac, char **av)
 		std::string input(av[1]);
 		checkChars(input);
 		RPN rpn;
-		rpn.convertToList(input);
+		rpn.convertToDeque(input);
 		rpn.performTheMagic();
 	}
 	catch(const std::exception &e)
