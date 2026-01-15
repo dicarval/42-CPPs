@@ -5,12 +5,6 @@ long m, long &pairSize, long &pendIndex)
 {
 	for (long i = 0; i != pairSize; i++)
 	{
-		//std::cout << "main: " << main.numbers.size() << std::endl;
-		//std::cout << "m:   " << m << std::endl;
-		//std::cout << "pend: " << pend.numbers.size() << std::endl;
-		//std::cout << "pendIndex: " << pendIndex << std::endl;
-		//std::cout << "i: " << i << std::endl;
-		//std::cout << "pairSize: " << pairSize << std::endl;
 		main.numbers.insert(main.numbers.begin() + (m + 1), pend.numbers[pendIndex - i]);
 		pend.numbers.erase((pend.numbers.begin() + (pendIndex - i)));
 	}
@@ -29,31 +23,41 @@ long &pairSize, long insertions, long n)
 	{
 		long R = 0;
 		long L = 0;
+		long m = 0;
+
 		for (; main.position.size() != static_cast<size_t>(R) && (( n > main.position[R] && main.aOrB[R] == "a") || main.aOrB[R] == "b"); R++){}
+
 		if (n > 2)
 			n--;
 		for (size_t insertionConfirm = main.numbers.size() + pairSize; insertionConfirm != main.numbers.size();)
 		{
-			long m = ((((L + ((R - L) / 2))) * pairSize) - 1) < 0 ? 0 : ((((L + ((R - L) / 2))) * pairSize) - 1);
-			std::cout << "pend size: " << pend.numbers.size() << std::endl;
-			std::cout << "pendIndex: " << pendIndex << std::endl;
-			std::cout << "main size: " << main.numbers.size() << std::endl;
-			std::cout << "m + pairSize: " << (m + pairSize) << std::endl;
-			std::cout << "m: " << m << std::endl;
-			std::cout << "pairSize: " << pairSize << std::endl;
+			if (pairSize > 1)
+				m = ((((L + ((R - L) / 2))) * pairSize) - 1) < 0 ? 0 : ((((L + ((R - L) / 2))) * pairSize) - 1);
+			else
+				m = L + ((R - L) / 2);
 			long vecSize = static_cast<long>(main.numbers.size());
-			if (m == vecSize - 1)
+			if (m == vecSize - 1 && pend.numbers[pendIndex] > main.numbers[m])
 				insertPairInMainVec(main, pend, m, pairSize, pendIndex);
 			else if ((pend.numbers[pendIndex] > main.numbers[m] && pend.numbers[pendIndex] < main.numbers[m + pairSize]))
 				insertPairInMainVec(main, pend, m, pairSize, pendIndex);
-			else if (m == pairSize - 1 && pend.numbers[pendIndex] < main.numbers[m])
+			else if (m <= pairSize && pend.numbers[pendIndex] < main.numbers[m])
 				insertPairInMainVec(main, pend, -1, pairSize, pendIndex);
 			else if ((pend.numbers[pendIndex] < main.numbers[m] && pend.numbers[pendIndex] > main.numbers[m - pairSize]))
 				insertPairInMainVec(main, pend, m - pairSize, pairSize, pendIndex);
 			else if (pend.numbers[pendIndex] > main.numbers[m])
-				L = ((m + 1) / pairSize) + 1;
+			{
+				if (pairSize > 1)
+					L = ((m + 1) / pairSize) + 1;
+				else
+					L = m + 1;
+			}
 			else if (pend.numbers[pendIndex] < main.numbers[m])
-				R = ((m + 1) / pairSize) - 1;
+			{
+				if (pairSize > 1)
+					R = ((m + 1) / pairSize) + 1;
+				else
+					R = m + 1;
+			}
 		}
 	}
 }
@@ -155,17 +159,14 @@ void	PmergeMe::mergeInsertionVec(long pairSize)
 {
 	long sizeVec = static_cast<long>(_vec.size());
 
-	if (sizeVec <= 1 || pairSize > sizeVec / 2)
+	if (sizeVec <= 1)
 		return ;
 	if (pairSize >= 2)
 	{
 		pairSortingVec(pairSize, sizeVec);
-		mergeInsertionVec(pairSize * 2);
-		binaryInsertionVec(pairSize, sizeVec);
+		if (pairSize > sizeVec / 2)
+			return;
 	}
-	else
-	{
-		mergeInsertionVec(pairSize * 2);
-		binaryInsertionVec(pairSize, sizeVec);
-	}
+	mergeInsertionVec(pairSize * 2);
+	binaryInsertionVec(pairSize, sizeVec);
 }

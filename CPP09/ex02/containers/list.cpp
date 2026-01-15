@@ -39,11 +39,16 @@ long &pairSize, long insertions, long n)
 	{
 		long R = 0;
 		long L = 0;
+		long m = 0;
 		std::list<long>::iterator mainPos = main.position.begin();
 		std::list<std::string>::iterator mainAB = main.aOrB.begin();
 
-		for (; main.position.size() != static_cast<size_t>(R) && (( n > *(mainPos++) && *mainAB == "a") || *(mainAB++) == "b"); R++){}
-
+		while (main.position.size() != static_cast<size_t>(R) && (( n > *(mainPos) && *mainAB == "a") || *(mainAB) == "b"))
+		{
+			mainPos++;
+			mainAB++;
+			R++;
+		}
 		if (n > 2)
 			n--;
 		for (size_t insertionConfirm = main.numbers.size() + pairSize; insertionConfirm != main.numbers.size();)
@@ -53,21 +58,38 @@ long &pairSize, long insertions, long n)
 			std::list<long>::iterator mainPrev = main.numbers.begin();
 			std::list<long>::iterator pendIt = pend.numbers.begin();
 
-			long m = ((((L + ((R - L) / 2))) * pairSize) - 1) < 0 ? 0 : ((((L + ((R - L) / 2))) * pairSize) - 1);
+			if (pairSize > 1)
+				m = ((((L + ((R - L) / 2))) * pairSize) - 1) < 0 ? 0 : ((((L + ((R - L) / 2))) * pairSize) - 1);
+			else
+				m = L + ((R - L) / 2);
+
 			advance(mainIt, m);
 			advance(pendIt, pendIndex);
 			advance(mainNext, m + pairSize);
 			advance(mainPrev, m - pairSize);
-			if (m == ((R + 1) * pairSize) - 1 || (*pendIt > *mainIt && *pendIt < *mainNext))
+			long listSize = static_cast<long>(main.numbers.size());
+			if (m == listSize - 1 && *pendIt > *mainIt)
 				insertPairInMainList(main, pend, m, pairSize, pendIndex);
-			else if (m == pairSize - 1 && *pendIt < *mainIt)
+			else if (*pendIt > *mainIt && *pendIt < *mainNext)
+				insertPairInMainList(main, pend, m, pairSize, pendIndex);
+			else if (m <= pairSize && *pendIt < *mainIt)
 				insertPairInMainList(main, pend, -1, pairSize, pendIndex);
-			else if ((*pendIt < *mainIt && *pendIt > *mainPrev))
+			else if (*pendIt < *mainIt && *pendIt > *mainPrev)
 				insertPairInMainList(main, pend, m - pairSize, pairSize, pendIndex);
 			else if (*pendIt > *mainIt)
-				L = ((m + 1) / pairSize) + 1;
+			{
+				if (pairSize > 1)
+					L = ((m + 1) / pairSize) + 1;
+				else
+					L = m + 1;
+			}
 			else if (*pendIt < *mainIt)
-				R = ((m + 1) / pairSize) - 1;
+			{
+				if (pairSize > 1)
+					R = ((m + 1) / pairSize) + 1;
+				else
+					R = m + 1;
+			}
 		}
 	}
 }
@@ -185,10 +207,14 @@ void	PmergeMe::mergeInsertionList(long pairSize)
 {
 	long sizeList = static_cast<long>(_list.size());
 
-	if (sizeList <= 1 || pairSize > sizeList / 2)
+	if (sizeList <= 1)
 		return ;
 	if (pairSize >= 2)
+	{
 		pairSortingList(pairSize, sizeList);
+		if (pairSize > sizeList / 2)
+			return;
+	}
 	mergeInsertionList(pairSize * 2);
 	binaryInsertionList(pairSize, sizeList);
 }

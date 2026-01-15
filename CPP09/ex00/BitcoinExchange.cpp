@@ -36,9 +36,17 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &original)
 void	BitcoinExchange::foundPreviousDate(std::string &year, std::string &month, std::string &day)
 {
 	const int	mDays[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-	int			yearD = atoi(year.c_str());
-	int			monthD = atoi(month.c_str());
-	int			dayD = atoi(day.c_str());
+	std::istringstream isy(year);
+	int			yearD;
+	isy >> yearD;
+
+	std::istringstream ism(month);
+	int			monthD;
+	ism >> monthD;
+
+	std::istringstream isd(day);
+	int			dayD;
+	isd >> dayD;
 
 	if (dayD == 1)
 	{

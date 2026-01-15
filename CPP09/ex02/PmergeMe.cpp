@@ -44,14 +44,14 @@ void	PmergeMe::printExec(std::vector<long> &vect)
 	std::cout << std::endl << "After (vector): ";
 	for (std::vector<long>::iterator it = _vec.begin(); it != _vec.end(); it++)
 		std::cout << *it << " ";
-	//std::cout << std::endl << "After (list):   ";
-	//for (std::list<long>::iterator it = _list.begin(); it != _list.end(); it++)
-	//	std::cout << *it << " ";
-	std::cout << std::fixed << std::setprecision(5);
+	std::cout << std::endl << "After (list):   ";
+	for (std::list<long>::iterator it = _list.begin(); it != _list.end(); it++)
+		std::cout << *it << " ";
+	std::cout << std::fixed << std::setprecision(3);
 	std::cout << std::endl << "Time to process a range of " << vect.size() \
 	<< " elements of std::vector: " << _vecExecTime << " milliseconds" << std::endl;
-	//std::cout << "Time to process a range of " << _list.size() << " elements of std::list:   "\
-	// _listExecTime << " milliseconds" << std::endl;
+	std::cout << "Time to process a range of " << _list.size() << " elements of std::list:   " <<\
+	_listExecTime << " milliseconds" << std::endl;
 }
 
 void	PmergeMe::algoExec()
@@ -63,10 +63,10 @@ void	PmergeMe::algoExec()
 	mergeInsertionVec(1);
 	gettimeofday(&tEnd, NULL);
 	_vecExecTime = (tEnd.tv_sec - tStart.tv_sec) * 1000.0 + (tEnd.tv_usec - tStart.tv_usec) / 1000.0;
-	//gettimeofday(&tStart, NULL);
-	//mergeInsertionList(1);
-	//gettimeofday(&tEnd, NULL);
-	///_listExecTime = (tEnd.tv_sec - tStart.tv_sec) * 1000.0 + (tEnd.tv_usec - tStart.tv_usec) / 1000.0;
+	gettimeofday(&tStart, NULL);
+	mergeInsertionList(1);
+	gettimeofday(&tEnd, NULL);
+	_listExecTime = (tEnd.tv_sec - tStart.tv_sec) * 1000.0 + (tEnd.tv_usec - tStart.tv_usec) / 1000.0;
 	printExec(ogVector);
 }
 
