@@ -139,7 +139,6 @@ long &pairSize, long &sizeList)
 	return false;
 }
 
-
 void	PmergeMe::binaryInsertionList(long &pairSize, long &sizeList)
 {
 	jacobList main;
