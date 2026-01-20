@@ -57,7 +57,7 @@ class BitcoinExchange
 		class InputInvalidFormat : public std::runtime_error
 		{
 			public:
-				InputInvalidFormat(std::string invalid, std::string &format);
+				InputInvalidFormat(std::string invalid);
 		};
 
 		class InputInvalidNumber : public std::runtime_error

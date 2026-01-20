@@ -103,7 +103,7 @@ double	BitcoinExchange::numberExtract(std::string number)
 	std::istringstream iss(number);
 
 	if (!(iss >> nbF) || (iss >> c))
-		throw InputInvalidFormat("input", number);
+		throw InputInvalidFormat("input");
 	else if (nbF < 0 || nbF > 1000)
 		throw InputInvalidNumber(number);
 	return nbF;
@@ -113,11 +113,11 @@ void	BitcoinExchange::checkSeparators(std::string hyphen1, std::string hyphen2, 
 std::string separ)
 {
 	if (hyphen1 != "-")
-		throw InputInvalidFormat("data separator", hyphen1);
+		throw InputInvalidFormat("data separator \"-\"");
 	else if (hyphen2 != "-")
-		throw InputInvalidFormat("data separator", hyphen2);
+		throw InputInvalidFormat("data separator \"-\"");
 	else  if (separ != " | ")
-		throw InputInvalidFormat("separator", separ);
+		throw InputInvalidFormat("separator \" | \"");
 }
 
 std::string	BitcoinExchange::checkDay(std::string year,std::string month, std::string day)
@@ -194,7 +194,7 @@ void	BitcoinExchange::checkAndPrint()
 void	BitcoinExchange::checkInputHeader()
 {
 	if (_qe.front() != "date | value")
-		throw InputInvalidFormat("header", _qe.front());
+		throw InputInvalidFormat("header");
 	_qe.pop();
 }
 
@@ -229,8 +229,8 @@ BitcoinExchange::InputInvalidDate::InputInvalidDate(std::string date)
 : std::runtime_error("the " + date + " is not valid")
 {}
 
-BitcoinExchange::InputInvalidFormat::InputInvalidFormat(std::string invalid, std::string &format)
-: std::runtime_error("the " + invalid + " has a invalid format: \"" + format + "\"")
+BitcoinExchange::InputInvalidFormat::InputInvalidFormat(std::string invalid)
+: std::runtime_error("the " + invalid + " has a invalid format")
 {}
 
 BitcoinExchange::InputInvalidNumber::InputInvalidNumber(std::string &number)
